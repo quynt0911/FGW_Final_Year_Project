@@ -1,0 +1,73 @@
+@model Blank.Models.Menu
+
+@{
+    Layout = "~/Views/Shared/AdminLO.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Details</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" /> <!-- Assuming you're using Bootstrap -->
+    <style>
+        body {
+            padding-top: 50px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .details-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h4 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .row dt {
+            font-weight: bold;
+        }
+        .back-link, .edit-link {
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="details-container">
+        <h4>Menu Details</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.DishId)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.DishId)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.RestaurantId)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.RestaurantId)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.MenuId" class="edit-link btn btn-primary">Edit</a>
+        <a asp-action="Index" class="back-link btn btn-secondary">Back to List</a>
+    </div>
+</div>
+
+<script src="~/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

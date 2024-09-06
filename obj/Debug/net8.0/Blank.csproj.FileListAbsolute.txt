@@ -256,3 +256,4 @@ D:\. For Final Project\Blank\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.Enti
 D:\. For Final Project\Blank\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 D:\. For Final Project\Blank\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 D:\. For Final Project\Blank\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\. For Final Project\Blank\obj\Debug\net8.0\Blank.sourcelink.json

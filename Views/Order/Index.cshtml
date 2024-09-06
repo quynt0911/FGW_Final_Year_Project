@@ -1,55 +1,102 @@
 @model IEnumerable<Blank.Models.Order>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/AdminLO.cshtml";
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order List</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .table {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .btn-primary {
+            margin-bottom: 20px;
+        }
+        .actions {
+            text-align: center;
+        }
+        .actions a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .actions a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DishId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TableId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OStatus)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DishId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TableId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OStatus)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="container">
+    <h2>Order List</h2>
+    
+    <div class="text-right">
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </div>
+    
+    <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DishId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TableId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OStatus)
+                </th>
+                <th class="actions">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DishId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TableId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OStatus)
+                    </td>
+                    <td class="actions">
+                        <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="~/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

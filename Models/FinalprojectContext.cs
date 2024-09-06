@@ -26,6 +26,7 @@ namespace Blank.Models
     public DbSet<Menu> Menus { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<Task> Tasks { get; set; }
+    public DbSet<Report> Reports { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

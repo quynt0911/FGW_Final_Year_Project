@@ -25,12 +25,6 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Manage()
-    {
-        ViewBag.PageTitle = "Manage";
-        return View();
-    }
-
     public IActionResult Privacy()
     {
         ViewBag.PageTitle = "Privacy";

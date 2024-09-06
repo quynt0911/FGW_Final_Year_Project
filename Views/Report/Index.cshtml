@@ -1,0 +1,30 @@
+
+@model IEnumerable<Report>
+@{
+    Layout = "~/Views/Shared/AdminLO.cshtml";
+}
+
+<h2>List of Report</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tille</th>
+            <th>Value</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in Model)
+        {
+            <tr>
+                <td>@report.Title</td>
+                <td>@report.Value</td>
+                <td>@report.Date.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-primary">Create New Report</a>
+<a href="@Url.Action("Statistic")" class="btn btn-info">View Statistics</a>

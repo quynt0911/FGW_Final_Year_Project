@@ -25,6 +25,18 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Inx()
+    {
+        ViewBag.PageTitle = "Inx";
+        return View();
+    }
+
+    public IActionResult Dash()
+    {
+        ViewBag.PageTitle = "Dash";
+        return View();
+    }
+
     public IActionResult Privacy()
     {
         ViewBag.PageTitle = "Privacy";

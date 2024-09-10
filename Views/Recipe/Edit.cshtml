@@ -1,45 +1,55 @@
 @model Blank.Models.Recipe
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/AdminLO.cshtml";
 }
 
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Edit Recipe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
+
 <body>
-
-<h4>Recipe</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="RecipeId" />
-            <div class="form-group">
-                <label asp-for="RecipeName" class="control-label"></label>
-                <input asp-for="RecipeName" class="form-control" />
-                <span asp-validation-for="RecipeName" class="text-danger"></span>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Edit Recipe</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="Edit" enctype="multipart/form-data" method="post">
+                            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                            <input type="hidden" asp-for="RecipeId" />
+                            <div class="mb-3">
+                                <label asp-for="RecipeName" class="form-label">Recipe Name</label>
+                                <input asp-for="RecipeName" class="form-control" placeholder="Enter Recipe Name" />
+                                <span asp-validation-for="RecipeName" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="ReDescription" class="form-label">Description</label>
+                                <input asp-for="ReDescription" class="form-control" placeholder="Enter Description" />
+                                <span asp-validation-for="ReDescription" class="text-danger"></span>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ReDescription" class="control-label"></label>
-                <input asp-for="ReDescription" class="form-control" />
-                <span asp-validation-for="ReDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

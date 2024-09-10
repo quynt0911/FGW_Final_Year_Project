@@ -6,74 +6,58 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Table</title>
-    <link rel="stylesheet" href="~/css/bootstrap.min.css" /> 
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .form-container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h4 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .btn-primary {
-            width: 100%;
-        }
-        .back-link {
-            display: block;
-            margin-top: 20px;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
 </head>
+
 <body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0 text-center">Create Table</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
-<div class="container">
-    <div class="form-container">
-        <h4>Create Table</h4>
-        <hr />
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-            
-            <div class="form-group">
-                <label asp-for="TName" class="control-label"></label>
-                <input asp-for="TName" class="form-control" />
-                <span asp-validation-for="TName" class="text-danger"></span>
+                            <div class="mb-3">
+                                <label asp-for="TName" class="form-label">Table Name</label>
+                                <input asp-for="TName" class="form-control" placeholder="Enter table name" />
+                                <span asp-validation-for="TName" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Location" class="form-label">Location</label>
+                                <input asp-for="Location" class="form-control" placeholder="Enter location" />
+                                <span asp-validation-for="Location" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="TStatus" class="form-label">Table Status</label>
+                                <input asp-for="TStatus" class="form-control" placeholder="Enter table status" />
+                                <span asp-validation-for="TStatus" class="text-danger"></span>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="TStatus" class="control-label"></label>
-                <input asp-for="TStatus" class="form-control" />
-                <span asp-validation-for="TStatus" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-
-        <a asp-action="Index" class="back-link">Back to List</a>
+        </div>
     </div>
-</div>
 
-<script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

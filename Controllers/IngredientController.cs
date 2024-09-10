@@ -53,16 +53,47 @@ namespace Blank.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IngId,IngName,IngDescription")] Ingredient ingredient)
+        public async Task<IActionResult> Create([Bind("IngId,IngName,IngDescription,Numer")] Ingredient ingredient, IFormFile photoFile)
         {
             if (ModelState.IsValid)
             {
+                if (photoFile != null && photoFile.Length > 0)
+                {
+                    try
+                    {
+                        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imgs");
+
+                        if (!Directory.Exists(uploadsFolder))
+                        {
+                            Directory.CreateDirectory(uploadsFolder);
+                        }
+
+                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(photoFile.FileName);
+                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await photoFile.CopyToAsync(fileStream);
+                        }
+
+                        ingredient.Photo = uniqueFileName;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error while saving file: {ex.Message}");
+                        ModelState.AddModelError("", "Error uploading the file. Please try again.");
+                        return View(ingredient);
+                    }
+                }
+
                 _context.Add(ingredient);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(ingredient);
         }
+
 
         // GET: Ingredient/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -85,7 +116,7 @@ namespace Blank.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IngId,IngName,IngDescription")] Ingredient ingredient)
+        public async Task<IActionResult> Edit(int id, [Bind("IngId,IngName,IngDescription,Photo")] Ingredient ingredient, IFormFile photoFile)
         {
             if (id != ingredient.IngId)
             {
@@ -96,6 +127,35 @@ namespace Blank.Controllers
             {
                 try
                 {
+                    if (photoFile != null && photoFile.Length > 0)
+                    {
+                        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+
+                        if (!Directory.Exists(uploadsFolder))
+                        {
+                            Directory.CreateDirectory(uploadsFolder);
+                        }
+
+                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(photoFile.FileName);
+                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await photoFile.CopyToAsync(fileStream);
+                        }
+
+                        if (!string.IsNullOrEmpty(ingredient.Photo))
+                        {
+                            var oldFilePath = Path.Combine(uploadsFolder, ingredient.Photo);
+                            if (System.IO.File.Exists(oldFilePath))
+                            {
+                                System.IO.File.Delete(oldFilePath);
+                            }
+                        }
+
+                        ingredient.Photo = uniqueFileName;
+                    }
+
                     _context.Update(ingredient);
                     await _context.SaveChangesAsync();
                 }
@@ -114,6 +174,8 @@ namespace Blank.Controllers
             }
             return View(ingredient);
         }
+
+
 
         // GET: Ingredient/Delete/5
         public async Task<IActionResult> Delete(int? id)

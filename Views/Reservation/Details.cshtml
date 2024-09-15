@@ -1,43 +1,35 @@
 @model Blank.Models.Reservation
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/AdminLO.cshtml";
 }
+
 <body>
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Reservation Details</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-3">Table ID</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.TableId)</dd>
 
-<div>
-    <h4>Reservation</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TableId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TableId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RestaurantId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RestaurantId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateTime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateTime)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RStatus)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RStatus)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ReserId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+                    <dt class="col-sm-3">Restaurant ID</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.RestaurantId)</dd>
+
+                    <dt class="col-sm-3">Date and Time</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.DateTime)</dd>
+
+                    <dt class="col-sm-3">Status</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.RStatus)</dd>
+                </dl>
+            </div>
+
+            <div class="card-footer text-end">
+                <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model?.ReserId">Edit</a>
+                <a class="btn btn-primary" asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div>
 </body>
-

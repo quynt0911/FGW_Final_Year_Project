@@ -1,0 +1,81 @@
+﻿@page
+@model LogoutModel
+@{
+    ViewData["Title"] = "Log out";
+    Layout = "~/Views/Shared/UserLO.cshtml";
+
+}
+
+<header class="bg-gradient-primary text-white text-center py-4">
+    <h1 class="font-weight-bold">Are You Sure To Logout!?</h1>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 30vh;">
+        <div class="d-flex gap-4">
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <form class="form-inline" asp-controller="Home" asp-action="Index">
+                    <button type="submit" class="btn btn-gradient-back btn-lg rounded-pill shadow-sm">
+                        <i class="fas fa-arrow-left mr-2"></i>Back
+                    </button>
+                </form>
+
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                    <button type="submit" class="btn btn-gradient-primary btn-lg rounded-pill shadow-sm">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                    </button>
+                </form>
+            }
+            else
+            {
+                <p class="mt-4 text-light">You have successfully logged out of the application.</p>
+            }
+        </div>
+    </div>
+</header>
+
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(90deg, rgba(58, 123, 213, 1) 0%, rgba(58, 213, 176, 1) 100%);
+    }
+
+    .btn-gradient-primary {
+        background: linear-gradient(90deg, rgba(58, 123, 213, 1) 0%, rgba(58, 213, 176, 1) 100%);
+        color: white;
+        border: none;
+    }
+
+    .btn-gradient-primary:hover {
+        background: linear-gradient(90deg, rgba(58, 213, 176, 1) 0%, rgba(58, 123, 213, 1) 100%);
+        color: white;
+    }
+
+    .btn-gradient-back {
+        background: linear-gradient(90deg, rgba(255, 106, 0, 1) 0%, rgba(255, 194, 0, 1) 50%, rgba(255, 0, 0, 1) 100%);
+        color: white;
+        border: none;
+    }
+
+    .btn-gradient-back:hover {
+        background: linear-gradient(90deg, rgba(255, 194, 0, 1) 0%, rgba(255, 106, 0, 1) 50%, rgba(255, 0, 0, 1) 100%);
+        color: white;
+    }
+</style>
+
+
+
+
+@* <header>
+<h1>@ViewData["Title"]</h1>
+@{
+if (User.Identity?.IsAuthenticated ?? false)
+{
+<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area
+= "" })" method="post">
+<button type="submit" class="nav-link btn btn-link text-dark">Click here to Logout</button>
+</form>
+}
+else
+{
+<p>You have successfully logged out of the application.</p>
+}
+}
+</header> *@

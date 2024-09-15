@@ -257,3 +257,8 @@ D:\. For Final Project\Blank\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core
 D:\. For Final Project\Blank\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 D:\. For Final Project\Blank\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\. For Final Project\Blank\obj\Debug\net8.0\Blank.sourcelink.json
+D:\. For Final Project\Blank\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\. For Final Project\Blank\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\. For Final Project\Blank\obj\Debug\net8.0\Blank.MvcApplicationPartsAssemblyInfo.cs
+D:\. For Final Project\Blank\bin\Debug\net8.0\SendGrid.dll
+D:\. For Final Project\Blank\bin\Debug\net8.0\StarkbankEcdsa.dll

@@ -1,43 +1,32 @@
 @model Blank.Models.Table
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/AdminLO.cshtml";
 }
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
 <body>
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Table Details</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-3">Table Name</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.TName)</dd>
 
-<div>
-    <h4>Table</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TStatus)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TStatus)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.TableId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+                    <dt class="col-sm-3">Location</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Location)</dd>
+
+                    <dt class="col-sm-3">Status</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.TStatus)</dd>
+                </dl>
+            </div>
+
+            <div class="card-footer text-end">
+                <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model?.TableId">Edit</a>
+                <a class="btn btn-primary" asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div>
 </body>
-</html>

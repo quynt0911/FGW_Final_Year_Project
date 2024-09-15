@@ -33,6 +33,7 @@ namespace Blank.Models
         base.OnModelCreating(builder);
         
     }
+        public DbSet<UserViewModel> UserViewModel { get; set; } = default!;
 }
 
 }

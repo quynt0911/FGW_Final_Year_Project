@@ -1,4 +1,4 @@
-@model IEnumerable<Blank.Models.Table>
+@model IEnumerable<Blank.Models.Task>
 
 @{
     Layout = "~/Views/Shared/AdminLO.cshtml";
@@ -7,7 +7,7 @@
 <body>
 
     <div class="container">
-        <h2>Table List</h2>
+        <h2>Task List</h2>
 
         <div class="text-right">
             <a asp-action="Create" class="btn btn-primary btn-create">Create New</a>
@@ -18,13 +18,13 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().TName)
+                            @Html.DisplayNameFor(model => model.First().TaskName)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().Location)
+                            @Html.DisplayNameFor(model => model.First().Description)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().TStatus)
+                            @Html.DisplayNameFor(model => model.First().TaskStatus)
                         </th>
                         <th class="actions">Actions</th>
                     </tr>
@@ -34,20 +34,20 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TName)
+                                @Html.DisplayFor(modelItem => item.TaskName)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Location)
+                                @Html.DisplayFor(modelItem => item.Description)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TStatus)
+                                @Html.DisplayFor(modelItem => item.TaskStatus)
                             </td>
                             <td class="actions">
-                                <a asp-action="Edit" asp-route-id="@item.TableId"
+                                <a asp-action="Edit" asp-route-id="@item.TaskId"
                                     class="btn btn-sm btn-outline-primary">Edit</a>
-                                <a asp-action="Details" asp-route-id="@item.TableId"
+                                <a asp-action="Details" asp-route-id="@item.TaskId"
                                     class="btn btn-sm btn-outline-secondary">Details</a>
-                                <a asp-action="Delete" asp-route-id="@item.TableId"
+                                <a asp-action="Delete" asp-route-id="@item.TaskId"
                                     class="btn btn-sm btn-outline-danger">Delete</a>
                             </td>
                         </tr>
@@ -57,6 +57,7 @@
         </div>
     </div>
 </body>
+
 <style>
     body {
         background-color: #f8f9fa;

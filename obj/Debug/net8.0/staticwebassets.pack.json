@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\a0b9cd3b-ac7e-470b-844b-9286f64843dd.webp",
+      "PackagePath": "staticwebassets\\images\\a0b9cd3b-ac7e-470b-844b-9286f64843dd.webp"
+    },
+    {
       "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\about-img.jpg",
       "PackagePath": "staticwebassets\\images\\about-img.jpg"
     },
@@ -101,6 +105,10 @@
       "PackagePath": "staticwebassets\\images\\banner-03.jpg"
     },
     {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\banner-04.jpg",
+      "PackagePath": "staticwebassets\\images\\banner-04.jpg"
+    },
+    {
       "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\big-img-01.jpg",
       "PackagePath": "staticwebassets\\images\\big-img-01.jpg"
     },
@@ -123,6 +131,10 @@
     {
       "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\blog-img.jpg",
       "PackagePath": "staticwebassets\\images\\blog-img.jpg"
+    },
+    {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\book_table.jpg",
+      "PackagePath": "staticwebassets\\images\\book_table.jpg"
     },
     {
       "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\categories_img_01.jpg",
@@ -265,6 +277,14 @@
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\orLogo.jpg",
+      "PackagePath": "staticwebassets\\images\\orLogo.jpg"
+    },
+    {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\order_food.jpg",
+      "PackagePath": "staticwebassets\\images\\order_food.jpg"
+    },
+    {
       "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\payment-icon\\1.png",
       "PackagePath": "staticwebassets\\images\\payment-icon\\1.png"
     },
@@ -291,6 +311,38 @@
     {
       "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\payment-icon\\7.png",
       "PackagePath": "staticwebassets\\images\\payment-icon\\7.png"
+    },
+    {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\popular_dishes.jpg",
+      "PackagePath": "staticwebassets\\images\\popular_dishes.jpg"
+    },
+    {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\463fa805-3ffd-4a5a-b185-18b3342b8874_122113665530196224.png",
+      "PackagePath": "staticwebassets\\images\\profile\\463fa805-3ffd-4a5a-b185-18b3342b8874_122113665530196224.png"
+    },
+    {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\4e9a11d0-c631-4cef-b606-a70d7aa4e676_122113663394196224.png",
+      "PackagePath": "staticwebassets\\images\\profile\\4e9a11d0-c631-4cef-b606-a70d7aa4e676_122113663394196224.png"
+    },
+    {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\65683a61-8b3c-4347-b752-a91ea2774972_122113660094196224.png",
+      "PackagePath": "staticwebassets\\images\\profile\\65683a61-8b3c-4347-b752-a91ea2774972_122113660094196224.png"
+    },
+    {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\7d79adf0-1084-487d-9ac8-9b80a34c7084_122113665530196224.png",
+      "PackagePath": "staticwebassets\\images\\profile\\7d79adf0-1084-487d-9ac8-9b80a34c7084_122113665530196224.png"
+    },
+    {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\89cd51ec-ce54-4d48-b83c-fbe71e15fa9e_122113660094196224.png",
+      "PackagePath": "staticwebassets\\images\\profile\\89cd51ec-ce54-4d48-b83c-fbe71e15fa9e_122113660094196224.png"
+    },
+    {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\9456f816-fb8d-4a45-93c1-33c7b3a4c598_122170742774196224.png",
+      "PackagePath": "staticwebassets\\images\\profile\\9456f816-fb8d-4a45-93c1-33c7b3a4c598_122170742774196224.png"
+    },
+    {
+      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\feb2ad6c-6b0e-473d-ae6a-42ad724f42d8_all-bg-title.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\feb2ad6c-6b0e-473d-ae6a-42ad724f42d8_all-bg-title.jpg"
     },
     {
       "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\smp-img-01.jpg",

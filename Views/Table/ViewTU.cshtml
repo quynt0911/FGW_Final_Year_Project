@@ -1,0 +1,137 @@
+@using Blank.Models
+@model IEnumerable<Table>
+@{
+    Layout = "~/Views/Shared/UserLO.cshtml";
+}
+
+<!-- Title and Instructions -->
+<h1 style="text-align: center; margin-top: 20px;">Book Your Table</h1>
+<p style="text-align: center; font-size: 14px;">Click a table to select it. Fill in your desired position and submit your booking request.</p>
+
+<!-- Drop Area for Tables -->
+<div id="dropArea"
+    style="position: relative; width: 100%; height: 500px; border: 1px solid black; overflow: hidden; background-image: url('/images/restaurant-background.jpg'); background-size: cover; background-position: center;">
+    @foreach (var table in Model)
+    {
+        <div class="draggable" data-id="@table.TableId" onclick="selectTable(@table.TableId)"
+            style="position: absolute; top: @(table.Location?.Split(',')[0] ?? "0")px; left: @(table.Location?.Split(',')[1] ?? "0")px; 
+                    width: 50px; height: 50px; background-color: lightblue; text-align: center; line-height: 50px; border-radius: 5px; cursor: pointer;">
+            @table.TName
+        </div>
+    }
+</div>
+
+<!-- User Form -->
+<div style="margin-top: 20px; text-align: center;">
+    <form id="bookingForm">
+        <h3>Selected Table: <span id="selectedTableName">None</span></h3>
+        <input type="hidden" id="selectedTableId" name="tableId">
+        <label for="newPosition">Proposed Position:</label>
+        <input type="text" id="newPosition" name="position" placeholder="e.g., 100,200" required>
+        <br><br>
+        <button type="button" onclick="submitBooking()" style="padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer;">Submit Request</button>
+    </form>
+</div>
+
+<!-- Success Modal -->
+<div id="successModal"
+    style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black; z-index: 1000;">
+    <h3>Your booking request has been submitted!</h3>
+    <button onclick="closeSuccessModal()" style="padding: 10px 20px; background-color: blue; color: white; border: none; cursor: pointer;">OK</button>
+</div>
+
+<script>
+    // Store the selected table ID and name
+    function selectTable(tableId) {
+        const selectedTable = document.querySelector(`.draggable[data-id='${tableId}']`);
+        const tableName = selectedTable ? selectedTable.innerText : 'None';
+
+        document.getElementById('selectedTableName').innerText = tableName;
+        document.getElementById('selectedTableId').value = tableId;
+    }
+
+    // Submit the booking request
+    async function submitBooking() {
+        const tableId = document.getElementById('selectedTableId').value;
+        const newPosition = document.getElementById('newPosition').value;
+
+        if (!tableId) {
+            alert("Please select a table.");
+            return;
+        }
+
+        try {
+            const response = await fetch('/Booking/SubmitRequest', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tableId, position: newPosition }),
+            });
+
+            if (response.ok) {
+                document.getElementById('successModal').style.display = 'block';
+            } else {
+                const error = await response.json();
+                alert(`Error submitting request: ${error.message}`);
+            }
+        } catch (err) {
+            alert(`An error occurred: ${err.message}`);
+        }
+    }
+
+    // Close the success modal
+    function closeSuccessModal() {
+        document.getElementById('successModal').style.display = 'none';
+        location.reload();
+    }
+</script>
+
+<style>
+    #dropArea {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        border: 1px solid black;
+        background-image: url('/images/restaurant-background.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .draggable {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: lightblue;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .draggable:hover {
+        background-color: skyblue;
+    }
+
+    #bookingForm {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #bookingForm label {
+        margin-right: 10px;
+    }
+
+    #successModal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid black;
+        z-index: 1000;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+</style>
+
+

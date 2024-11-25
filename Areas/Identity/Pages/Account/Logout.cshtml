@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Log out";
     Layout = "~/Views/Shared/UserLO.cshtml";
-
 }
 
 <header class="bg-gradient-primary text-white text-center py-4">
@@ -18,7 +17,8 @@
                     </button>
                 </form>
 
-                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
+                    asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
                     <button type="submit" class="btn btn-gradient-primary btn-lg rounded-pill shadow-sm">
                         <i class="fas fa-sign-out-alt mr-2"></i>Logout
                     </button>
@@ -34,31 +34,54 @@
 
 <style>
     .bg-gradient-primary {
-        background: linear-gradient(90deg, rgba(58, 123, 213, 1) 0%, rgba(58, 213, 176, 1) 100%);
+        background: linear-gradient(90deg, #4b2e2e 0%, #ffd700 50%, #ffa500 100%);
+        color: #ffd700;
     }
 
     .btn-gradient-primary {
-        background: linear-gradient(90deg, rgba(58, 123, 213, 1) 0%, rgba(58, 213, 176, 1) 100%);
+        background: linear-gradient(90deg, #ffa500 0%, #ffd700 100%);
         color: white;
         border: none;
+        transition: all 0.3s ease-in-out;
     }
 
     .btn-gradient-primary:hover {
-        background: linear-gradient(90deg, rgba(58, 213, 176, 1) 0%, rgba(58, 123, 213, 1) 100%);
-        color: white;
+        background: linear-gradient(90deg, #ffd700 0%, #ffa500 100%);
+        color: #4b2e2e;
     }
 
     .btn-gradient-back {
-        background: linear-gradient(90deg, rgba(255, 106, 0, 1) 0%, rgba(255, 194, 0, 1) 50%, rgba(255, 0, 0, 1) 100%);
+        background: linear-gradient(90deg, #ff4500 0%, #ffa500 50%, #ff6347 100%);
         color: white;
         border: none;
+        transition: all 0.3s ease-in-out;
     }
 
     .btn-gradient-back:hover {
-        background: linear-gradient(90deg, rgba(255, 194, 0, 1) 0%, rgba(255, 106, 0, 1) 50%, rgba(255, 0, 0, 1) 100%);
-        color: white;
+        background: linear-gradient(90deg, #ffa500 0%, #ff4500 50%, #ff6347 100%);
+        color: #4b2e2e;
+    }
+
+    .font-weight-bold {
+        font-size: 2.5rem;
+        color: #ffd700;
+        text-shadow: 2px 2px 4px #4b2e2e;
+    }
+
+    @@media (max-width: 768px) {
+
+        .btn-gradient-primary,
+        .btn-gradient-back {
+            font-size: 0.9rem;
+            padding: 10px 20px;
+        }
+
+        .font-weight-bold {
+            font-size: 1.8rem;
+        }
     }
 </style>
+
 
 
 

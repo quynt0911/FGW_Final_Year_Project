@@ -106,10 +106,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/. For Final Project/Blank/Views/Home/Dashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/. For Final Project/Blank/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -270,10 +266,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFVzZXJMTy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/. For Final Project/Blank/Views/Shared/UserLO1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFVzZXJMTzEuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/. For Final Project/Blank/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -300,6 +292,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/. For Final Project/Blank/Views/Table/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFibGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/. For Final Project/Blank/Views/Table/ViewT.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFibGVcVmlld1QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/. For Final Project/Blank/Views/Table/ViewTU.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFibGVcVmlld1RVLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/. For Final Project/Blank/Views/Task/Create.cshtml]

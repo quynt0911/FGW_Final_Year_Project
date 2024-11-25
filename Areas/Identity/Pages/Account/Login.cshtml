@@ -92,7 +92,7 @@
                     <p class="mb-0">Login to access your account</p>
                 </div>
 
-                <div class="card-body p-5">
+                <div class="card-body p-5 bg-card-body">
                     <form id="account" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger mb-4" role="alert"></div>
                         
@@ -100,7 +100,7 @@
                             <label asp-for="Input.Email" class="form-label font-weight-bold">Email</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-primary text-white rounded-left">
+                                    <span class="input-group-text bg-gradient-icon text-white rounded-left">
                                         <i class="fas fa-envelope"></i>
                                     </span>
                                 </div>
@@ -113,7 +113,7 @@
                             <label asp-for="Input.Password" class="form-label font-weight-bold">Password</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-primary text-white rounded-left">
+                                    <span class="input-group-text bg-gradient-icon text-white rounded-left">
                                         <i class="fas fa-lock"></i>
                                     </span>
                                 </div>
@@ -134,14 +134,15 @@
                         </div>
 
                         <div class="text-center mt-3">
-                            <a id="forgot-password" asp-page="./ForgotPassword" class="text-primary">Forgot your password?</a>
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-primary">Register as a new user</a>
+                            <a id="forgot-password" asp-page="./ForgotPassword" class="text-gradient">Forgot your password?</a>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-gradient">Register as a new user</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 
     @* <div class="row justify-content-center mt-4">
         <div class="col-md-6">
@@ -179,14 +180,52 @@
 
 <style>
     .bg-gradient-primary {
-        background: linear-gradient(90deg, rgba(58,123,213,1) 0%, rgba(58,213,176,1) 100%);
+        background: linear-gradient(90deg, #4b2e2e 0%, #ffa500 50%, #ffd700 100%);
     }
+
+    .bg-card-body {
+        background: #2c2c2c;
+        color: #e0e0e0;
+        border-radius: 10px;
+    }
+
     .btn-gradient-primary {
-        background: linear-gradient(90deg, rgba(58,123,213,1) 0%, rgba(58,213,176,1) 100%);
+        background: linear-gradient(90deg, #ffa500 0%, #ffd700 100%);
         color: white;
+        border: none;
     }
+
     .btn-gradient-primary:hover {
-        background: linear-gradient(90deg, rgba(58,213,176,1) 0%, rgba(58,123,213,1) 100%);
-        color: white;
+        background: linear-gradient(90deg, #ffd700 0%, #ffa500 100%);
+        color: #4b2e2e;
+    }
+
+    .bg-gradient-icon {
+        background: linear-gradient(90deg, #4b2e2e 0%, #ffa500 50%, #ffd700 100%);
+    }
+
+    .text-gradient {
+        color: #ffa500;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .text-gradient:hover {
+        color: #ffd700;
+    }
+
+    .font-weight-bold {
+        text-shadow: 1px 1px 2px #4b2e2e;
+    }
+
+    @@media (max-width: 768px) {
+        .btn-gradient-primary {
+            font-size: 0.9rem;
+            padding: 10px 20px;
+        }
+
+        .font-weight-bold {
+            font-size: 1.8rem;
+        }
     }
 </style>

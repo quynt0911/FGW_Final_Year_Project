@@ -1,6 +1,7 @@
 @using Microsoft.AspNetCore.Identity
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,6 +45,7 @@
             <input type="checkbox" id="toggle-table" class="toggle-checkbox">
             <label for="toggle-table" class="dropdown-toggle">Manage Tables</label>
             <div class="dropdown-content">
+                <a asp-controller="Table" asp-action="ViewT">Table Diagram</a>
                 <a asp-controller="Table" asp-action="Index">List of Tables</a>
                 <a asp-controller="Table" asp-action="Create">Add New Table</a>
             </div>
@@ -68,12 +70,12 @@
         </div>
 
         @* <div class="dropdown">
-            <input type="checkbox" id="toggle-dish" class="toggle-checkbox">
-            <label for="toggle-dish" class="dropdown-toggle">Manage Dishes</label>
-            <div class="dropdown-content">
-                <a asp-controller="Dish" asp-action="Index">List of Dishes</a>
-                <a asp-controller="Dish" asp-action="Create">Add New Dish</a>
-            </div>
+        <input type="checkbox" id="toggle-dish" class="toggle-checkbox">
+        <label for="toggle-dish" class="dropdown-toggle">Manage Dishes</label>
+        <div class="dropdown-content">
+        <a asp-controller="Dish" asp-action="Index">List of Dishes</a>
+        <a asp-controller="Dish" asp-action="Create">Add New Dish</a>
+        </div>
         </div> *@
 
         <div class="dropdown">
@@ -119,166 +121,228 @@
 </div>
 
 <style>
-    .hell {
-        display: flex;
-        min-height: 100vh;
-        font-family: Arial, sans-serif;
-        background-color: #f8f4f0;
+    /*------------------------------------------------------------------
+    GLOBAL STYLES
+-------------------------------------------------------------------*/
+    body {
+        color: #e0e0e0;
+        font-size: 15px;
+        font-family: 'Dosis', sans-serif;
+        background-color: #2c2c2c;
+        /* Dark background */
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        color: #ffd700;
+        text-decoration: none !important;
+        transition: all 0.3s ease-in-out;
+    }
+
+    a:hover {
+        color: #ffa500;
+    }
+
+    /*------------------------------------------------------------------
+    SIDEBAR STYLES
+-------------------------------------------------------------------*/
+    .sidebar {
+        width: 250px;
+        background-color: #3e2723;
+        /* Match user layout colors */
+        color: #ffd700;
+        padding-top: 20px;
+        flex-shrink: 0;
+        position: fixed;
+        height: 100%;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar h4 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #ffd700;
+    }
+
+    .sidebar a,
+    .sidebar .dropdown-toggle {
+        color: #ffd700;
+        padding: 12px 15px;
+        background-color: transparent;
+        display: block;
+        text-decoration: none;
+        text-align: left;
+        border-radius: 4px;
+        margin: 5px auto;
+        font-size: 16px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .sidebar a:hover,
+    .sidebar .dropdown-toggle:hover {
+        background-color: #5d3b1d;
+        color: #ffa500;
+    }
+
+    .sidebar .dropdown-toggle {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .sidebar .dropdown-content {
+        display: none;
+        background-color: #4b2e2e;
+        padding: 5px 0;
+        border-radius: 4px;
+    }
+
+    .sidebar .dropdown-content a {
+        padding: 8px 12px;
+        color: #ffd700;
+        transition: background-color 0.3s;
+        text-align: left;
+    }
+
+    .sidebar .dropdown-content a:hover {
+        background-color: #a67b4f;
+        color: #ffffff;
     }
 
     .toggle-checkbox {
         display: none;
     }
 
-    .dropdown-content {
-        display: none;
-        background-color: #ffffff;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-        position: relative;
-        padding: 10px 0;
-        border-radius: 8px;
-        text-align: center;
-    }
-
-    .dropdown-content a {
-        color: #333333;
-        padding: 12px 20px;
-        text-decoration: none;
-        display: block;
-        border-bottom: 1px solid #dddddd;
-        margin: 5px auto;
-        width: 90%;
-        background-color: #f0ebe7;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #e1d8d0;
-        color: #8b572a;
-    }
-
-    .toggle-checkbox:checked + .dropdown-toggle + .dropdown-content {
+    .toggle-checkbox:checked+.dropdown-toggle+.dropdown-content {
         display: block;
     }
 
-    .dropdown-toggle {
-        display: block;
-        padding: 15px 20px;
-        text-decoration: none;
-        color: #ffffff;
-        background-color: #8b572a;
-        margin-bottom: 10px;
-        text-align: center;
-        border-radius: 8px;
-        transition: background-color 0.3s;
-        cursor: pointer;
-        border: 1px solid #704522;
-    }
-
-    .dropdown-toggle:hover {
-        background-color: #a67b4f;
-    }
-
-    .sidebar {
-        width: 250px;
-        background-color: #8b572a;
-        color: #ffffff;
-        padding-top: 20px;
-        flex-shrink: 0;
-        position: fixed;
-        height: 100%;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .sidebar h4 {
-        text-align: center;
-        margin-bottom: 20px;
-        color: #ffffff;
-    }
-
-    .sidebar a {
-        color: #ffffff;
-        padding: 15px 20px;
-        background-color: #704522;
-        display: block;
-        text-decoration: none;
-        text-align: center;
-        border-radius: 8px;
-        margin-bottom: 10px;
-        transition: background-color 0.3s;
-        border: 1px solid #5d3b1d;
-    }
-
-    .sidebar a:hover {
-        background-color: #a67b4f;
-    }
-
+    /*------------------------------------------------------------------
+    CONTENT AREA STYLES
+-------------------------------------------------------------------*/
     .content {
         margin-left: 250px;
         flex-grow: 1;
         padding: 20px;
-        background-color: #ffffff;
+        background-color: #f8f9fa;
+        /* Light gray background for contrast */
     }
 
-    .form-container {
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        max-width: 500px;
-        margin: 0 auto;
-        margin-top: 50px;
+    .content h1,
+    .content h2 {
+        color: #3e2723;
+        font-weight: bold;
     }
 
-    .form-container h2 {
-        background-color: #8b572a;
-        color: #ffffff;
-        padding: 10px;
-        border-radius: 10px 10px 0 0;
-        text-align: center;
-    }
-
-    .form-container input {
+    /*------------------------------------------------------------------
+    TABLE STYLES
+-------------------------------------------------------------------*/
+    .table {
         width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #dddddd;
-        border-radius: 5px;
+        margin-top: 20px;
+        border-collapse: collapse;
     }
 
-    .form-container button {
-        background-color: #8b572a;
-        color: #ffffff;
+    .table th {
+        background-color: #3e2723;
+        color: #ffd700;
+        text-align: center;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    .table td {
+        color: #333333;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .table .btn {
+        background-color: #3e2723;
+        color: #ffd700;
         border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
+        padding: 6px 12px;
+        border-radius: 4px;
         transition: background-color 0.3s;
     }
 
-    .form-container button:hover {
-        background-color: #a67b4f;
+    .table .btn:hover {
+        background-color: #5d3b1d;
+        color: #ffa500;
     }
 
-    .form-container .back-btn {
-        background-color: #777777;
+    /*------------------------------------------------------------------
+    BUTTON STYLES
+-------------------------------------------------------------------*/
+    .btn-primary {
+        background: linear-gradient(90deg, rgba(58, 123, 213, 1) 0%, rgba(58, 213, 176, 1) 100%);
         color: #ffffff;
         border: none;
         padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 10px;
+        border-radius: 4px;
+        transition: background 0.3s;
+        font-weight: bold;
     }
 
+    .btn-primary:hover {
+        background: linear-gradient(90deg, rgba(58, 213, 176, 1) 0%, rgba(58, 123, 213, 1) 100%);
+    }
+
+    .btn-secondary {
+        background: #5d3b1d;
+        color: #ffd700;
+        border: 1px solid #3e2723;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .btn-secondary:hover {
+        background-color: #a67b4f;
+        color: #ffffff;
+    }
+
+    /*------------------------------------------------------------------
+    FOOTER STYLES
+-------------------------------------------------------------------*/
     footer {
         text-align: center;
-        padding: 20px;
-        background-color: #8b572a;
-        color: #ffffff;
+        padding: 10px;
+        background-color: #3e2723;
+        color: #ffd700;
+        font-size: 14px;
         position: fixed;
         bottom: 0;
         width: calc(100% - 250px);
         margin-left: 250px;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /*------------------------------------------------------------------
+    RESPONSIVE STYLES
+-------------------------------------------------------------------*/
+    @@media (max-width: 768px) {
+        .sidebar {
+            width: 200px;
+        }
+
+        .content {
+            margin-left: 200px;
+        }
+
+        .sidebar a,
+        .sidebar .dropdown-toggle {
+            font-size: 14px;
+        }
+
+        footer {
+            width: calc(100% - 200px);
+            margin-left: 200px;
+        }
     }
 </style>

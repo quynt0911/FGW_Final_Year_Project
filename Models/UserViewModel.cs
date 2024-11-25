@@ -11,6 +11,8 @@ public class UserViewModel
     public string UserName { get; set; }
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
-    public string Password { get; set; } // Include for user creation
+    public string Password { get; set; }
+    public string FullName { get; set; }
+    public string ProfileImagePath { get; set; }
 }
 

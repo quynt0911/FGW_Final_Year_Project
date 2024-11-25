@@ -16,7 +16,5 @@ namespace Blank.Models
         public DateTime DateTime { get; set; }
         public string RStatus { get; set; }
 
-
-
     }
 }

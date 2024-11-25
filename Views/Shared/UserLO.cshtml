@@ -1,389 +1,129 @@
 @using Microsoft.AspNetCore.Identity
 
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Freshshop - Ecommerce Bootstrap 4 HTML Template</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>@ViewData["Title"] - Restaurant Booking</title>
+    <meta name="keywords" content="Restaurant, Booking, Dining">
+    <meta name="description" content="Book your table and enjoy the best dining experience.">
+    <meta name="author" content="Restaurant Booking Team">
 
     <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="~/images/apple-touch-icon.png">
-
     <link rel="stylesheet" href="~/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/responsive.css">
     <link rel="stylesheet" href="~/css/custom.css">
-
+    @RenderSection("Head", required: false)
 </head>
-<div class="main-top">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="d-flex align-items-center">
-                    <div class="logo-box">
-                        <a href="/">
-                            <img src="~/images/favicon.ico" alt="Website Logo" class="img-fluid" style="height: 40px;">
-                        </a>
-                    </div>
 
-                    <div class="right-phone-box ml-3">
-                        <p>Call US :- <a href="#"> +11 900 800 100</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex justify-content-end">
-                <div class="our-link">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="#"><i class="fas fa-location-arrow"></i> Our Location</a>
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Logo -->
+                <a class="navbar-brand" href="/">
+                    <img src="~/images/logo.png" alt="Restaurant Logo">
+                </a>
+                <!-- Navigation Links -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="About">About Us</a>
                         </li>
-                        <li class="list-inline-item"><a asp-controller="Home" asp-action="Contact"><i
-                                    class="fas fa-headset"></i> Contact Us</a></li>
-                        <li class="list-inline-item">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Menu">Menu</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home"
+                                asp-action="Reservation">Reservation</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Home" asp-action="Contact" class="nav-link"><i
+                                    class="fas fa-phone-alt"></i> Contact</a>
+                        </li>
+                    </ul>
+
+                    <!-- User Actions -->
+                    <ul class="navbar-nav user-actions">
+                        <li class="nav-item">
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <a asp-controller="User" asp-action="Index"> <i
-                                        class="fas fa-user mr-2"></i>@User.Identity.Name</a>
+                                <a asp-area="Identity" asp-page="/Account/Manage/Index" class="nav-link"><i
+                                        class="fas fa-user"></i> @User.Identity.Name</a>
+                                <a asp-area="Identity" asp-page="/Account/Logout" class="nav-link"><i
+                                        class="fas fa-sign-out-alt"></i> Logout</a>
                             }
                             else
                             {
-                                <a asp-area="Identity" asp-page="/Account/Login"><i class="fa fa-user s_color"></i> My
-                                    Account</a>
+                                <a asp-area="Identity" asp-page="/Account/Login" class="nav-link"><i
+                                        class="fas fa-sign-in-alt"></i> Login</a>
                             }
                         </li>
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-                            <li class="list-inline-item"><a asp-area="Identity" asp-page="/Account/Login"><i
-                                        class="fas fa-sign-in-alt"></i> Login</a></li>
-                        }
-                        else
-                        {
-                            <li class="list-inline-item"><a asp-area="Identity" asp-page="/Account/Logout"><i
-                                        class="fas fa-sign-in-alt"></i> Logout</a></li>
-                        }
                     </ul>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </nav>
+    </header>
 
+    <main class="mt-4">
+        @RenderBody()
+    </main>
 
-<header class="main-header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-        <div class="container">
-            <div class="navbar-header">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
-                    aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo" alt=""></a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="navbar-menu">
-                <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li class="nav-item active"><a class="nav-link" asp-area="" asp-controller="Home"
-                            asp-action="Index">Home</a></li>
-                    <li class="nav-item active"><a class="nav-link" asp-area="" asp-controller="Home"
-                            asp-action="Dash">Dash</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About
-                            Us</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="shop.html">Sidebar Shop</a></li>
-                            <li><a href="shop-detail.html">Shop Detail</a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li>
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                    <a asp-controller="User" asp-action="Index">@User.Identity.Name</a>
-                                }
-                                else
-                                {
-                                    <a asp-area="Identity" asp-page="/Account/Login">My Account</a>
-                                }
-                            </li>
-                            <li><a asp-area="Identity" asp-page="/Account/Index">Account</a></li>
-                            <li><a href="wishlist.html">Wishlist</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" asp-controller="User" asp-action="Index">Gallery</a></li>
-                </ul>
-            </div>
-
-            <div class="attr-nav">
-                <ul>
-                    <li class="search">
-                        <a href="#" id="search-icon"><i class="fa fa-search"></i></a>
-                        <input type="text" id="search-box" class="search-box" placeholder="Search...">
-                    </li>
-                    <li class="side-menu">
-                        <a href="#">
-                            <i class="fa fa-shopping-bag"></i>
-                            <span class="badge">3</span>
-                            <p>My Cart</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Start Side Menu -->
-        <div class="side">
-            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-            <li class="cart-box">
-                <ul class="cart-list">
-                    <li>
-                        <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-                        <h6><a href="#">Delica omtantur </a></h6>
-                        <p>1x - <span class="price">$80.00</span></p>
-                    </li>
-                    <li>
-                        <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-                        <h6><a href="#">Omnes ocurreret</a></h6>
-                        <p>1x - <span class="price">$60.00</span></p>
-                    </li>
-                    <li>
-                        <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-                        <h6><a href="#">Agam facilisis</a></h6>
-                        <p>1x - <span class="price">$40.00</span></p>
-                    </li>
-                    <li class="total">
-                        <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                        <span class="float-right"><strong>Total</strong>: $180.00</span>
-                    </li>
-                </ul>
-            </li>
-        </div>
-    </nav>
-</header>
-
-@RenderBody()
-;
-
-<footer>
-    <div class="footer-main">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-top-box">
-                        <h3>Business Time</h3>
-                        <ul class="list-time">
-                            <li>Monday - Friday: 08.00am to 05.00pm</li>
-                            <li>Saturday: 10.00am to 08.00pm</li>
-                            <li>Sunday: <span>Closed</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-top-box">
-                        <h3>Newsletter</h3>
-                        <form class="newsletter-box">
-                            <div class="form-group">
-                                <input class="" type="email" name="Email" placeholder="Email Address*" />
-                                <i class="fa fa-envelope"></i>
-                            </div>
-                            <button class="btn hvr-hover" type="submit">Submit</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-top-box">
-                        <h3>Social Media</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="row">
+                    <!-- Business Hours -->
+                    <div class="col-lg-4 col-md-4">
+                        <h3>Business Hours</h3>
                         <ul>
-                            <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                            <li>Mon – Fri: 9:00 AM – 10:00 PM</li>
+                            <li>Sat – Sun: 10:00 AM – 11:00 PM</li>
                         </ul>
                     </div>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-widget">
-                        <h4>About Freshshop</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-link">
-                        <h4>Information</h4>
+                    <!-- Contact Us -->
+                    <div class="col-lg-4 col-md-4">
+                        <h3>Contact Us</h3>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Customer Service</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                            <li><a href="#">Terms &amp; Conditions</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Delivery Information</a></li>
+                            <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</li>
+                            <li><i class="fas fa-phone"></i> +1 234 567 89</li>
+                            <li><i class="fas fa-envelope"></i> info@restaurant.com</li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-link-contact">
-                        <h4>Contact Us</h4>
-                        <ul>
-                            <li>
-                                <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street
-                                    Wichita,<br> KS 67213 </p>
-                            </li>
-                            <li>
-                                <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705
-                                        770</a></p>
-                            </li>
-                            <li>
-                                <p><i class="fas fa-envelope"></i>Email: <a
-                                        href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
-                            </li>
+                    <!-- Follow Us -->
+                    <div class="col-lg-4 col-md-4">
+                        <h3>Follow Us</h3>
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+        <div class="footer-copyright">
+            <p>&copy; @DateTime.Now.Year Restaurant Booking. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- End Footer -->
 
-<div class="footer-copyright">
-    <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
-        <a href="https://html.design/">html design</a>
-    </p>
-</div>
+    <!-- Back to Top -->
+    <a href="#" id="back-to-top" title="Back to Top" style="display: none;">&uarr;</a>
 
-<script>
-    function navigateToPage(select) {
-        var url = select.value;
-        if (url) {
-            window.location.href = url;
-        }
-    }
-</script>
+    <!-- Scripts -->
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
 
-<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
-
-<script src="~/js/jquery-3.2.1.min.js"></script>
-<script src="~/js/popper.min.js"></script>
-<script src="~/js/bootstrap.min.js"></script>
-
-<script src="~/js/jquery.superslides.min.js"></script>
-<script src="~/js/bootstrap-select.js"></script>
-<script src="~/js/inewsticker.js"></script>
-<script src="~/js/bootsnav.js."></script>
-<script src="~/js/images-loded.min.js"></script>
-<script src="~/js/isotope.min.js"></script>
-<script src="~/js/owl.carousel.min.js"></script>
-<script src="~/js/baguetteBox.min.js"></script>
-<script src="~/js/form-validator.min.js"></script>
-<script src="~/js/contact-form-script.js"></script>
-<script src="~/js/custom.js"></script>
-
-<style>
-    .dropdown-menu {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 1000;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 10px 0;
-        list-style: none;
-        min-width: 180px;
-    }
-
-    .dropdown-menu li {
-        display: block;
-        margin: 0;
-        padding: 0;
-    }
-
-    .dropdown-menu li a {
-        display: block;
-        padding: 10px 15px;
-        color: #333;
-        text-decoration: none;
-        transition: background-color 0.2s ease-in-out;
-    }
-
-    .dropdown-menu li a:hover {
-        background-color: #f1f1f1;
-        color: #000;
-    }
-
-    .dropdown-menu {
-        display: none;
-    }
-
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-
-    .search-box {
-        width: 0;
-        height: 30px;
-        border: none;
-        padding: 0;
-        opacity: 0;
-        transition: width 0.5s ease, opacity 0.5s ease;
-        font-size: 16px;
-        background-color: #f1f1f1;
-        border-radius: 4px;
-        margin-left: 10px;
-    }
-
-    .search:hover .search-box,
-    .search-box:focus {
-        width: 200px;
-        opacity: 1;
-        padding: 5px 10px;
-        transition: width 0.5s ease, opacity 0.5s ease;
-    }
-
-    .search {
-        position: relative;
-        display: inline-block;
-    }
-
-    .attr-nav {
-        display: flex;
-        align-items: center;
-    }
-
-    .attr-nav ul {
-        display: flex;
-        align-items: center;
-    }
-
-    .attr-nav li {
-        margin-right: 15px;
-    }
-</style>
-<script>
-    $(document).ready(function () {
-        $(document).click(function (event) {
-            var target = $(event.target);
-            if (!target.closest('.search').length) {
-                $('#search-box').css({
-                    width: '0',
-                    opacity: '0',
-                    padding: '0'
-                });
-            }
-        });
-    });
-</script>
+</html>

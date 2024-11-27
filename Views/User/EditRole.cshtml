@@ -1,0 +1,113 @@
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+@{
+    ViewData["Title"] = "Edit Role";
+    Layout = "~/Views/Shared/AdminLO.cshtml";
+}
+
+<h1 class="text-center">Edit Role</h1>
+
+<div class="form-container">
+    <h4>Role Management</h4>
+    <hr />
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success text-center">@TempData["SuccessMessage"]</div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger text-center">@TempData["ErrorMessage"]</div>
+    }
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Role Name</th>
+                <th>Edit Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    <td>@role.Name</td>
+                    <td>
+                        <form asp-action="EditRole" method="post" class="form-inline">
+                            <input type="hidden" name="id" value="@role.Id" />
+                            <input type="text" name="roleName" value="@role.Name" class="form-control" />
+                            <button type="submit" class="btn btn-primary btn-sm ml-2">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteRole" method="post">
+                            <input type="hidden" name="id" value="@role.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a asp-action="ManageRole" class="btn btn-secondary">Back to Role List</a>
+    </div>
+</div>
+
+<style>
+    h1.text-center {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #343a40;
+    }
+
+    .form-container {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .form-container h4 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: #495057;
+    }
+
+    .table th {
+        color: #fff;
+        background-color: #343a40;
+        text-align: center;
+    }
+
+    .table td {
+        text-align: center;
+        color: #212529;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-right: 10px;
+        width: auto;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+        border-radius: 5px;
+        text-transform: uppercase;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+</style>

@@ -21,23 +21,21 @@
         </div>
 
         <div class="dropdown">
-            <input type="checkbox" id="toggle-account" class="toggle-checkbox">
-            <label for="toggle-account" class="dropdown-toggle">Manage Account</label>
+            <input type="checkbox" id="toggle-restaurant" class="toggle-checkbox">
+            <label for="toggle-restaurant" class="dropdown-toggle">Manage Restaurant</label>
             <div class="dropdown-content">
-                <a href="/Account/Index">List of Accounts</a>
-                <a href="/Account/Create">Manage Role</a>
-                <a href="/Account/Create">Add New Account</a>
+                <a href="/Restaurant/Index">Branches of Restaurant</a>
+                <a href="/Restaurant/Create">Add New Branch</a>
             </div>
         </div>
 
         <div class="dropdown">
-            <input type="checkbox" id="toggle-menu" class="toggle-checkbox">
-            <label for="toggle-menu" class="dropdown-toggle">Manage Menu</label>
+            <input type="checkbox" id="toggle-account" class="toggle-checkbox">
+            <label for="toggle-account" class="dropdown-toggle">Manage Account</label>
             <div class="dropdown-content">
-                <a asp-controller="Menu" asp-action="Index">View Menu</a>
-                <a asp-controller="Menu" asp-action="Create">Add New Menu</a>
-                <a href="/Menu/Create">Manage Menu Item</a>
-                <a href="/Menu/Create">Special Offers</a>
+                <a href="/User/Index">List of Accounts</a>
+                <a href="/User/ManageRole">Manage Role</a>
+                <a href="/User/Create">Add New Account</a>
             </div>
         </div>
 
@@ -69,14 +67,14 @@
             </div>
         </div>
 
-        @* <div class="dropdown">
+        <div class="dropdown">
         <input type="checkbox" id="toggle-dish" class="toggle-checkbox">
         <label for="toggle-dish" class="dropdown-toggle">Manage Dishes</label>
         <div class="dropdown-content">
         <a asp-controller="Dish" asp-action="Index">List of Dishes</a>
         <a asp-controller="Dish" asp-action="Create">Add New Dish</a>
         </div>
-        </div> *@
+        </div>
 
         <div class="dropdown">
             <input type="checkbox" id="toggle-order" class="toggle-checkbox">
@@ -118,8 +116,10 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
+</div>
 <style>
     /*------------------------------------------------------------------
     GLOBAL STYLES

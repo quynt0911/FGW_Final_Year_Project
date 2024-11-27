@@ -18,139 +18,124 @@ namespace Blank.Controllers
             _context = context;
         }
 
-        // GET: Reservation
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string status = "Pending")
         {
-            return View(await _context.Reservations.ToListAsync());
+            var reservations = await _context.Reservations
+                .Include(r => r.Restaurant)
+                .Include(r => r.Table)
+                .Where(r => r.RStatus == status)
+                .ToListAsync();
+
+            ViewBag.CurrentStatus = status;
+            return View(reservations);
         }
 
-        // GET: Reservation/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> MakeReservation()
         {
-            if (id == null)
+            ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
+            ViewBag.Tables = await _context.Tables.ToListAsync();
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> MakeReservation([Bind("RestaurantId,DateTime,TableId,TableOption,Request")] Reservation reservation)
+        {
+            if (ModelState.IsValid)
             {
-                return NotFound();
+                if (reservation.TableOption == "QuickPick")
+                {
+                    reservation.TableId = null;
+                }
+
+                reservation.RStatus = "Pending";
+                _context.Add(reservation);
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("Index");
             }
 
-            var reservation = await _context.Reservations
-                .FirstOrDefaultAsync(m => m.ReserId == id);
-            if (reservation == null)
-            {
-                return NotFound();
-            }
-
+            ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
+            ViewBag.Tables = await _context.Tables.ToListAsync();
             return View(reservation);
         }
 
-        // GET: Reservation/Create
-        public IActionResult Create()
+        public IActionResult ReservationConfirmation()
         {
             return View();
         }
 
-        // POST: Reservation/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ReserId,TableId,RestaurantId,DateTime,RStatus")] Reservation reservation)
+        [HttpGet("Reservation/DetailsApi/{id}")]
+        public async Task<IActionResult> DetailsApi(int id)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(reservation);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var table = await _context.Tables.FindAsync(id);
+                if (table == null)
+                {
+                    return NotFound(new { success = false, message = "Table not found" });
+                }
+
+                return Json(new
+                {
+                    tName = table.TName,
+                    location = table.Location,
+                    tStatus = table.TStatus
+                });
             }
-            return View(reservation);
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
         }
 
-        // GET: Reservation/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        [HttpPost]
+        public async Task<IActionResult> ApproveReservation(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var reservation = await _context.Reservations.FindAsync(id);
             if (reservation == null)
             {
                 return NotFound();
             }
-            return View(reservation);
-        }
 
-        // POST: Reservation/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ReserId,TableId,RestaurantId,DateTime,RStatus")] Reservation reservation)
-        {
-            if (id != reservation.ReserId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(reservation);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ReservationExists(reservation.ReserId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(reservation);
-        }
-
-        // GET: Reservation/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var reservation = await _context.Reservations
-                .FirstOrDefaultAsync(m => m.ReserId == id);
-            if (reservation == null)
-            {
-                return NotFound();
-            }
-
-            return View(reservation);
-        }
-
-        // POST: Reservation/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var reservation = await _context.Reservations.FindAsync(id);
-            if (reservation != null)
-            {
-                _context.Reservations.Remove(reservation);
-            }
-
+            reservation.RStatus = "Approved";
+            _context.Update(reservation);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ReservationExists(int id)
+       [HttpPost]
+        public async Task<IActionResult> RejectReservation(int id)
         {
-            return _context.Reservations.Any(e => e.ReserId == id);
+            var reservation = await _context.Reservations.FindAsync(id);
+            if (reservation == null)
+            {
+                return NotFound();
+            }
+
+            _context.Reservations.Remove(reservation);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var reservation = await _context.Reservations
+                .Include(r => r.Restaurant)
+                .Include(r => r.Table)
+                .FirstOrDefaultAsync(r => r.ReserId == id);
+
+            if (reservation == null)
+            {
+                return NotFound();
+            }
+
+            return View(reservation);
         }
     }
+
+
+
 }

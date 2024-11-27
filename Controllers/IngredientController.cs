@@ -11,12 +11,15 @@ namespace Blank.Controllers
 {
     public class IngredientController : Controller
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly FinalprojectContext _context;
 
-        public IngredientController(FinalprojectContext context)
+        public IngredientController(FinalprojectContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
+
 
         // GET: Ingredient
         public async Task<IActionResult> Index()
@@ -48,51 +51,40 @@ namespace Blank.Controllers
             return View();
         }
 
-        // POST: Ingredient/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IngId,IngName,IngDescription,Numer")] Ingredient ingredient, IFormFile photoFile)
+        public async Task<IActionResult> Create(Ingredient ingredient)
         {
             if (ModelState.IsValid)
             {
-                if (photoFile != null && photoFile.Length > 0)
+                if (ingredient.PhotoFile != null)
                 {
-                    try
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(ingredient.PhotoFile.FileName);
+                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "ingredients");
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    if (!Directory.Exists(uploadsFolder))
                     {
-                        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imgs");
-
-                        if (!Directory.Exists(uploadsFolder))
-                        {
-                            Directory.CreateDirectory(uploadsFolder);
-                        }
-
-                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(photoFile.FileName);
-                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                        using (var fileStream = new FileStream(filePath, FileMode.Create))
-                        {
-                            await photoFile.CopyToAsync(fileStream);
-                        }
-
-                        ingredient.Photo = uniqueFileName;
+                        Directory.CreateDirectory(uploadsFolder);
                     }
-                    catch (Exception ex)
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
-                        Console.WriteLine($"Error while saving file: {ex.Message}");
-                        ModelState.AddModelError("", "Error uploading the file. Please try again.");
-                        return View(ingredient);
+                        await ingredient.PhotoFile.CopyToAsync(fileStream);
                     }
+
+                    ingredient.PhotoUrl = $"/images/ingredients/{uniqueFileName}";
                 }
+
 
                 _context.Add(ingredient);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Ingredient created successfully!";
                 return RedirectToAction(nameof(Index));
             }
-
             return View(ingredient);
         }
+
 
 
         // GET: Ingredient/Edit/5
@@ -111,12 +103,9 @@ namespace Blank.Controllers
             return View(ingredient);
         }
 
-        // POST: Ingredient/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IngId,IngName,IngDescription,Photo")] Ingredient ingredient, IFormFile photoFile)
+        public async Task<IActionResult> Edit(int id, Ingredient ingredient)
         {
             if (id != ingredient.IngId)
             {
@@ -127,37 +116,40 @@ namespace Blank.Controllers
             {
                 try
                 {
-                    if (photoFile != null && photoFile.Length > 0)
+                    if (ingredient.PhotoFile != null)
                     {
-                        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-
-                        if (!Directory.Exists(uploadsFolder))
+                        // Xóa ảnh cũ
+                        if (!string.IsNullOrEmpty(ingredient.PhotoUrl))
                         {
-                            Directory.CreateDirectory(uploadsFolder);
-                        }
-
-                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(photoFile.FileName);
-                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                        using (var fileStream = new FileStream(filePath, FileMode.Create))
-                        {
-                            await photoFile.CopyToAsync(fileStream);
-                        }
-
-                        if (!string.IsNullOrEmpty(ingredient.Photo))
-                        {
-                            var oldFilePath = Path.Combine(uploadsFolder, ingredient.Photo);
+                            string oldFilePath = Path.Combine(_webHostEnvironment.WebRootPath, ingredient.PhotoUrl.TrimStart('/'));
                             if (System.IO.File.Exists(oldFilePath))
                             {
                                 System.IO.File.Delete(oldFilePath);
                             }
                         }
 
-                        ingredient.Photo = uniqueFileName;
+                        // Lưu ảnh mới
+                        string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(ingredient.PhotoFile.FileName);
+                        string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "ingredients");
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        if (!Directory.Exists(uploadsFolder))
+                        {
+                            Directory.CreateDirectory(uploadsFolder);
+                        }
+
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await ingredient.PhotoFile.CopyToAsync(fileStream);
+                        }
+
+                        ingredient.PhotoUrl = $"/images/ingredients/{uniqueFileName}";
                     }
+
 
                     _context.Update(ingredient);
                     await _context.SaveChangesAsync();
+                    TempData["SuccessMessage"] = "Ingredient updated successfully!";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -174,6 +166,12 @@ namespace Blank.Controllers
             }
             return View(ingredient);
         }
+
+        private bool IngredientExists(int id)
+        {
+            return _context.Ingredients.Any(e => e.IngId == id);
+        }
+
 
 
 
@@ -208,11 +206,6 @@ namespace Blank.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool IngredientExists(int id)
-        {
-            return _context.Ingredients.Any(e => e.IngId == id);
         }
     }
 }

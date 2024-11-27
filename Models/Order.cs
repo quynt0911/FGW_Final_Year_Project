@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace Blank.Models
 {
@@ -10,8 +13,24 @@ namespace Blank.Models
     {
         [Key]
         public int OrderId { get; set; }
+
+        [Required]
         public int DishId { get; set; }
+        public virtual Dish Dish { get; set; }
+
+        [Required]
         public int TableId { get; set; }
-        public string OStatus { get; set; }
+        public virtual Table Table { get; set; }
+
+        [Required]
+        public int Quantity { get; set; } // New field for quantity
+
+        [Required]
+        [Range(0, double.MaxValue, ErrorMessage = "Total price must be non-negative.")]
+        public decimal TotalPrice { get; set; } // New field for total price
+
+        [Required]
+        public string OStatus { get; set; } // Order status
     }
+
 }

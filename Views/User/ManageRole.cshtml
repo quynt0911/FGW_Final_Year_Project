@@ -1,0 +1,66 @@
+@model IEnumerable<UserViewModel>
+
+@{
+    ViewData["Title"] = "Manage Roles";
+    Layout = "~/Views/Shared/AdminLO.cshtml";
+}
+
+<h1 class="text-center">Manage Roles</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center mt-3">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger text-center mt-3">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<div class="form-container">
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-action="CreateRole" class="btn btn-primary">Create Role</a>
+        <a asp-action="EditRole" class="btn btn-primary">Edit Role</a>
+    </div>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                <th>Assign Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@user.PhoneNumber</td>
+                    <td>
+                        <form asp-action="AssignRole" method="post" class="form-inline">
+                            <input type="hidden" name="UserId" value="@user.Id" />
+                            <select name="SelectedRole" class="form-control">
+                                @foreach (var role in (List<string>)ViewBag.Roles)
+                                {
+                                    <option value="@role" selected="@(role == user.Role ? "selected" : null)">@role</option>
+                                }
+                            </select>
+                            <button type="submit" class="btn btn-primary btn-sm ml-2">Update</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <a asp-action="Index" class="btn btn-secondary">Back to User List</a>
+    </div>
+</div>

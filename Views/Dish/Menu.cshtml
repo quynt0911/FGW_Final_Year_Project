@@ -1,0 +1,173 @@
+@model IEnumerable<Blank.Models.Dish>
+
+@{
+    Layout = "~/Views/Shared/UserLO.cshtml";
+}
+
+<h2 class="menu-title">Our Menu</h2>
+
+<form method="get" asp-action="Menu" class="d-flex justify-content-center mb-4">
+    <div class="input-group" style="max-width: 500px;">
+        <input type="text" class="form-control" name="searchString" placeholder="Search dishes..."
+               value="@ViewData["CurrentFilter"]" />
+        <button class="btn btn-primary" type="submit">Search</button>
+        <a asp-action="Menu" class="btn btn-secondary">View All</a>
+    </div>
+</form>
+
+<div class="text-center mb-4">
+    <button class="btn btn-info btn-sm" id="filterToggle">Filter</button>
+</div>
+
+<div id="filterTable" class="d-none text-center mb-4">
+    <table class="table table-bordered" style="max-width: 600px; margin: 0 auto;">
+        <thead class="thead-light">
+            <tr>
+                <th colspan="2">Filter Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <a asp-action="Menu" asp-route-sortOrder="Price" class="btn btn-outline-dark btn-sm w-100">
+                        Price Low to High
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Menu" asp-route-sortOrder="price_desc" class="btn btn-outline-dark btn-sm w-100">
+                        Price High to Low
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-action="Menu" asp-route-sortOrder="" class="btn btn-outline-dark btn-sm w-100">
+                        Name A-Z
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Menu" asp-route-sortOrder="name_desc" class="btn btn-outline-dark btn-sm w-100">
+                        Name Z-A
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    @if (!Model.Any())
+    {
+        <p class="text-center">No dishes found. Try searching with a different keyword!</p>
+    }
+    else
+    {
+        @foreach (var dish in Model)
+        {
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="dish-card position-relative shadow-sm">
+                    <img src="@dish.PhotoUrl" class="dish-image" alt="@dish.DishName" />
+                    <div class="dish-info d-flex flex-column justify-content-center align-items-center">
+                        <h5 class="dish-title">@dish.DishName</h5>
+                        <p class="dish-description">@dish.DDescription</p>
+                        <p class="dish-price"><strong>Price: </strong>@dish.Price.ToString("C")</p>
+                        <div class="action-buttons">
+                            @if (User.IsInRole("Staff"))
+                            {
+                                <a asp-action="AddToOrder" asp-route-id="@dish.DishId" class="btn btn-success btn-sm">Order</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<script>
+    document.getElementById("filterToggle").addEventListener("click", function () {
+        var filterTable = document.getElementById("filterTable");
+        if (filterTable.classList.contains("d-none")) {
+            filterTable.classList.remove("d-none");
+        } else {
+            filterTable.classList.add("d-none");
+        }
+    });
+</script>
+
+<style>
+    .menu-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+        color: #343a40;
+    }
+
+    .dish-card {
+        width: 100%;
+        height: 250px;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .dish-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .dish-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .dish-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        opacity: 0;
+        text-align: center;
+        padding: 15px;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .dish-card:hover .dish-info {
+        opacity: 1;
+    }
+
+    .dish-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .dish-description {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .dish-price {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .action-buttons .btn {
+        margin: 0 5px;
+    }
+
+    .btn-primary, .btn-success {
+        border-radius: 5px;
+    }
+
+    .btn-outline-dark {
+        border-radius: 5px;
+    }
+</style>

@@ -1,0 +1,48 @@
+@model Blank.Models.Restaurant
+
+@{
+    Layout = "~/Views/Shared/AdminLO.cshtml";
+}
+
+<div class="container">
+    <h2>Edit Restaurant Branch</h2>
+
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="RestaurantId" />
+
+        <div class="form-group">
+            <label asp-for="ResName" class="control-label">Branch Name</label>
+            <input asp-for="ResName" class="form-control" />
+            <span asp-validation-for="ResName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Location" class="control-label">Location</label>
+            <input asp-for="Location" class="form-control" />
+            <span asp-validation-for="Location" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Current Photo</label>
+            @if (!string.IsNullOrEmpty(Model.PhotoUrl))
+            {
+                <div>
+                    <img src="@Model.PhotoUrl" alt="Current Photo" style="width: 150px; height: auto; border-radius: 5px;" />
+                </div>
+            }
+            else
+            {
+                <p>No photo available</p>
+            }
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PhotoFile" class="control-label">Upload New Photo</label>
+            <input type="file" asp-for="PhotoFile" class="form-control" />
+            <span asp-validation-for="PhotoFile" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

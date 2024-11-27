@@ -1,0 +1,45 @@
+@model IEnumerable<Blank.Models.Restaurant>
+@{
+    Layout = "~/Views/Shared/AdminLO.cshtml";
+}
+
+<div class="container">
+    <h2>Restaurant Branches</h2>
+    <a asp-action="Create" class="btn btn-primary">Add New Branch</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.PhotoUrl))
+                        {
+                            <img src="@item.PhotoUrl" alt="@item.ResName photo"
+                                style="width: 150px; height: auto; border-radius: 5px;" />
+                        }
+                        else
+                        {
+                            <p>No photo available</p>
+                        }
+                    </td>
+
+                    <td>@item.ResName</td>
+                    <td>@item.Location</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.RestaurantId" class="btn btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.RestaurantId" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

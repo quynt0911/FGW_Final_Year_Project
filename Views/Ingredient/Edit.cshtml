@@ -4,48 +4,43 @@
     Layout = "~/Views/Shared/AdminLO.cshtml";
 }
 
-<body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0">Edit Ingredient</h4>
-                    </div>
-                    <div class="card-body">
-                        <form asp-action="Edit" enctype="multipart/form-data" method="post">
-                            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
-                            <input type="hidden" asp-for="IngId" />
-                            <div class="mb-3">
-                                <label asp-for="IngName" class="form-label">Ingredient Name</label>
-                                <input asp-for="IngName" class="form-control" placeholder="Enter ingredient name" />
-                                <span asp-validation-for="IngName" class="text-danger"></span>
-                            </div>
-                            <div class="mb-3">
-                                <label asp-for="IngDescription" class="form-label">Description</label>
-                                <input asp-for="IngDescription" class="form-control" placeholder="Enter description" />
-                                <span asp-validation-for="IngDescription" class="text-danger"></span>
-                            </div>
-                            <div class="mb-3">
-                                <label asp-for="Numer" class="form-label">Number</label>
-                                <input asp-for="Numer" class="form-control" placeholder="Enter description" />
-                                <span asp-validation-for="Numer" class="text-danger"></span>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Upload Photo</label>
-                                <input type="file" name="photoFile" class="form-control" />
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+<div class="container">
+    <h2>Edit Ingredient</h2>
 
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="IngId" />
+        <div class="form-group">
+            <label asp-for="IngName" class="control-label">Name</label>
+            <input asp-for="IngName" class="form-control" />
+            <span asp-validation-for="IngName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="IngDescription" class="control-label">Description</label>
+            <textarea asp-for="IngDescription" class="form-control"></textarea>
+            <span asp-validation-for="IngDescription" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Numer" class="control-label">Number</label>
+            <input asp-for="Numer" class="form-control" />
+            <span asp-validation-for="Numer" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label>Current Photo</label>
+            @if (!string.IsNullOrEmpty(Model.PhotoUrl))
+            {
+                <img src="@Model.PhotoUrl" alt="Ingredient Photo" style="width: 150px; height: auto; border-radius: 8px;" />
+            }
+            else
+            {
+                <span>No Image Available</span>
+            }
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PhotoFile" class="control-label">Upload New Photo</label>
+            <input asp-for="PhotoFile" type="file" class="form-control" />
+            <span asp-validation-for="PhotoFile" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>

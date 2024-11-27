@@ -16,14 +16,15 @@
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().IngName)
+                            Ingredient Name
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().IngDescription)
+                            Description
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().Numer)
+                            Quantity
                         </th>
                         <th class="actions">Actions</th>
                     </tr>
@@ -32,6 +33,17 @@
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.PhotoUrl))
+                                {
+                                    <img src="@item.PhotoUrl" alt="@item.IngName"
+                                        style="width: 100px; height: auto; border-radius: 8px;" />
+                                }
+                                else
+                                {
+                                    <span>No Image</span>
+                                }
+                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.IngName)
                             </td>
@@ -56,6 +68,7 @@
         </div>
     </div>
 </body>
+
 
 <style>
     body {

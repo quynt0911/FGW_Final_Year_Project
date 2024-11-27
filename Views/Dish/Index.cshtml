@@ -1,102 +1,52 @@
 @model IEnumerable<Blank.Models.Dish>
-
 @{
     Layout = "~/Views/Shared/AdminLO.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dish List</title>
-    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .container {
-            margin-top: 30px;
-        }
-        h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .table {
-            margin-top: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .table th, .table td {
-            text-align: center;
-            vertical-align: middle;
-        }
-        .btn-primary {
-            margin-bottom: 20px;
-        }
-        .actions {
-            text-align: center;
-        }
-        .actions a {
-            margin: 0 5px;
-            text-decoration: none;
-            color: #007bff;
-        }
-        .actions a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
+<h2 class="text-center mb-4">Dish List</h2>
 
 <div class="container">
-    <h2>Dish List</h2>
-    
-    <div class="text-right">
-        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    <div class="text-end mb-3">
+        <a asp-action="Create" class="btn btn-primary">Create New Dish</a>
     </div>
-    
-    <table class="table table-hover table-bordered">
-        <thead class="thead-light">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.RecipeId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DishName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DDescription)
-                </th>
-                <th class="actions">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model) {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RecipeId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DishName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DDescription)
-                    </td>
-                    <td class="actions">
-                        <a asp-action="Edit" asp-route-id="@item.DishId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.DishId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.DishId">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
 
-<script src="~/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Image</th>
+                    <th>Name of the Dish</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @if (!string.IsNullOrEmpty(item.PhotoUrl))
+                            {
+                                <img src="@item.PhotoUrl" alt="@item.DishName"
+                                    class="rounded border border-secondary" style="width: 100px; height: auto;" />
+                            }
+                            else
+                            {
+                                <span class="text-muted">No Image</span>
+                            }
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.DishName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DDescription)</td>
+                        <td class="text-end">@Html.DisplayFor(modelItem => item.Price)</td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@item.DishId" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.DishId" class="btn btn-sm btn-outline-secondary">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.DishId" class="btn btn-sm btn-outline-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

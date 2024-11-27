@@ -1,21 +1,22 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Blank.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace Blank.Controllers
 {
     public class DishController : Controller
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly FinalprojectContext _context;
 
-        public DishController(FinalprojectContext context)
+        public DishController(FinalprojectContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Dish
@@ -32,8 +33,7 @@ namespace Blank.Controllers
                 return NotFound();
             }
 
-            var dish = await _context.Dishes
-                .FirstOrDefaultAsync(m => m.DishId == id);
+            var dish = await _context.Dishes.FirstOrDefaultAsync(m => m.DishId == id);
             if (dish == null)
             {
                 return NotFound();
@@ -48,18 +48,43 @@ namespace Blank.Controllers
             return View();
         }
 
-        // POST: Dish/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DishId,RecipeId,DishName,DDescription")] Dish dish)
+        public async Task<IActionResult> Create([Bind("DishId,DishName,DDescription,Price,PhotoFile")] Dish dish)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(dish);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    if (dish.PhotoFile != null)
+                    {
+                        string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(dish.PhotoFile.FileName);
+                        string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "dishes");
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        if (!Directory.Exists(uploadsFolder))
+                        {
+                            Directory.CreateDirectory(uploadsFolder);
+                        }
+
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await dish.PhotoFile.CopyToAsync(fileStream);
+                        }
+
+                        dish.PhotoUrl = $"/images/dishes/{uniqueFileName}";
+                    }
+
+                    _context.Add(dish);
+                    await _context.SaveChangesAsync();
+
+                    TempData["SuccessMessage"] = "Dish created successfully."; // Chỉ set khi thao tác hoàn thành
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    TempData["ErrorMessage"] = "An error occurred: " + ex.Message;
+                }
             }
             return View(dish);
         }
@@ -80,12 +105,9 @@ namespace Blank.Controllers
             return View(dish);
         }
 
-        // POST: Dish/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DishId,RecipeId,DishName,DDescription")] Dish dish)
+        public async Task<IActionResult> Edit(int id, [Bind("DishId,DishName,DDescription,Price,PhotoFile,PhotoUrl")] Dish dish)
         {
             if (id != dish.DishId)
             {
@@ -96,8 +118,43 @@ namespace Blank.Controllers
             {
                 try
                 {
+                    if (dish.PhotoFile != null)
+                    {
+                        // Xóa ảnh cũ nếu có
+                        if (!string.IsNullOrEmpty(dish.PhotoUrl))
+                        {
+                            string oldFilePath = Path.Combine(_webHostEnvironment.WebRootPath, dish.PhotoUrl.TrimStart('/'));
+                            if (System.IO.File.Exists(oldFilePath))
+                            {
+                                System.IO.File.Delete(oldFilePath);
+                            }
+                        }
+
+                        // Upload ảnh mới
+                        string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(dish.PhotoFile.FileName);
+                        string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "dishes");
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        // Tạo thư mục nếu chưa tồn tại
+                        if (!Directory.Exists(uploadsFolder))
+                        {
+                            Directory.CreateDirectory(uploadsFolder);
+                        }
+
+                        // Lưu file vào thư mục
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await dish.PhotoFile.CopyToAsync(fileStream);
+                        }
+
+                        // Cập nhật URL ảnh
+                        dish.PhotoUrl = $"/images/dishes/{uniqueFileName}";
+                    }
+
+                    // Cập nhật thông tin khác
                     _context.Update(dish);
                     await _context.SaveChangesAsync();
+                    TempData["SuccessMessage"] = "Dish updated successfully.";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -115,19 +172,26 @@ namespace Blank.Controllers
             return View(dish);
         }
 
+        private bool DishExists(int id)
+        {
+            return _context.Dishes.Any(e => e.DishId == id);
+        }
+
+
         // GET: Dish/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
-                return NotFound();
+                TempData["ErrorMessage"] = "Invalid dish ID.";
+                return RedirectToAction(nameof(Index));
             }
 
-            var dish = await _context.Dishes
-                .FirstOrDefaultAsync(m => m.DishId == id);
+            var dish = await _context.Dishes.FirstOrDefaultAsync(m => m.DishId == id);
             if (dish == null)
             {
-                return NotFound();
+                TempData["ErrorMessage"] = "Dish not found.";
+                return RedirectToAction(nameof(Index));
             }
 
             return View(dish);
@@ -138,19 +202,118 @@ namespace Blank.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var dish = await _context.Dishes.FindAsync(id);
-            if (dish != null)
+            try
             {
-                _context.Dishes.Remove(dish);
+                var dish = await _context.Dishes.FindAsync(id);
+                if (dish != null)
+                {
+                    if (!string.IsNullOrEmpty(dish.PhotoUrl))
+                    {
+                        string filePath = Path.Combine(_webHostEnvironment.WebRootPath, dish.PhotoUrl.TrimStart('/'));
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            System.IO.File.Delete(filePath);
+                        }
+                    }
+
+                    _context.Dishes.Remove(dish);
+                    await _context.SaveChangesAsync();
+
+                    TempData["SuccessMessage"] = "Dish deleted successfully.";
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Dish not found.";
+                }
+            }
+            catch (DbUpdateException ex)
+            {
+                TempData["ErrorMessage"] = "Unable to delete this dish at this time. Please check the related orders.";
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "An unexpected error occurred while deleting the dish.";
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DishExists(int id)
+
+        public async Task<IActionResult> Menu(string sortOrder, string searchString)
         {
-            return _context.Dishes.Any(e => e.DishId == id);
+            ViewData["NameSortParam"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["PriceSortParam"] = sortOrder == "Price" ? "price_desc" : "Price";
+
+            var dishes = from d in _context.Dishes select d;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                dishes = dishes.Where(d => d.DishName.Contains(searchString) || d.DDescription.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    dishes = dishes.OrderByDescending(d => d.DishName);
+                    break;
+                case "Price":
+                    dishes = dishes.OrderBy(d => d.Price);
+                    break;
+                case "price_desc":
+                    dishes = dishes.OrderByDescending(d => d.Price);
+                    break;
+                default:
+                    dishes = dishes.OrderBy(d => d.DishName);
+                    break;
+            }
+
+            return View(await dishes.AsNoTracking().ToListAsync());
         }
+
+
+
+        public async Task<IActionResult> AddToOrder(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var dish = await _context.Dishes.FirstOrDefaultAsync(m => m.DishId == id);
+            if (dish == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["TableList"] = new SelectList(_context.Tables, "TableId", "TableName");
+            return View(dish);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddToOrder(int id, int quantity, int tableId)
+        {
+            var dish = await _context.Dishes.FindAsync(id);
+            if (dish == null)
+            {
+                return NotFound();
+            }
+
+            // Add order logic here
+            var order = new Order
+            {
+                DishId = id,
+                Quantity = quantity,
+                TableId = tableId,
+                TotalPrice = dish.Price * quantity
+            };
+
+            _context.Orders.Add(order);
+            await _context.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = "Dish added to order successfully.";
+            return RedirectToAction(nameof(Menu));
+        }
+
     }
 }

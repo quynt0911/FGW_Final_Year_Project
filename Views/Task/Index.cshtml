@@ -1,116 +1,112 @@
 @model IEnumerable<Blank.Models.Task>
-
 @{
+    var userId = User.Identity.Name;
     Layout = "~/Views/Shared/AdminLO.cshtml";
 }
 
-<body>
+<h2>Task Management</h2>
 
-    <div class="container">
-        <h2>Task List</h2>
-
-        <div class="text-right">
-            <a asp-action="Create" class="btn btn-primary btn-create">Create New</a>
-        </div>
-
-        <div class="table-container">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.First().TaskName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.First().Description)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.First().TaskStatus)
-                        </th>
-                        <th class="actions">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TaskName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Description)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TaskStatus)
-                            </td>
-                            <td class="actions">
-                                <a asp-action="Edit" asp-route-id="@item.TaskId"
-                                    class="btn btn-sm btn-outline-primary">Edit</a>
-                                <a asp-action="Details" asp-route-id="@item.TaskId"
-                                    class="btn btn-sm btn-outline-secondary">Details</a>
-                                <a asp-action="Delete" asp-route-id="@item.TaskId"
-                                    class="btn btn-sm btn-outline-danger">Delete</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+@if (User.IsInRole("Admin"))
+{
+    <div class="mb-3">
+        <a asp-action="Create" class="btn btn-primary">+ Add New Task</a>
     </div>
-</body>
+}
 
-<style>
-    body {
-        background-color: #f8f9fa;
-    }
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Task ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Assigned To</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.TaskId</td>
+                <td>@task.TaskName</td>
+                <td>@task.Description</td>
+                <td>@task.TaskStatus</td>
+                <td>@(string.IsNullOrEmpty(task.AssignedTo) ? "Unassigned" : task.AssignedTo)</td>
+                <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <!-- Nút Assign -->
+                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#assignModal-@task.TaskId">
+                            Assign
+                        </button>
 
-    .table-container {
-        margin-top: 40px;
-    }
+                        <!-- Modal Assign -->
+                        <div class="modal fade" id="assignModal-@task.TaskId" tabindex="-1"
+                            aria-labelledby="assignModalLabel-@task.TaskId" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="assignModalLabel-@task.TaskId">Assign Task: @task.TaskName
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" asp-action="AssignTask" asp-route-taskId="@task.TaskId">
+                                            <div class="mb-3">
+                                                <select name="userId" class="form-select form-select-sm">
+                                                    <option value="">-- Select Staff --</option>
+                                                    @foreach (var user in ViewBag.StaffList)
+                                                    {
+                                                        if (task.AssignedTo == user.UserId)
+                                                        {
+                                                            <option value="@user.UserId" selected>@user.UserName</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@user.UserId">@user.UserName</option>
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Assign</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    h2 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 30px;
-        font-weight: bold;
-    }
+                        <!-- Nút Edit -->
+                        <a asp-action="Edit" asp-route-id="@task.TaskId" class="btn btn-sm btn-warning">Edit</a>
 
-    .table {
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
+                        <!-- Nút Delete -->
+                        <form method="post" asp-action="Delete" asp-route-id="@task.TaskId" class="d-inline"
+                            onsubmit="return confirm('Are you sure you want to delete this task?');">
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    }
+                    else if (User.IsInRole("Staff") && task.AssignedTo == userId)
+                    {
+                        <!-- Nút Do it -->
+                        @if (task.TaskStatus == "Assigned")
+                        {
+                            <form method="post" asp-action="StartTask" asp-route-taskId="@task.TaskId" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-warning">Do it</button>
+                            </form>
+                        }
 
-    .table th,
-    .table td {
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .table th {
-        background-color: #007bff;
-        color: white;
-    }
-
-    .table tbody tr:hover {
-        background-color: #f1f1f1;
-    }
-
-    .btn-create {
-        display: inline-block;
-        margin-bottom: 20px;
-        float: right;
-    }
-
-    .actions a {
-        margin: 0 5px;
-        text-decoration: none;
-    }
-
-    .actions a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        padding: 0 20px;
-    }
-</style>
+                        <!-- Nút Complete -->
+                        @if (task.TaskStatus == "In Process")
+                        {
+                            <form method="post" asp-action="CompleteTask" asp-route-taskId="@task.TaskId" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-success">Complete</button>
+                            </form>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

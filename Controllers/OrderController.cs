@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Blank.Models;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+using System.Threading.Tasks;
 
 namespace Blank.Controllers
 {
@@ -21,46 +20,37 @@ namespace Blank.Controllers
         // GET: Order
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Orders.ToListAsync());
-        }
+            var orders = await _context.Orders
+                .Include(o => o.Dish) // Load related Dish
+                .Include(o => o.Table) // Load related Table
+                .ToListAsync();
 
-        // GET: Order/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var order = await _context.Orders
-                .FirstOrDefaultAsync(m => m.OrderId == id);
-            if (order == null)
-            {
-                return NotFound();
-            }
-
-            return View(order);
+            return View(orders);
         }
 
         // GET: Order/Create
-        public IActionResult Create()
+        public IActionResult Create(int dishId)
         {
+            ViewData["DishId"] = dishId;
+            ViewData["TableList"] = new SelectList(_context.Tables, "TableId", "TableName");
             return View();
         }
 
         // POST: Order/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,DishId,TableId,OStatus")] Order order)
+        public async Task<IActionResult> Create([Bind("DishId,TableId,OStatus")] Order order, int quantity)
         {
             if (ModelState.IsValid)
             {
+                order.OStatus = "Pending"; // Default status
                 _context.Add(order);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Order created successfully.";
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["TableList"] = new SelectList(_context.Tables, "TableId", "TableName", order.TableId);
             return View(order);
         }
 
@@ -77,12 +67,12 @@ namespace Blank.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["TableList"] = new SelectList(_context.Tables, "TableId", "TableName", order.TableId);
             return View(order);
         }
 
         // POST: Order/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("OrderId,DishId,TableId,OStatus")] Order order)
@@ -98,6 +88,7 @@ namespace Blank.Controllers
                 {
                     _context.Update(order);
                     await _context.SaveChangesAsync();
+                    TempData["SuccessMessage"] = "Order updated successfully.";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -110,8 +101,11 @@ namespace Blank.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["TableList"] = new SelectList(_context.Tables, "TableId", "TableName", order.TableId);
             return View(order);
         }
 
@@ -124,7 +118,10 @@ namespace Blank.Controllers
             }
 
             var order = await _context.Orders
+                .Include(o => o.Dish)
+                .Include(o => o.Table)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
+
             if (order == null)
             {
                 return NotFound();
@@ -142,9 +139,10 @@ namespace Blank.Controllers
             if (order != null)
             {
                 _context.Orders.Remove(order);
+                await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Order deleted successfully.";
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

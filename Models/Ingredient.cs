@@ -11,11 +11,19 @@ namespace Blank.Models
     {
         [Key]
         public int IngId { get; set; }
+
+        [Required(ErrorMessage = "Ingredient name is required.")]
         public string IngName { get; set; }
+
         public string IngDescription { get; set; }
 
         [Range(0, int.MaxValue, ErrorMessage = "Number must be a positive value!")]
         public int Numer { get; set; }
-        public string Photo { get; set; }
+
+        public string? PhotoUrl { get; set; }
+
+        [NotMapped]
+        public IFormFile? PhotoFile { get; set; }
     }
+
 }

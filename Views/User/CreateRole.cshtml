@@ -1,0 +1,87 @@
+@{
+    ViewData["Title"] = "Create Role";
+    Layout = "~/Views/Shared/AdminLO.cshtml";
+}
+
+<h1 class="text-center">Create Role</h1>
+
+<div class="form-container">
+    <h4>Enter Role Details</h4>
+    <hr />
+    <form asp-action="CreateRole" method="post">
+        <div class="form-group">
+            <label for="roleName" class="control-label">Role Name</label>
+            <input type="text" name="roleName" class="form-control" placeholder="Enter role name" />
+        </div>
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-action="ManageRole" class="btn btn-secondary">Back to Role List</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        color: #212529; 
+        font-family: Arial, sans-serif;
+    }
+
+    h1, h4 {
+        color: #343a40; 
+    }
+
+    .form-control {
+        color: #212529;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+    }
+
+    .form-control::placeholder {
+        color: #6c757d;
+    }
+
+    .btn {
+        color: #fff;
+        border: none;
+        text-transform: uppercase;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #495057;
+    }
+
+    .form-group span.text-danger {
+        font-size: 0.9rem;
+    }
+
+    .table th, .table td {
+        color: #212529;
+    }
+
+    .action-buttons .btn {
+        margin-right: 10px;
+    }
+
+    .text-center {
+        color: #343a40;
+    }
+</style>
+

@@ -21,16 +21,20 @@
                     <dt class="col-sm-3">Number</dt>
                     <dd class="col-sm-9">@Html.DisplayFor(model => model.Numer)</dd>
 
-                    <td>
-                        @if (!string.IsNullOrEmpty(Model.Photo))
+                    <dt class="col-sm-3">Image</dt>
+                    <dt class="col-sm-3">Image</dt>
+                    <dd class="col-sm-9">
+                        @if (!string.IsNullOrEmpty(Model.PhotoUrl))
                         {
-                            <img src="~/imgs/@Model.Photo" alt="@Model.IngName" width="100" />
+                            <img src="@Model.PhotoUrl" alt="@Model.IngName"
+                                style="width: 150px; height: auto; border-radius: 8px;" />
                         }
                         else
                         {
                             <span>No Image Available</span>
                         }
-                    </td>
+                    </dd>
+
                 </dl>
             </div>
 
@@ -41,4 +45,3 @@
         </div>
     </div>
 </body>
-

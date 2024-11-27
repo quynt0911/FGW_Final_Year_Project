@@ -1,0 +1,226 @@
+@model Blank.Models.Reservation
+@{
+    Layout = "~/Views/Shared/UserLO.cshtml";
+}
+
+<!-- Reservation Form -->
+<h2 class="text-center mt-4">Make a Reservation</h2>
+
+<form asp-action="MakeReservation" method="post" id="reservationForm" class="mt-4">
+    <div class="mb-3">
+        <label for="RestaurantId" class="form-label">Select Restaurant</label>
+        <select asp-for="RestaurantId" class="form-select" id="restaurantDropdown">
+            <option value="">-- Select a Branch --</option>
+            @if (ViewBag.Restaurants != null && ViewBag.Restaurants is IEnumerable<Blank.Models.Restaurant>)
+            {
+                foreach (var restaurant in (IEnumerable<Blank.Models.Restaurant>)ViewBag.Restaurants)
+                {
+                    <option value="@restaurant.RestaurantId">@restaurant.ResName</option>
+                }
+            }
+            else
+            {
+                <option disabled>No restaurants available</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Branch Location</label>
+        <input type="text" id="branchLocation" class="form-control" disabled />
+    </div>
+
+    <div class="mb-3">
+        <label for="DateTime" class="form-label">Reservation Date and Time</label>
+        <input asp-for="DateTime" type="datetime-local" class="form-control" />
+    </div>
+
+    <!-- Select Table Option -->
+    <div class="mb-3">
+        <label class="form-label">Table Selection Method</label><br>
+        <input type="radio" name="TableOption" value="QuickPick" id="quickPick" checked />
+        <label for="quickPick">Quick Pick</label>
+        <input type="radio" name="TableOption" value="SelectTable" id="selectTable" />
+        <label for="selectTable">Select Table</label>
+    </div>
+
+    <div id="tableDiagram" style="display: none;">
+        <h3 class="mt-5 text-center">Select Your Table</h3>
+        <p class="text-center mb-3" style="font-size: 14px;">Click on a table to select it for your reservation.
+            Double-click a table to view details.</p>
+
+        <div id="dropArea"
+            style="position: relative; width: 100%; height: 500px; border: 1px solid black; overflow: hidden; background-image: url('/images/restaurant-background.jpg'); background-size: cover; background-position: center;">
+            @if (ViewBag.Tables != null && ViewBag.Tables is IEnumerable<Blank.Models.Table>)
+            {
+                foreach (var table in (IEnumerable<Blank.Models.Table>)ViewBag.Tables)
+                {
+                    var location = table.Location?.Split(',') ?? new string[] { "0", "0" };
+                    var top = location.Length > 0 ? location[0] : "0";
+                    var left = location.Length > 1 ? location[1] : "0";
+
+                    <div class="draggable" data-id="@table.TableId"
+                        ondblclick="viewTableDetails(@table.TableId)"
+                        onclick="selectTable(@table.TableId, '@table.TName')"
+                        style="position: absolute; top: @top px; left: @left px; 
+                               width: 50px; height: 50px; background-color: lightblue; text-align: center; line-height: 50px; border-radius: 5px; cursor: pointer;">
+                        @table.TName
+                    </div>
+                }
+            }
+            else
+            {
+                <p style="text-align: center; color: red;">No tables available for this branch.</p>
+            }
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <h5 id="selectedTableName" class="text-center">Selected Table: None</h5>
+        <input type="hidden" id="selectedTableId" name="tableId">
+    </div>
+
+    <div class="mb-3">
+        <label for="Request" class="form-label">Special Requests (Optional)</label>
+        <textarea asp-for="Request" class="form-control" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Submit Reservation</button>
+</form>
+
+<!-- Reservation Submitted Modal -->
+<div id="reservationModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center w-100">Reservation Submitted</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Your reservation has been submitted successfully and is pending approval by the admin.</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <a href="/" class="btn btn-primary">Return to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Table Details Modal -->
+<div id="tableModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Table Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="tableDetails"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const restaurants = @Html.Raw(Json.Serialize(ViewBag.Restaurants ?? new List<dynamic>()));
+    const tables = @Html.Raw(Json.Serialize(ViewBag.Tables ?? new List<dynamic>()));
+
+    // Update branch location on restaurant selection
+    document.getElementById("restaurantDropdown").addEventListener("change", function () {
+        const selectedId = this.value;
+        const selectedRestaurant = restaurants.find(r => r.restaurantId == selectedId);
+
+        if (selectedRestaurant) {
+            document.getElementById("branchLocation").value = selectedRestaurant.location;
+        } else {
+            document.getElementById("branchLocation").value = "";
+        }
+    });
+
+    function selectTable(tableId, tableName) {
+        document.getElementById("selectedTableName").innerText = `Selected Table: ${tableName}`;
+        document.getElementById("selectedTableId").value = tableId;
+    }
+
+    // View table details
+    function viewTableDetails(tableId) {
+        fetch(`/Reservation/DetailsApi/${tableId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Table not found.");
+                }
+                return response.json();
+            })
+            .then(data => {
+                const tableDetails = `
+                <strong>Name:</strong> ${data.tName}<br>
+                <strong>Status:</strong> ${data.tStatus}<br>
+                <strong>Location:</strong> ${data.location}
+            `;
+                document.getElementById("tableDetails").innerHTML = tableDetails;
+                new bootstrap.Modal(document.getElementById("tableModal")).show();
+            })
+            .catch(error => {
+                console.error("Error fetching table details:", error.message);
+                alert("Unable to fetch table details. Please try again.");
+            });
+    }
+
+    // Toggle table diagram visibility
+    document.getElementById("selectTable").addEventListener("change", () => {
+        document.getElementById("tableDiagram").style.display = "block";
+    });
+
+    document.getElementById("quickPick").addEventListener("change", () => {
+        document.getElementById("tableDiagram").style.display = "none";
+    });
+
+    // Show modal on form submission
+    document.getElementById("reservationForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const restaurantId = document.getElementById("restaurantDropdown").value;
+        const dateTime = document.querySelector("[asp-for='DateTime']").value;
+        const tableOption = document.querySelector('input[name="TableOption"]:checked').value;
+        const tableId = document.getElementById("selectedTableId").value;
+
+        if (!restaurantId || !dateTime || (tableOption === "SelectTable" && !tableId)) {
+            alert("Please fill all required fields and select a table if needed.");
+            return;
+        }
+
+        new bootstrap.Modal(document.getElementById("reservationModal")).show();
+    });
+</script>
+
+<style>
+    #dropArea {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        border: 1px solid black;
+        background-image: url('/images/restaurant-background.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .draggable {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: lightblue;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .draggable:hover {
+        background-color: skyblue;
+        transform: scale(1.1);
+    }
+</style>

@@ -1,79 +1,82 @@
 @model Blank.Models.Dish
-
 @{
     Layout = "~/Views/Shared/AdminLO.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Dish</title>
-    <link rel="stylesheet" href="~/css/bootstrap.min.css" /> 
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .form-container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h4 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .btn-primary {
-            width: 100%;
-        }
-        .back-link {
-            display: block;
-            margin-top: 20px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
+<h2 class="text-center mb-4">Create New Dish</h2>
 
 <div class="container">
-    <div class="form-container">
-        <h4>Create Dish</h4>
-        <hr />
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-            
-            <div class="form-group">
-                <label asp-for="RecipeId" class="control-label"></label>
-                <input asp-for="RecipeId" class="form-control" />
-                <span asp-validation-for="RecipeId" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="DishName" class="control-label"></label>
-                <input asp-for="DishName" class="form-control" />
-                <span asp-validation-for="DishName" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="DDescription" class="control-label"></label>
-                <input asp-for="DDescription" class="form-control" />
-                <span asp-validation-for="DDescription" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-
-        <a asp-action="Index" class="back-link">Back to List</a>
-    </div>
+    <form asp-action="Create" method="post" enctype="multipart/form-data" class="bg-light p-4 rounded shadow-sm">
+        <div class="form-group mb-3">
+            <label asp-for="DishName" class="form-label fw-bold">Name of Dish</label>
+            <input asp-for="DishName" class="form-control" placeholder="Enter dish name" />
+            <span asp-validation-for="DishName" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="DDescription" class="form-label fw-bold">Description</label>
+            <textarea asp-for="DDescription" class="form-control" placeholder="Enter dish description"></textarea>
+            <span asp-validation-for="DDescription" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="Price" class="form-label fw-bold">Price</label>
+            <input asp-for="Price" class="form-control" placeholder="Enter price" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="PhotoFile" class="form-label fw-bold">Photo</label>
+            <input asp-for="PhotoFile" type="file" class="form-control" />
+            <span asp-validation-for="PhotoFile" class="text-danger"></span>
+        </div>
+        <div class="d-flex justify-content-center gap-2 mt-3">
+            <button type="submit" class="btn btn-primary px-4">Create</button>
+            <a asp-action="Index" class="btn btn-secondary px-4">Back to List</a>
+        </div>
+    </form>
 </div>
 
-<script src="~/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<style>
+    h2.text-center {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-label {
+        font-weight: bold;
+        color: #495057;
+    }
+
+    .form-control {
+        border-radius: 8px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+    }
+
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+
+    .shadow-sm {
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    }
+</style>

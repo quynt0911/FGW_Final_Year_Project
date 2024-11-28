@@ -28,9 +28,16 @@ namespace Blank.Controllers
         public async Task<IActionResult> ViewT()
         {
             var tables = await _context.Tables.ToListAsync();
+            foreach (var table in tables)
+            {
+                if (string.IsNullOrWhiteSpace(table.Location) || !table.Location.Contains(","))
+                {
+                    table.Location = "0,0";
+                }
+            }
+
             return View(tables);
         }
-
         [HttpGet]
         public async Task<IActionResult> ViewTU()
         {
@@ -105,8 +112,6 @@ namespace Blank.Controllers
             public string TableId { get; set; }
             public string Location { get; set; }
         }
-
-
 
 
         // GET: Table/Details/5

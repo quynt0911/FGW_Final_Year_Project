@@ -1,7 +1,7 @@
 @model Blank.Models.Ingredient
 
 @{
-    Layout = "~/Views/Shared/AdminLO.cshtml";
+    Layout = "~/Views/Shared/UserLO.cshtml";
 }
 
 <body>
@@ -38,3 +38,77 @@
     </div>
 </body>
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        color: #212529;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+        overflow: hidden;
+    }
+
+    .card-header {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px 15px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    h5 {
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+
+    dl.row dt {
+        font-weight: bold;
+        color: #495057;
+    }
+
+    dl.row dd {
+        color: #212529;
+    }
+
+    .card-footer {
+        padding: 15px;
+        background-color: #f8f9fa;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 1rem;
+        border-radius: 5px;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+        border: none;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+</style>

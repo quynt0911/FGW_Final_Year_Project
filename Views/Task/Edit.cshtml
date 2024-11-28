@@ -36,3 +36,78 @@
     <button type="submit" class="btn btn-primary">Save</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>
+<style>
+    body {
+        background-color: #f8f9fa; /* Nền màu sáng nhẹ */
+        color: #343a40; /* Màu chữ chính */
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333; /* Màu chữ đậm cho tiêu đề */
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #495057; /* Màu xám đậm */
+    }
+
+    .form-control {
+        border: 1px solid #ced4da; /* Viền xám nhạt */
+        border-radius: 5px;
+        color: #495057; /* Màu chữ trong input */
+        background-color: #fff; /* Nền trắng cho input */
+        padding: 10px;
+    }
+
+    .form-control:focus {
+        border-color: #007bff; /* Viền xanh khi focus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Nút xanh đậm */
+        border-color: #007bff;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Nút xanh đậm hơn khi hover */
+        border-color: #004085;
+        color: #fff;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d; /* Nút xám đậm */
+        border-color: #6c757d;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268; /* Nút xám đậm hơn khi hover */
+        border-color: #545b62;
+        color: #fff;
+    }
+
+    form {
+        background-color: #fff; /* Nền trắng cho form */
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 600px;
+    }
+
+    .text-danger {
+        color: #dc3545 !important; /* Màu đỏ đậm cho lỗi */
+    }
+</style>

@@ -15,9 +15,15 @@
     <div class="col-md-8 col-lg-6">
         <form id="profile-form" method="post" enctype="multipart/form-data" class="bg-light p-4 rounded shadow-sm">
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
+            @*
+            <div class="mb-3">
+            <label asp-for="Input.FullName" class="form-label fw-bold">Full Name</label>
+            <input asp-for="Input.FullName" class="form-control" placeholder="Enter your full name" />
+            <span asp-validation-for="Input.FullName" class="text-danger"></span>
+            </div> *@
 
             <div class="mb-3">
-                <label asp-for="Username" class="form-label fw-bold">Username</label>
+                <label asp-for="Username" class="form-label fw-bold">Email</label>
                 <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
             </div>
 
@@ -79,5 +85,13 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         margin-top: 20px;
+    }
+
+    .form-label {
+        color: black !important;
+    }
+
+    .form-control {
+        color: black !important;
     }
 </style>

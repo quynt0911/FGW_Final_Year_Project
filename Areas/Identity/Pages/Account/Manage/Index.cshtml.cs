@@ -39,6 +39,9 @@ namespace Blank.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
+            [Display(Name = "Full Name")]
+            public string FullName { get; set; }
+
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -53,16 +56,20 @@ namespace Blank.Areas.Identity.Pages.Account.Manage
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
-            // Lấy đường dẫn ảnh đại diện
             ProfileImagePath = user.GetType().GetProperty("ProfileImagePath")?.GetValue(user)?.ToString();
+
+            var fullName = user.GetType().GetProperty("FullName")?.GetValue(user)?.ToString();
 
             Username = userName;
 
             Input = new InputModel
             {
+                FullName = fullName,
                 PhoneNumber = phoneNumber
             };
         }
+
+
 
 
         public async Task<IActionResult> OnGetAsync()
@@ -91,6 +98,7 @@ namespace Blank.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
+            // Cập nhật PhoneNumber
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)
             {
@@ -102,12 +110,17 @@ namespace Blank.Areas.Identity.Pages.Account.Manage
                 }
             }
 
+            // Cập nhật FullName
+            if (!string.IsNullOrEmpty(Input.FullName))
+            {
+                user.GetType().GetProperty("FullName")?.SetValue(user, Input.FullName);
+            }
+
             if (Input.ProfilePicture != null)
             {
-                // Tạo tên file duy nhất
                 string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(Input.ProfilePicture.FileName);
-
                 string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "profile");
+
                 if (!Directory.Exists(uploadsFolder))
                 {
                     Directory.CreateDirectory(uploadsFolder);
@@ -121,17 +134,14 @@ namespace Blank.Areas.Identity.Pages.Account.Manage
                 }
 
                 user.GetType().GetProperty("ProfileImagePath")?.SetValue(user, $"/images/profile/{uniqueFileName}");
-
             }
 
-
-            // Lưu thông tin người dùng vào cơ sở dữ liệu
+            // Lưu thay đổi
             await _userManager.UpdateAsync(user);
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
+
             return RedirectToPage();
         }
-
-
     }
 }

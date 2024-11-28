@@ -1,0 +1,106 @@
+@model Blank.Models.Restaurant
+
+@{
+    ViewData["Title"] = "Delete Restaurant";
+    Layout = "~/Views/Shared/AdminLO.cshtml";
+}
+
+<h2 class="text-center text-danger">Delete Restaurant</h2>
+
+<div class="alert alert-warning text-center">
+    <h5>Are you sure you want to delete this restaurant?</h5>
+    <p>This action cannot be undone.</p>
+</div>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-dark text-white">
+        <h5 class="mb-0">@Model.ResName</h5>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Location</dt>
+            <dd class="col-sm-9">@Model.Location</dd>
+
+            <dt class="col-sm-3">Photo</dt>
+            <dd class="col-sm-9">
+                @if (!string.IsNullOrEmpty(Model.PhotoUrl))
+                {
+                    <img src="@Model.PhotoUrl" alt="@Model.ResName" class="img-thumbnail" style="max-width: 200px;" />
+                }
+                else
+                {
+                    <p>No photo available</p>
+                }
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="RestaurantId" />
+    <div class="d-flex justify-content-center gap-2">
+        <button type="submit" class="btn btn-danger px-4">
+            <i class="bi bi-trash-fill"></i> Delete
+        </button>
+        <a asp-action="Index" class="btn btn-secondary px-4">
+            <i class="bi bi-arrow-left-circle"></i> Cancel
+        </a>
+    </div>
+</form>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+    h2.text-center {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: black; /* Đặt màu chữ đen */
+    }
+
+    .alert-warning {
+        background-color: #fff3cd;
+        color: black; /* Đặt màu chữ đen */
+        font-weight: bold;
+    }
+
+    .card-header {
+        background-color: #343a40;
+        color: white;
+        font-weight: bold;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: white;
+        font-weight: bold;
+    }
+
+    .btn-danger:hover {
+        background-color: #bd2130;
+        border-color: #b21f2d;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: white;
+        font-weight: bold;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+    }
+
+    label {
+        color: black; /* Đặt màu chữ đen cho tất cả nhãn */
+        font-weight: bold;
+    }
+
+    .form-control {
+        color: black; /* Đặt màu chữ đen trong input */
+        background-color: white; /* Nền trắng cho input */
+    }
+</style>
+

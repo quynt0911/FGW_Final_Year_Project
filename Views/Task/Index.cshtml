@@ -2,9 +2,13 @@
 @{
     var userId = User.Identity.Name;
     Layout = "~/Views/Shared/AdminLO.cshtml";
+    @if (User.IsInRole("Staff"))
+    {
+        Layout = "~/Views/Shared/UserLO.cshtml";
+    }
 }
 
-<h2>Task Management</h2>
+<h2>Task List</h2>
 
 @if (User.IsInRole("Admin"))
 {
@@ -16,11 +20,17 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Task ID</th>
-            <th>Name</th>
+            @if (User.IsInRole("Admin"))
+            {
+                <th>Task ID</th>
+            }
+            <th>Task Name</th>
             <th>Description</th>
             <th>Status</th>
-            <th>Assigned To</th>
+            @if (User.IsInRole("Admin"))
+            {
+                <th>Assigned To</th>
+            }
             <th>Actions</th>
         </tr>
     </thead>
@@ -28,11 +38,17 @@
         @foreach (var task in Model)
         {
             <tr>
-                <td>@task.TaskId</td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>@task.TaskId</td>
+                }
                 <td>@task.TaskName</td>
                 <td>@task.Description</td>
                 <td>@task.TaskStatus</td>
-                <td>@(string.IsNullOrEmpty(task.AssignedTo) ? "Unassigned" : task.AssignedTo)</td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>@(string.IsNullOrEmpty(task.AssignedTo) ? "Unassigned" : task.AssignedTo)</td>
+                }
                 <td>
                     @if (User.IsInRole("Admin"))
                     {
@@ -87,9 +103,8 @@
                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                         </form>
                     }
-                    else if (User.IsInRole("Staff") && task.AssignedTo == userId)
+                    else if (User.IsInRole("Staff"))
                     {
-                        <!-- Nút Do it -->
                         @if (task.TaskStatus == "Assigned")
                         {
                             <form method="post" asp-action="StartTask" asp-route-taskId="@task.TaskId" class="d-inline">
@@ -97,7 +112,6 @@
                             </form>
                         }
 
-                        <!-- Nút Complete -->
                         @if (task.TaskStatus == "In Process")
                         {
                             <form method="post" asp-action="CompleteTask" asp-route-taskId="@task.TaskId" class="d-inline">
@@ -110,3 +124,51 @@
         }
     </tbody>
 </table>
+
+
+<style>
+    h2.text-center {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-label {
+        font-weight: bold;
+        color: #495057;
+    }
+
+    .form-control {
+        border-radius: 8px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+    }
+
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+
+    .shadow-sm {
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    }
+</style>

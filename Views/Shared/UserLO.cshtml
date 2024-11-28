@@ -14,6 +14,7 @@
     <meta name="author" content="Restaurant Booking Team">
 
     <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/responsive.css">
@@ -38,18 +39,44 @@
                         <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="About">About Us</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Dish" asp-action="Menu">Menu</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Reservation"
-                                asp-action="MakeReservation">Reservation</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Gallery">Gallery</a>
                         </li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Dish" asp-action="Menu">Menu</a></li>
+
+                        @if (User.IsInRole("Customer"))
+                        {
+                        <li class="nav-item"><a class="nav-link" asp-controller="Reservation"
+                                asp-action="MakeReservation">Reservation</a></li>
+                        }
+                        @if (User.IsInRole("Staff"))
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="Task" asp-action="Index" class="nav-link"><i class="fas fa-phone-a"></i>
+                                    Task</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="Home" asp-action="Dash" class="nav-link"><i class="fas fa-phone-a"></i>
+                                    Dash</a>
+                            </li>
+                        }
+                        
+                        @if (User.IsInRole("Chef"))
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="Ingredient" asp-action="Index" class="nav-link"><i class="fas fa-phone-a"></i>
+                                    Ingredient</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Recipe" asp-action="Index" class="nav-link"><i class="fas fa-phone-a"></i>
+                                    Recipe</a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a asp-controller="Home" asp-action="Contact" class="nav-link"><i
                                     class="fas fa-phone-alt"></i> Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-controller="Home" asp-action="Dash" class="nav-link"><i
-                                    class="fas fa-phone-alt"></i> Dash</a>
                         </li>
                     </ul>
 
@@ -58,18 +85,23 @@
                         <li class="nav-item">
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <a asp-area="Identity" asp-page="/Account/Manage/Index" class="nav-link"><i
-                                        class="fas fa-user"></i> @User.Identity.Name</a>
-                                <a asp-area="Identity" asp-page="/Account/Logout" class="nav-link"><i
-                                        class="fas fa-sign-out-alt"></i> Logout</a>
+                                <a asp-area="Identity" asp-page="/Account/Manage/Index" class="nav-link">
+                                    <i class="fas fa-user"></i>
+                                    @User.Claims.FirstOrDefault(c => c.Type == "FullName")?.Value
+                                </a>
+                                <a asp-area="Identity" asp-page="/Account/Logout" class="nav-link">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </a>
                             }
                             else
                             {
-                                <a asp-area="Identity" asp-page="/Account/Login" class="nav-link"><i
-                                        class="fas fa-sign-in-alt"></i> Login</a>
+                                <a asp-area="Identity" asp-page="/Account/Login" class="nav-link">
+                                    <i class="fas fa-sign-in-alt"></i> Login
+                                </a>
                             }
                         </li>
                     </ul>
+
                 </div>
             </div>
         </nav>
@@ -131,3 +163,217 @@
 </body>
 
 </html>
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+        color: #f1c40f; /* Màu chữ tổng thể */
+        background-color: #2e2e2e; /* Nền tổng thể */
+    }
+
+    main {
+        flex: 1;
+    }
+
+    footer {
+        background-color: #311b0b;
+        color: #f1c40f;
+        padding: 20px 0;
+    }
+
+    .footer-main {
+        padding: 20px 0;
+    }
+
+    .footer-main ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-main ul li {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #f1c40f;
+    }
+
+    .footer-main ul li i {
+        margin-right: 8px;
+    }
+
+    .footer-main h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #f1c40f;
+        text-transform: uppercase;
+    }
+
+    .social-links {
+        padding: 0;
+        margin: 0;
+    }
+
+    .social-links li {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .social-links li a {
+        color: #f1c40f;
+        font-size: 18px;
+        text-decoration: none;
+    }
+
+    .social-links li a:hover {
+        color: #f39c12;
+    }
+
+    .footer-copyright {
+        text-align: center;
+        font-size: 12px;
+        margin-top: 15px;
+        border-top: 1px solid #4d2c16;
+        padding-top: 10px;
+        color: #f1c40f;
+    }
+
+    .navbar {
+        background-color: #311b0b;
+        border-bottom: 2px solid #f1c40f;
+    }
+
+    .navbar .nav-link {
+        color: #f1c40f;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .navbar .nav-link:hover {
+        color: #f39c12;
+    }
+
+    .navbar-brand img {
+        height: 50px;
+        width: auto;
+    }
+
+    table.table-bordered {
+        border: 1px solid #f1c40f;
+        background-color: #3b3b3b; /* Nền bảng */
+    }
+
+    table.table-bordered th {
+        background-color: #311b0b;
+        color: #f1c40f;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #f1c40f;
+    }
+
+    table.table-bordered td {
+        border: 1px solid #f1c40f;
+        color: #f1c40f; /* Chữ sáng để dễ đọc */
+        text-align: center;
+        background-color: #444444; /* Nền ô */
+    }
+
+    .btn {
+        border-radius: 5px;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        border: none;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        color: white;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        color: #311b0b;
+        border: none;
+    }
+
+    .btn-warning:hover {
+        background-color: #e0a800;
+        color: #311b0b;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        color: white;
+        border: none;
+    }
+
+    .btn-info:hover {
+        background-color: #117a8b;
+        color: white;
+    }
+
+    .modal-content {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-header {
+        background-color: #311b0b;
+        color: #f1c40f;
+        border-bottom: 1px solid #4d2c16;
+    }
+
+    .modal-footer {
+        border-top: 1px solid #4d2c16;
+    }
+
+    .text-danger {
+        color: #dc3545 !important;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    h2, h3, h4, h5, th, td {
+        color: #f1c40f; /* Màu chữ mặc định */
+    }
+</style>

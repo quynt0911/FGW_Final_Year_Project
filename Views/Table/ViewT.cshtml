@@ -10,22 +10,30 @@
     details. Click "Submit" to save changes.</p>
 
 <!-- Drop Area for Tables -->
-<div id="dropArea"
-    style="position: relative; width: 100%; height: 500px; border: 1px solid black; overflow: hidden; background-image: url('/images/restaurant-background.jpg'); background-size: cover; background-position: center;">
-    @foreach (var table in Model)
+<div id="dropArea" style="position: relative; width: 100%; height: 500px; 
+    border: 1px solid black; overflow: hidden; background-image: url('/images/restaurant-background.jpg'); 
+    background-size: cover; background-position: center;">
+    @if (Model != null && Model.Any())
     {
-        <div class="draggable" draggable="true" data-id="@table.TableId"
-            style="position: absolute; top: @(table.Location?.Split(',')[0] ?? "0")px; left: @(table.Location?.Split(',')[1] ?? "0")px;
+        @foreach (var table in Model)
+        {
+            <div class="draggable" draggable="true" data-id="@table.TableId"
+                style="position: absolute; top: @(table.Location?.Split(',')[0] ?? "0")px; left: @(table.Location?.Split(',')[1] ?? "0")px;
                     width: 50px; height: 50px; background-color: lightblue; text-align: center; line-height: 50px; cursor: move; border-radius: 5px;">
-            @table.TName
-        </div>
+                @table.TName
+            </div>
+        }
+    }
+    else
+    {
+        <p>No tables available to display.</p>
     }
 </div>
 
 <!-- Action Buttons -->
 <div style="margin-top: 20px; text-align: center;">
     <button id="submitBtn"
-        style="padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer;">Submit</button>
+        style="padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer;">Save</button>
     @* <button id="resetBtn"
     style="padding: 10px 20px; background-color: orange; color: white; border: none; cursor: pointer;">Reset</button> *@
 </div>
@@ -217,112 +225,131 @@
 </script>
 <style>
     #dropArea {
-        position: relative;
-        width: 100%;
-        height: 500px;
-        border: 1px solid black;
-        background-image: url('/images/restaurant-background.jpg');
-        background-size: cover;
-        background-position: center;
-        overflow: hidden;
-    }
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ccc; /* Viền nhạt */
+    background-color: #f9f9f9; /* Nền sáng */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+}
 
-    .draggable {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background-color: lightblue;
-        text-align: center;
-        line-height: 50px;
-        border-radius: 5px;
-        cursor: move;
-        transition: all 0.3s ease;
-        /* Smooth transition for position changes */
-    }
+.draggable {
+    position: absolute;
+    width: 60px; /* Kích thước lớn hơn */
+    height: 60px;
+    background-color: #4caf50; /* Màu xanh lá nổi bật */
+    color: white; /* Màu chữ */
+    font-weight: bold; /* Chữ đậm */
+    text-align: center;
+    line-height: 60px;
+    border-radius: 8px; /* Góc bo mềm mại */
+    cursor: grab; /* Con trỏ kéo */
+    transition: all 0.3s ease; /* Hiệu ứng hover mượt mà */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Đổ bóng bàn */
+}
 
-    .draggable:hover {
-        background-color: skyblue;
-    }
+.draggable:hover {
+    background-color: #45a049; /* Màu xanh lá đậm khi hover */
+}
 
-    #confirmationModal,
-    #retryModal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 20px;
-        border: 1px solid black;
-        z-index: 1000;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    }
+#confirmationModal,
+#retryModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; /* Nền trắng */
+    padding: 20px;
+    border: 1px solid #ddd; /* Viền xám nhạt */
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+    border-radius: 10px; /* Góc bo tròn */
+}
 
-    #confirmationModal h3,
-    #retryModal h3 {
-        margin-bottom: 20px;
-        font-size: 18px;
-        text-align: center;
-    }
+#confirmationModal h3,
+#retryModal h3 {
+    margin-bottom: 20px;
+    font-size: 18px; /* Cỡ chữ vừa phải */
+    text-align: center;
+    color: #333; /* Màu chữ xám đậm */
+}
 
-    #confirmationModal button,
-    #retryModal button {
-        margin: 10px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+#confirmationModal button,
+#retryModal button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Nút bo tròn */
+    cursor: pointer;
+}
 
-    #confirmationModal button#confirmYes {
-        background-color: green;
-        color: white;
-    }
+#confirmationModal button#confirmYes {
+    background-color: #4caf50; /* Màu xanh lá */
+    color: white; /* Chữ trắng */
+}
 
-    #confirmationModal button#confirmNo {
-        background-color: red;
-        color: white;
-    }
+#confirmationModal button#confirmNo {
+    background-color: #f44336; /* Màu đỏ */
+    color: white; /* Chữ trắng */
+}
 
-    #retryModal button#retryBtn {
-        background-color: orange;
-        color: white;
-    }
+#retryModal button#retryBtn {
+    background-color: #ff9800; /* Màu cam */
+    color: white; /* Chữ trắng */
+}
 
-    #tableModal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 20px;
-        border: 1px solid black;
-        z-index: 1500;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    }
+#tableModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white; /* Nền trắng */
+    padding: 20px;
+    border: 1px solid black;
+    z-index: 1500;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+    border-radius: 10px; /* Bo tròn */
+}
 
-    #tableModal h2 {
-        margin-bottom: 10px;
-        text-align: center;
-    }
+#tableModal h2 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px; /* Cỡ chữ tiêu đề */
+}
 
-    #tableModal p {
-        text-align: left;
-        font-size: 14px;
-        line-height: 1.5;
-    }
+#tableModal p {
+    text-align: left;
+    font-size: 14px; /* Cỡ chữ nội dung */
+    line-height: 1.5;
+}
 
-    #tableModal button {
-        display: block;
-        margin: 20px auto 0 auto;
-        padding: 10px 20px;
-        background-color: blue;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+#tableModal button {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px; /* Bo tròn nút */
+    cursor: pointer;
+}
 
-    #tableModal button:hover {
-        background-color: darkblue;
-    }
+#tableModal button:hover {
+    background-color: darkblue; /* Màu xanh đậm khi hover */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9; /* Hiệu ứng nhấn nút */
+}
+
 </style>

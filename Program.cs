@@ -168,10 +168,15 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.SignIn.RequireConfirmedEmail = false; // Tùy chọn nếu bạn chưa muốn xác nhận email
 });
 
+
 // Đăng ký IEmailSender với dịch vụ giả
-builder.Services.AddTransient<IEmailSender, EmailSender>();
+// Cấu hình EmailSettings từ appsettings.json
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddSingleton<IEmailSender, EmailSender>();
+
 
 var app = builder.Build();
+
 
 if (!app.Environment.IsDevelopment())
 {

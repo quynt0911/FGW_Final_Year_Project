@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2obBd6vtpOEiAXecs2Y+nJGc4FTz5wVoaHDJGzixzWM=",
+  "Hash": "1xAEC+iZFH7cBtxUBq+AZZ90qWg1jXrdO1PJYo2nO1U=",
   "Source": "Blank",
   "BasePath": "_content/Blank",
   "Mode": "Default",
@@ -2544,6 +2544,25 @@
       "OriginalItemSpec": "wwwroot\\images\\ingredients\\0d7f0a8b-b2a4-444f-9a60-03e55af95bec_323002742082126.png"
     },
     {
+      "Identity": "D:\\. For Final Project\\Blank\\wwwroot\\images\\ingredients\\222489b1-98fb-47bd-8ac2-09f3ea25337b_pexels-ella-olsson-572949-1640772.jpg",
+      "SourceId": "Blank",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\. For Final Project\\Blank\\wwwroot\\",
+      "BasePath": "_content/Blank",
+      "RelativePath": "images/ingredients/222489b1-98fb-47bd-8ac2-09f3ea25337b_pexels-ella-olsson-572949-1640772.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ingredients\\222489b1-98fb-47bd-8ac2-09f3ea25337b_pexels-ella-olsson-572949-1640772.jpg"
+    },
+    {
       "Identity": "D:\\. For Final Project\\Blank\\wwwroot\\images\\ingredients\\31a7c118-1f57-4f2b-942d-cb47d6903725_122113664738196224.png",
       "SourceId": "Blank",
       "SourceType": "Discovered",
@@ -2998,6 +3017,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\popular_dishes.jpg"
+    },
+    {
+      "Identity": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\1c3f5374-d6cb-4a7c-93ad-2ef49de24b9c_pexels-iina-luoto-460132-1211887.jpg",
+      "SourceId": "Blank",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\. For Final Project\\Blank\\wwwroot\\",
+      "BasePath": "_content/Blank",
+      "RelativePath": "images/profile/1c3f5374-d6cb-4a7c-93ad-2ef49de24b9c_pexels-iina-luoto-460132-1211887.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\profile\\1c3f5374-d6cb-4a7c-93ad-2ef49de24b9c_pexels-iina-luoto-460132-1211887.jpg"
     },
     {
       "Identity": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\2688b261-9672-46d0-bce9-e4fa03be73ac_314452532937147.png",

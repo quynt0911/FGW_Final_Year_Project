@@ -1152,6 +1152,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\0d7f0a8b-b2a4-444f-9a60-03e55af95bec_323002742082126.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\222489b1-98fb-47bd-8ac2-09f3ea25337b_pexels-ella-olsson-572949-1640772.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Blank</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Blank</BasePath>
+      <RelativePath>images/ingredients/222489b1-98fb-47bd-8ac2-09f3ea25337b_pexels-ella-olsson-572949-1640772.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\222489b1-98fb-47bd-8ac2-09f3ea25337b_pexels-ella-olsson-572949-1640772.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\31a7c118-1f57-4f2b-942d-cb47d6903725_122113664738196224.png))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
@@ -1535,6 +1551,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\popular_dishes.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile\1c3f5374-d6cb-4a7c-93ad-2ef49de24b9c_pexels-iina-luoto-460132-1211887.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Blank</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Blank</BasePath>
+      <RelativePath>images/profile/1c3f5374-d6cb-4a7c-93ad-2ef49de24b9c_pexels-iina-luoto-460132-1211887.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile\1c3f5374-d6cb-4a7c-93ad-2ef49de24b9c_pexels-iina-luoto-460132-1211887.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile\2688b261-9672-46d0-bce9-e4fa03be73ac_314452532937147.png))">
       <SourceType>Package</SourceType>

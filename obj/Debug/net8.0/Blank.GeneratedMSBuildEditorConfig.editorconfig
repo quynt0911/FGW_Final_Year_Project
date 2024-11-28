@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\. For Final Project\Blank
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/. For Final Project/Blank/Areas/Identity/Pages/Account/Confirmed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/. For Final Project/Blank/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/. For Final Project/Blank/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/. For Final Project/Blank/Areas/Identity/Pages/Account/Manage/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ29uZmlybUVtYWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/. For Final Project/Blank/Areas/Identity/Pages/Account/Manage/Index.cshtml]
@@ -52,6 +60,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/. For Final Project/Blank/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/. For Final Project/Blank/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/. For Final Project/Blank/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/. For Final Project/Blank/Areas/Identity/Pages/Account/ResetPassword.cshtml]
@@ -216,6 +232,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/. For Final Project/Blank/Views/Restaurant/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/. For Final Project/Blank/Views/Restaurant/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/. For Final Project/Blank/Views/Restaurant/Edit.cshtml]

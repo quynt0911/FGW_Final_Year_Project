@@ -118,7 +118,6 @@ namespace Blank.Controllers
                 {
                     if (ingredient.PhotoFile != null)
                     {
-                        // Xóa ảnh cũ
                         if (!string.IsNullOrEmpty(ingredient.PhotoUrl))
                         {
                             string oldFilePath = Path.Combine(_webHostEnvironment.WebRootPath, ingredient.PhotoUrl.TrimStart('/'));
@@ -128,7 +127,6 @@ namespace Blank.Controllers
                             }
                         }
 
-                        // Lưu ảnh mới
                         string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(ingredient.PhotoFile.FileName);
                         string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "ingredients");
                         string filePath = Path.Combine(uploadsFolder, uniqueFileName);

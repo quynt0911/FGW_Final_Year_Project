@@ -15,7 +15,6 @@ namespace Blank.Models
         {
         }
 
-        // Define DbSets for models
         public DbSet<Restaurant> Restaurants { get; set; }
         public DbSet<Table> Tables { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
@@ -35,7 +34,7 @@ namespace Blank.Models
                 .HasOne(o => o.Dish)
                 .WithMany(d => d.Orders)
                 .HasForeignKey(o => o.DishId)
-                .OnDelete(DeleteBehavior.Restrict); // Prevent cascade delete
+                .OnDelete(DeleteBehavior.Restrict); 
 
             // Order -> Table (Many-to-One)
             builder.Entity<Order>()
@@ -55,24 +54,21 @@ namespace Blank.Models
                 .HasOne(r => r.Table)
                 .WithMany(t => t.Reservations)
                 .HasForeignKey(r => r.TableId)
-                .OnDelete(DeleteBehavior.SetNull); // Allow null TableId for Quick Pick
+                .OnDelete(DeleteBehavior.SetNull);
 
 
-            // Define unique constraints, indexes, or other configurations
             builder.Entity<Restaurant>()
                 .HasIndex(r => r.ResName)
-                .IsUnique(); // Ensure restaurant names are unique
-
+                .IsUnique(); 
             builder.Entity<Table>()
                 .Property(t => t.TName)
-                .IsRequired(); // Make TName required
+                .IsRequired(); 
 
             builder.Entity<Reservation>()
                 .Property(r => r.CustomerName)
-                .IsRequired(); // CustomerName must be required
+                .IsRequired();
         }
 
-        // Example of adding a new DbSet
         public DbSet<UserViewModel> UserViewModel { get; set; } = default!;
     }
 }

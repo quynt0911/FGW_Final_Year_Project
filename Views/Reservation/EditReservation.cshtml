@@ -1,0 +1,83 @@
+@model Blank.Models.Reservation
+@{
+    Layout = "~/Views/Shared/UserLO.cshtml";
+}
+
+<h2>Edit Your Reservation</h2>
+
+<form asp-action="EditReservation" method="post">
+    <input type="hidden" asp-for="ReserId" />
+    <input type="hidden" asp-for="CustomerId" />
+
+    <!-- Restaurant Dropdown -->
+    <div class="mb-3">
+        <label for="RestaurantId" class="form-label">Select Restaurant</label>
+        <select asp-for="RestaurantId" class="form-select" id="restaurantDropdown">
+            <option value="">-- Select a Branch --</option>
+            @if (ViewBag.Restaurants != null && ViewBag.Restaurants is IEnumerable<Blank.Models.Restaurant>)
+            {
+                foreach (var restaurant in (IEnumerable<Blank.Models.Restaurant>)ViewBag.Restaurants)
+                {
+                    <option value="@restaurant.RestaurantId">@restaurant.ResName</option>
+                }
+            }
+            else
+            {
+                <option disabled>No restaurants available</option>
+            }
+        </select>
+    </div>
+
+        <!-- Location Field -->
+    <div class="mb-3">
+        <label class="form-label">Location</label>
+        <input type="text" id="branchLocation" class="form-control" disabled />
+    </div>
+
+    <div class="mb-3">
+        <label for="DateTime" class="form-label">Date and Time</label>
+        <input asp-for="DateTime" type="datetime-local" class="form-control" />
+    </div>
+
+    <!-- Selected Table -->
+    <div class="mb-3">
+        <label for="selectedTableField" class="form-label">Selected Table</label>
+        <div style="display: flex; align-items: center;">
+            <input type="text" id="selectedTableField" name="TableId" class="form-control"
+                value="@ViewData["SelectedTableName"] ?? " None" readonly />
+            <a href="/Table/ViewT" class="btn btn-secondary ms-3" style="white-space: nowrap;">Select Table</a>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="Request" class="form-label">Special Requests</label>
+        <textarea asp-for="Request" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Changes</button>
+</form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const restaurants = @Html.Raw(Json.Serialize(ViewBag.Restaurants ?? new List<dynamic>()));
+        const restaurantDropdown = document.getElementById("restaurantDropdown");
+        const branchLocation = document.getElementById("branchLocation");
+
+        restaurantDropdown?.addEventListener("change", () => {
+            const selectedId = restaurantDropdown.value;
+            const selectedRestaurant = restaurants.find(r => r.restaurantId == selectedId);
+            branchLocation.value = selectedRestaurant ? selectedRestaurant.location : "";
+        });
+
+        const selectedTableName = sessionStorage.getItem("selectedTableName");
+        const selectedTableId = sessionStorage.getItem("selectedTableId");
+
+        if (selectedTableName) {
+            const selectedTableField = document.getElementById("selectedTableField");
+            selectedTableField.value = selectedTableName;
+        }
+
+        sessionStorage.removeItem("selectedTableName");
+        sessionStorage.removeItem("selectedTableId");
+    });
+</script>

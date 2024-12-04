@@ -4,6 +4,7 @@ using Blank.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blank.Migrations
 {
     [DbContext(typeof(FinalprojectContext))]
-    partial class FinalprojectContextModelSnapshot : ModelSnapshot
+    [Migration("20241128170929_RevertToIdentityUser")]
+    partial class RevertToIdentityUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -160,6 +163,13 @@ namespace Blank.Migrations
 
                     b.Property<int?>("TableId")
                         .HasColumnType("int");
+
+                    b.Property<string>("TableOption")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TableSelectionMethod")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("ReserId");
 

@@ -1,0 +1,44 @@
+@model IEnumerable<Blank.Models.Reservation>
+@{
+    Layout = "~/Views/Shared/UserLO.cshtml";
+}
+
+<h2>Your Reservation History</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Table</th>
+            <th>Branch</th>
+            <th>Date & Time</th>
+            <th>Special Requests</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var res in Model)
+        {
+            <tr>
+                <td>@res.Table?.TName</td>
+                <td>@res.Restaurant?.ResName - @res.Restaurant?.Location</td>
+                <td>@res.DateTime.ToString("MM/dd/yyyy hh:mm tt")</td>
+                <td>
+                    @if(@res.Request == null){
+                        <a>No special requirement</a>
+                    }
+                    else{
+                        @res.Request.ToString()
+                    }
+                </td>
+                <td>@res.RStatus</td>
+                <td>
+                    @if (res.RStatus != "Rejected")
+                    {
+                        <a asp-action="EditReservation" asp-route-id="@res.ReserId" class="btn btn-warning">Edit</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

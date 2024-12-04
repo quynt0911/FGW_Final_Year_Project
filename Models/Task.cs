@@ -19,6 +19,6 @@ namespace Blank.Models
         [Required]
         public string TaskStatus { get; set; } = "Pending";
 
-        public string AssignedTo { get; set; } // Lưu ID của nhân viên được giao
+        public string AssignedTo { get; set; }
     }
 }

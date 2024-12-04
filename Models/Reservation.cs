@@ -10,7 +10,7 @@ namespace Blank.Models
         public int ReserId { get; set; }
 
         [ForeignKey("Table")]
-        public int? TableId { get; set; } // Nullable for "Quick Pick" option
+        public int? TableId { get; set; }
 
         [ForeignKey("Restaurant")]
         public int RestaurantId { get; set; }
@@ -19,21 +19,19 @@ namespace Blank.Models
         public DateTime DateTime { get; set; }
 
         [MaxLength(50)]
-        public string RStatus { get; set; } // Pending, Approved, Rejected
+        public string RStatus { get; set; } = "Pending";
 
         [MaxLength(500)]
-        public string Request { get; set; } // Optional special requests
-
-        [MaxLength(20)]
-        public string TableSelectionMethod { get; set; } // Quick Pick or Select Table
+        public string Request { get; set; } 
 
         [MaxLength(100)]
-        public string CustomerName { get; set; } // Name of the customer
+        public string CustomerName { get; set; } 
 
-        // Navigation Properties
-        public virtual Table Table { get; set; } // Related table
-        public virtual Restaurant Restaurant { get; set; } // Related restaurant
-        public string TableOption { get; set; }
+        // [Required]
+        public string  CustomerId{ get; set; }
+
+        public virtual Table Table { get; set; } 
+        public virtual Restaurant Restaurant { get; set; } 
 
     }
 }

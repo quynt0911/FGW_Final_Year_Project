@@ -21,8 +21,8 @@ namespace Blank.Controllers
         public async Task<IActionResult> Index()
         {
             var orders = await _context.Orders
-                .Include(o => o.Dish) // Load related Dish
-                .Include(o => o.Table) // Load related Table
+                .Include(o => o.Dish) 
+                .Include(o => o.Table) 
                 .ToListAsync();
 
             return View(orders);
@@ -43,7 +43,7 @@ namespace Blank.Controllers
         {
             if (ModelState.IsValid)
             {
-                order.OStatus = "Pending"; // Default status
+                order.OStatus = "Pending"; 
                 _context.Add(order);
                 await _context.SaveChangesAsync();
                 TempData["SuccessMessage"] = "Order created successfully.";

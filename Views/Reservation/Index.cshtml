@@ -47,14 +47,7 @@
                         <td>@reservation.CustomerName</td>
                         <td>@reservation.Restaurant?.ResName ?? "N/A"</td>
                         <td>
-                            @if (!string.IsNullOrEmpty(reservation.Table?.TName))
-                            {
-                                <span>@reservation.Table.TName</span>
-                            }
-                            else
-                            {
-                                <span class="text-muted">Ask for help choosing a table</span>
-                            }
+                           @reservation.Table?.TName
                         </td>
                         <td>@reservation.DateTime.ToString("g")</td>
                         <td>

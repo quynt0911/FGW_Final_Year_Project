@@ -27,10 +27,8 @@ namespace Blank.Controllers
 
             if (roles.Contains("Admin"))
             {
-                // Admin thấy tất cả các task
                 var tasks = await _context.Tasks.ToListAsync();
 
-                // Lấy danh sách Staff
                 var staffList = await _userManager.GetUsersInRoleAsync("Staff");
                 ViewBag.StaffList = staffList.Select(s => new { UserId = s.Id, UserName = s.UserName });
 
@@ -38,7 +36,6 @@ namespace Blank.Controllers
             }
             else if (roles.Contains("Staff"))
             {
-                // Staff chỉ thấy các task được giao cho họ
                 var tasks = await _context.Tasks
                     .Where(t => t.AssignedTo == user.Id)
                     .ToListAsync();
@@ -79,7 +76,7 @@ namespace Blank.Controllers
         {
             if (ModelState.IsValid)
             {
-                task.TaskStatus = "Pending"; // Task mặc định ở trạng thái Pending khi tạo mới
+                task.TaskStatus = "Pending"; 
                 _context.Add(task);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -201,7 +198,7 @@ namespace Blank.Controllers
                 return BadRequest("Task must be assigned before starting.");
             }
 
-            task.TaskStatus = "In Process"; // Đổi trạng thái thành In Process
+            task.TaskStatus = "In Process";
             _context.Update(task);
             await _context.SaveChangesAsync();
 
@@ -218,7 +215,7 @@ namespace Blank.Controllers
                 return BadRequest("Task must be in process to complete.");
             }
 
-            task.TaskStatus = "Complete"; // Đổi trạng thái thành Complete
+            task.TaskStatus = "Complete"; 
             _context.Update(task);
             await _context.SaveChangesAsync();
 

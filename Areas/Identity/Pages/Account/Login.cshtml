@@ -59,25 +59,6 @@
                                 <i class="fas fa-sign-in-alt mr-2"></i>Log in
                             </button>
                         </div>
-
-                        @* @if (!string.IsNullOrEmpty(TempData["ResendConfirmationMessage"] as string))
-                        {
-                            <div class="alert alert-warning mt-3">
-                                @TempData["ResendConfirmationMessage"]
-                            </div>
-                        }
-
-                        @if (!Model.Input.IsEmailConfirmed)
-                        {
-                            <p class="text-danger">Your email is not confirmed yet. Please check your email or resend the
-                                confirmation link.</p>
-                            <form asp-action="ResendEmailConfirmation" method="post">
-                                <input type="hidden" name="Email" value="@Model.Input.Email" />
-                                <button type="submit" class="btn btn-primary">Resend Confirmation Email</button>
-                            </form>
-                        } *@
-
-
                         <div class="text-center mt-3">
                             <a id="forgot-password" asp-page="./ForgotPassword" class="text-gradient">Forgot your
                                 password?</a>

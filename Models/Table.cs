@@ -13,18 +13,16 @@ namespace Blank.Models
         public int TableId { get; set; }
 
         [Required]
-        public string TName { get; set; } // Table name
+        public string TName { get; set; }
 
         [Required]
-        public string Location { get; set; } // Location of the table
+        public string Location { get; set; } 
 
         [Required]
-        public string TStatus { get; set; } // Table status (e.g., Available, Occupied)
+        public string TStatus { get; set; } 
 
-        // Navigation property to Orders
         public virtual ICollection<Order> Orders { get; set; }
 
-        // Navigation property to Reservations (if used)
         public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

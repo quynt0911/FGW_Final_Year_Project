@@ -1,7 +1,7 @@
 @using Blank.Models
 @model IEnumerable<Table>
 @{
-    Layout = "~/Views/Shared/AdminLO.cshtml";
+    Layout = "~/Views/Shared/UserLO.cshtml";
 }
 
 <!-- Title and Instructions -->
@@ -10,32 +10,25 @@
     details. Click "Submit" to save changes.</p>
 
 <!-- Drop Area for Tables -->
-<div id="dropArea" style="position: relative; width: 100%; height: 500px; 
-    border: 1px solid black; overflow: hidden; background-image: url('/images/restaurant-background.jpg'); 
-    background-size: cover; background-position: center;">
-    @if (Model != null && Model.Any())
+<div id="dropArea"
+    style="position: relative; width: 100%; height: 500px; border: 1px solid black; overflow: hidden; background-image: url('/images/restaurant-background.jpg'); background-size: cover; background-position: center;">
+    @foreach (var table in Model)
     {
-        @foreach (var table in Model)
-        {
-            <div class="draggable" draggable="true" data-id="@table.TableId"
-                style="position: absolute; top: @(table.Location?.Split(',')[0] ?? "0")px; left: @(table.Location?.Split(',')[1] ?? "0")px;
+        <div class="draggable" draggable="true" data-id="@table.TableId"
+            style="position: absolute; top: @(table.Location?.Split(',')[0] ?? "0")px; left: @(table.Location?.Split(',')[1] ?? "0")px;
                     width: 50px; height: 50px; background-color: lightblue; text-align: center; line-height: 50px; cursor: move; border-radius: 5px;">
-                @table.TName
-            </div>
-        }
-    }
-    else
-    {
-        <p>No tables available to display.</p>
+            @table.TName
+        </div>
     }
 </div>
 
 <!-- Action Buttons -->
 <div style="margin-top: 20px; text-align: center;">
     <button id="submitBtn"
-        style="padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer;">Save</button>
-    @* <button id="resetBtn"
-    style="padding: 10px 20px; background-color: orange; color: white; border: none; cursor: pointer;">Reset</button> *@
+        style="padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer;">Submit</button>
+    <button id="selectTableBtn"
+        style="padding: 10px 20px; background-color: blue; color: white; border: none; cursor: pointer; margin-right: 10px;">Select
+        Table</button>
 </div>
 
 <!-- Confirmation Modal -->
@@ -67,6 +60,8 @@
 <script>
     const tablesData = [];
     const previousPositions = {};
+    let selectedTableId = null;
+    let selectedTableName = null;
 
     document.querySelectorAll('.draggable').forEach(element => {
         const tableId = element.dataset.id;
@@ -76,6 +71,21 @@
             top: parseInt(element.style.top, 10) || 0,
             left: parseInt(element.style.left, 10) || 0,
         };
+
+        document.getElementById('selectTableBtn').addEventListener('click', () => {
+            if (!selectedTableId || !selectedTableName) {
+                alert("Please select a table before proceeding.");
+                return;
+            }
+
+            // Lưu dữ liệu vào sessionStorage
+            sessionStorage.setItem("selectedTableId", selectedTableId);
+            sessionStorage.setItem("selectedTableName", selectedTableName);
+
+            // Chuyển hướng về trang Make Reservation
+            window.location.href = "/Reservation/MakeReservation";
+        });
+
 
         // Drag End Event
         element.addEventListener('dragend', (e) => {
@@ -92,45 +102,39 @@
 
             // Check collision
             if (checkCollision(element, newTop, newLeft)) {
-                showRetryModal();
+                alert("Cannot overlap with other tables.");
+                resetAllTables();
                 return;
             }
 
             // Update new position
-            element.style.top = newTop + "px";
-            element.style.left = newLeft + "px";
+            element.style.top = `${Math.round(newTop)}px`;
+            element.style.left = `${Math.round(newLeft)}px`;
 
             const tableIndex = tablesData.findIndex(t => t.tableId === tableId);
             if (tableIndex >= 0) {
-                tablesData[tableIndex].location = `${newTop},${newLeft}`;
+                tablesData[tableIndex].location = `${Math.round(newTop)},${Math.round(newLeft)}`;
             } else {
-                tablesData.push({ tableId: tableId, location: `${newTop},${newLeft}` });
+                tablesData.push({ tableId: tableId, location: `${Math.round(newTop)},${Math.round(newLeft)}` });
             }
         });
 
-        // Double Click Event to Show Details
-        element.addEventListener('dblclick', async () => {
-            const tableId = element.dataset.id;
-            try {
-                const response = await fetch(`/Table/DetailsApi/${tableId}`);
-                if (!response.ok) throw new Error("Failed to fetch details.");
-                const tableData = await response.json();
-                openModal(`Name: ${tableData.tName}, Status: ${tableData.tStatus}, Location: ${tableData.location}`);
-            } catch (error) {
-                alert("Unable to fetch table details. Error: " + error.message);
-            }
+        // Click Event to Select Table
+        element.addEventListener('click', () => {
+            document.querySelectorAll('.draggable').forEach(el => el.style.border = '2px solid transparent');
+            element.style.border = '2px solid blue';
+            selectedTableId = tableId;
+            selectedTableName = element.textContent.trim();
         });
     });
 
-    // Functions
-    function openModal(details) {
-        const modal = document.getElementById("tableModal");
-        document.getElementById("tableDetails").innerText = details;
-        modal.style.display = "block";
-    }
-
-    function closeModal() {
-        document.getElementById("tableModal").style.display = "none";
+    // Reset Tables to Initial Positions
+    function resetAllTables() {
+        Object.keys(previousPositions).forEach(tableId => {
+            const element = document.querySelector(`.draggable[data-id="${tableId}"]`);
+            element.style.top = previousPositions[tableId].top + "px";
+            element.style.left = previousPositions[tableId].left + "px";
+        });
     }
 
     function checkCollision(currentElement, newTop, newLeft) {
@@ -160,54 +164,20 @@
         return collisionDetected;
     }
 
-    function resetAllTables() {
-        Object.keys(previousPositions).forEach(tableId => {
-            const element = document.querySelector(`.draggable[data-id="${tableId}"]`);
-            element.style.top = previousPositions[tableId].top + "px";
-            element.style.left = previousPositions[tableId].left + "px";
-        });
-        hideRetryModal();
-    }
-
-    function showRetryModal() {
-        document.getElementById("retryModal").style.display = "block";
-    }
-
-    function hideRetryModal() {
-        document.getElementById("retryModal").style.display = "none";
-    }
-
-    document.getElementById('retryBtn').addEventListener('click', resetAllTables);
-
-    document.getElementById('submitBtn').addEventListener('click', () => {
+    // Submit Button Logic
+    document.getElementById('submitBtn').addEventListener('click', async () => {
         if (tablesData.length === 0) {
-            alert('No changes to save.');
+            alert("No changes to save.");
             return;
         }
 
-        // Check collisions before submit
-        let collisionExists = false;
-        document.querySelectorAll('.draggable').forEach(el => {
-            const newTop = parseInt(el.style.top, 10);
-            const newLeft = parseInt(el.style.left, 10);
-            if (checkCollision(el, newTop, newLeft)) collisionExists = true;
-        });
-
-        if (collisionExists) {
-            alert("Cannot save. Tables are overlapping.");
-            return;
-        }
-
-        document.getElementById('confirmationModal').style.display = 'block';
-    });
-
-    document.getElementById('confirmYes').addEventListener('click', async () => {
         try {
             const response = await fetch('/Table/UpdateAllPositions', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(tablesData),
             });
+
             if (response.ok) {
                 alert('Table positions updated successfully!');
                 location.reload();
@@ -219,137 +189,78 @@
         }
     });
 
-    document.getElementById('confirmNo').addEventListener('click', () => {
-        document.getElementById('confirmationModal').style.display = 'none';
+    // Select Table Button Logic
+    document.getElementById('selectTableBtn').addEventListener('click', () => {
+        if (!selectedTableId || !selectedTableName) {
+            alert("Please select a table before proceeding.");
+            return;
+        }
+
+        sessionStorage.setItem("selectedTableId", selectedTableId);
+        sessionStorage.setItem("selectedTableName", selectedTableName);
+
+        // Redirect to Make Reservation page
+        window.location.href = "/Reservation/MakeReservation";
     });
 </script>
+
 <style>
     #dropArea {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    border: 1px solid #ccc; /* Viền nhạt */
-    background-color: #f9f9f9; /* Nền sáng */
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
-}
+        position: relative;
+        width: 100%;
+        height: 500px;
+        border: 1px solid black;
+        background-image: url('/images/restaurant-background.jpg');
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+    }
 
-.draggable {
-    position: absolute;
-    width: 60px; /* Kích thước lớn hơn */
-    height: 60px;
-    background-color: #4caf50; /* Màu xanh lá nổi bật */
-    color: white; /* Màu chữ */
-    font-weight: bold; /* Chữ đậm */
-    text-align: center;
-    line-height: 60px;
-    border-radius: 8px; /* Góc bo mềm mại */
-    cursor: grab; /* Con trỏ kéo */
-    transition: all 0.3s ease; /* Hiệu ứng hover mượt mà */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Đổ bóng bàn */
-}
+    .draggable {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: lightblue;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 5px;
+        cursor: move;
+        border: 2px solid transparent;
+        transition: all 0.2s ease;
+    }
 
-.draggable:hover {
-    background-color: #45a049; /* Màu xanh lá đậm khi hover */
-}
+    .draggable:hover {
+        background-color: skyblue;
+    }
 
-#confirmationModal,
-#retryModal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff; /* Nền trắng */
-    padding: 20px;
-    border: 1px solid #ddd; /* Viền xám nhạt */
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
-    border-radius: 10px; /* Góc bo tròn */
-}
+    .draggable.selected {
+        border: 2px solid blue;
+    }
 
-#confirmationModal h3,
-#retryModal h3 {
-    margin-bottom: 20px;
-    font-size: 18px; /* Cỡ chữ vừa phải */
-    text-align: center;
-    color: #333; /* Màu chữ xám đậm */
-}
+    #selectTableBtn {
+        padding: 10px 20px;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
 
-#confirmationModal button,
-#retryModal button {
-    margin: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px; /* Nút bo tròn */
-    cursor: pointer;
-}
+    #selectTableBtn:hover {
+        background-color: darkblue;
+    }
 
-#confirmationModal button#confirmYes {
-    background-color: #4caf50; /* Màu xanh lá */
-    color: white; /* Chữ trắng */
-}
+    #submitBtn {
+        padding: 10px 20px;
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-#confirmationModal button#confirmNo {
-    background-color: #f44336; /* Màu đỏ */
-    color: white; /* Chữ trắng */
-}
-
-#retryModal button#retryBtn {
-    background-color: #ff9800; /* Màu cam */
-    color: white; /* Chữ trắng */
-}
-
-#tableModal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white; /* Nền trắng */
-    padding: 20px;
-    border: 1px solid black;
-    z-index: 1500;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
-    border-radius: 10px; /* Bo tròn */
-}
-
-#tableModal h2 {
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: 20px; /* Cỡ chữ tiêu đề */
-}
-
-#tableModal p {
-    text-align: left;
-    font-size: 14px; /* Cỡ chữ nội dung */
-    line-height: 1.5;
-}
-
-#tableModal button {
-    display: block;
-    margin: 20px auto 0 auto;
-    padding: 10px 20px;
-    background-color: blue;
-    color: white;
-    border: none;
-    border-radius: 5px; /* Bo tròn nút */
-    cursor: pointer;
-}
-
-#tableModal button:hover {
-    background-color: darkblue; /* Màu xanh đậm khi hover */
-}
-
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.9; /* Hiệu ứng nhấn nút */
-}
-
+    #submitBtn:hover {
+        background-color: darkgreen;
+    }
 </style>

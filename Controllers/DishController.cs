@@ -78,7 +78,7 @@ namespace Blank.Controllers
                     _context.Add(dish);
                     await _context.SaveChangesAsync();
 
-                    TempData["SuccessMessage"] = "Dish created successfully."; // Chỉ set khi thao tác hoàn thành
+                    TempData["SuccessMessage"] = "Dish created successfully."; 
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
@@ -120,7 +120,6 @@ namespace Blank.Controllers
                 {
                     if (dish.PhotoFile != null)
                     {
-                        // Xóa ảnh cũ nếu có
                         if (!string.IsNullOrEmpty(dish.PhotoUrl))
                         {
                             string oldFilePath = Path.Combine(_webHostEnvironment.WebRootPath, dish.PhotoUrl.TrimStart('/'));
@@ -130,28 +129,23 @@ namespace Blank.Controllers
                             }
                         }
 
-                        // Upload ảnh mới
                         string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(dish.PhotoFile.FileName);
                         string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "dishes");
                         string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-                        // Tạo thư mục nếu chưa tồn tại
                         if (!Directory.Exists(uploadsFolder))
                         {
                             Directory.CreateDirectory(uploadsFolder);
                         }
 
-                        // Lưu file vào thư mục
                         using (var fileStream = new FileStream(filePath, FileMode.Create))
                         {
                             await dish.PhotoFile.CopyToAsync(fileStream);
                         }
 
-                        // Cập nhật URL ảnh
                         dish.PhotoUrl = $"/images/dishes/{uniqueFileName}";
                     }
 
-                    // Cập nhật thông tin khác
                     _context.Update(dish);
                     await _context.SaveChangesAsync();
                     TempData["SuccessMessage"] = "Dish updated successfully.";
@@ -299,7 +293,6 @@ namespace Blank.Controllers
                 return NotFound();
             }
 
-            // Add order logic here
             var order = new Order
             {
                 DishId = id,

@@ -22,7 +22,6 @@ namespace Blank.Controllers
         // GET: User
         public async Task<IActionResult> Index()
         {
-            // Fetch all users and include their roles
             var users = await _userManager.Users
                 .Select(user => new UserViewModel
                 {
@@ -56,7 +55,6 @@ namespace Blank.Controllers
                 return NotFound();
             }
 
-            // Include roles in user details
             var roles = await _userManager.GetRolesAsync(user);
             var userViewModel = new UserViewModel
             {
@@ -396,7 +394,6 @@ namespace Blank.Controllers
         [HttpPost]
         public async Task<IActionResult> AssignRole(string UserId, string SelectedRole)
         {
-            // Xóa các thông báo cũ
             TempData.Remove("SuccessMessage");
             TempData.Remove("ErrorMessage");
 

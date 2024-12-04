@@ -23,14 +23,14 @@ namespace Blank.Models
         public virtual Table Table { get; set; }
 
         [Required]
-        public int Quantity { get; set; } // New field for quantity
+        public int Quantity { get; set; }
 
         [Required]
         [Range(0, double.MaxValue, ErrorMessage = "Total price must be non-negative.")]
-        public decimal TotalPrice { get; set; } // New field for total price
+        public decimal TotalPrice { get; set; } 
 
         [Required]
-        public string OStatus { get; set; } // Order status
+        public string OStatus { get; set; } 
     }
 
 }

@@ -128,10 +128,8 @@ namespace Blank.Controllers
                 {
                     if (restaurant.PhotoFile != null)
                     {
-                        // Tạo tên file duy nhất
                         string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(restaurant.PhotoFile.FileName);
 
-                        // Thư mục lưu ảnh
                         string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "restaurants");
                         if (!Directory.Exists(uploadsFolder))
                         {
@@ -140,13 +138,11 @@ namespace Blank.Controllers
 
                         string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-                        // Lưu file ảnh
                         using (var fileStream = new FileStream(filePath, FileMode.Create))
                         {
                             await restaurant.PhotoFile.CopyToAsync(fileStream);
                         }
 
-                        // Cập nhật URL ảnh
                         restaurant.PhotoUrl = $"/images/restaurants/{uniqueFileName}";
                     }
 

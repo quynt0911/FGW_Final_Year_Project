@@ -22,6 +22,7 @@ namespace Blank.Models
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Dish> Dishes { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Task> Tasks { get; set; }
 

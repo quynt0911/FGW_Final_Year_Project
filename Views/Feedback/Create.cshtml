@@ -1,0 +1,128 @@
+@model Blank.Models.Feedback
+
+@{
+    ViewData["Title"] = "Create Feedback";
+    Layout = "~/Views/Shared/UserLO.cshtml";
+}
+
+<h2>Create Feedback</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="RestaurantId" class="control-label">Select Restaurant</label>
+        <select asp-for="RestaurantId" class="form-control">
+            <option value="">-- Select a Restaurant --</option>
+            @foreach (var restaurant in (IEnumerable<Blank.Models.Restaurant>)ViewBag.Restaurants)
+            {
+                <option value="@restaurant.RestaurantId">@restaurant.ResName</option>
+            }
+        </select>
+        <span asp-validation-for="RestaurantId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Rating (1 to 5 stars)</label>
+        <div class="stars">
+            <span data-value="1" class="star">&#9733;</span>
+            <span data-value="2" class="star">&#9733;</span>
+            <span data-value="3" class="star">&#9733;</span>
+            <span data-value="4" class="star">&#9733;</span>
+            <span data-value="5" class="star">&#9733;</span>
+        </div>
+        <input type="hidden" id="Rating" name="Rating" value="0" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Comment" class="control-label">Comment</label>
+        <textarea asp-for="Comment" class="form-control"></textarea>
+        <span asp-validation-for="Comment" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImagePath" class="control-label">Upload Image (Optional)</label>
+        <input type="file" name="imageFile" class="form-control" />
+        <span asp-validation-for="ImagePath" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <!-- Include the updated JavaScript for handling rating selection -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var stars = document.querySelectorAll(".star");
+            var ratingInput = document.getElementById("Rating");
+
+            // Hover effect (hiển thị màu vàng khi di chuột vào ngôi sao)
+            stars.forEach(function (star, index) {
+                star.addEventListener("mouseover", function () {
+                    for (var i = 0; i <= index; i++) {
+                        stars[i].style.color = "gold"; // Set color to gold on hover
+                    }
+                    for (var i = index + 1; i < stars.length; i++) {
+                        stars[i].style.color = "gray"; // Reset remaining stars to gray
+                    }
+                });
+
+                // Reset on mouseout (khi di chuột ra, các sao quay lại màu xám)
+                star.addEventListener("mouseout", function () {
+                    // Reset all stars to their current state
+                    for (var i = 0; i < stars.length; i++) {
+                        if (i < ratingInput.value) {
+                            stars[i].style.color = "gold"; // Set gold for selected rating
+                        } else {
+                            stars[i].style.color = "gray"; // Reset remaining stars to gray
+                        }
+                    }
+                });
+
+                // Set rating on click (khi nhấn vào sao, giá trị rating sẽ được cập nhật)
+                star.addEventListener("click", function () {
+                    var selectedRating = index + 1; // Rating is 1 to 5
+                    ratingInput.value = selectedRating; // Update the hidden input value
+
+                    // Update the color of the stars to reflect the rating
+                    for (var i = 0; i < stars.length; i++) {
+                        if (i < selectedRating) {
+                            stars[i].style.color = "gold"; // Set color to gold for selected rating
+                        } else {
+                            stars[i].style.color = "gray"; // Set remaining stars to gray
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+<style>
+    .stars {
+        font-size: 2.5rem;
+        /* Tăng kích thước font để làm ngôi sao lớn hơn */
+        display: flex;
+        gap: 0.5rem;
+        /* Khoảng cách giữa các ngôi sao */
+        cursor: pointer;
+    }
+
+    .star {
+        color: gray;
+        transition: color 0.3s ease;
+        /* Hiệu ứng chuyển màu khi hover */
+    }
+
+    .star:hover {
+        color: gold;
+    }
+
+    .star.selected {
+        color: gold;
+        /* Màu vàng cho sao đã chọn */
+    }
+</style>

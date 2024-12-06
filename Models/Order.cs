@@ -22,15 +22,22 @@ namespace Blank.Models
         public int TableId { get; set; }
         public virtual Table Table { get; set; }
 
-        [Required]
+        // [Required]
         public int Quantity { get; set; }
 
-        [Required]
+        // [Required]
         [Range(0, double.MaxValue, ErrorMessage = "Total price must be non-negative.")]
-        public decimal TotalPrice { get; set; } 
+        public decimal TotalPrice { get; set; }
 
-        [Required]
-        public string OStatus { get; set; } 
+        // [Required]
+        public string OStatus { get; set; }
+
+        public void CalculateTotalPrice()
+        {
+            TotalPrice = Dish.Price * Quantity;
+        }
+
+        
     }
 
 }

@@ -25,7 +25,7 @@
                 {
                     <span class="star">★</span>
                 }
-                @for (int i = feedback.Rating + 1; i <= 5; i--)
+                @for (int i = feedback.Rating + 1; i <= 5; i++)
                 {
                     <span class="star empty">★</span>
                 }</label>
@@ -35,23 +35,22 @@
             <p>@feedback.Comment</p>
         </div>
 
-        @* @if (!string.IsNullOrEmpty(feedback.ImagePath))
+        @if (!string.IsNullOrEmpty(feedback.ImagePath))
         {
             <div class="feedback-image">
                 <img src="@feedback.ImagePath" class="feedback-img" />
             </div>
-        } *@
+        }  
+    </div>
+}
 
-        @* <div class="feedback-footer">
+@* <div class="feedback-footer">
             @if (User.IsInRole("Customer") && feedback.CustomerId == User.FindFirstValue(ClaimTypes.NameIdentifier))
             {
                 <a href="javascript:void(0);" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteModal"
                     data-id="@feedback.FeedbackId">Delete</a>
             }
         </div> *@
-    </div>
-}
-
 @* <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">

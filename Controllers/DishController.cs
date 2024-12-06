@@ -220,11 +220,11 @@ namespace Blank.Controllers
                     TempData["ErrorMessage"] = "Dish not found.";
                 }
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
                 TempData["ErrorMessage"] = "Unable to delete this dish at this time. Please check the related orders.";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 TempData["ErrorMessage"] = "An unexpected error occurred while deleting the dish.";
             }

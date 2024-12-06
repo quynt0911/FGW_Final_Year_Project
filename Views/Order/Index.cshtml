@@ -1,114 +1,62 @@
-@model IEnumerable<Blank.Models.Order>
+@model IEnumerable<dynamic>
 
 @{
-    Layout = "~/Views/Shared/AdminLO.cshtml";
+    Layout = "~/Views/Shared/UserLO.cshtml";
 }
 
-<body>
-    <div class="container">
-        <h2>Order List</h2>
-
-        <div class="text-right">
-            <a asp-action="Create" class="btn btn-primary btn-create">Create New</a>
-        </div>
-
-        <div class="table-container">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.First().DishId)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.First().TableId)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.First().OStatus)
-                        </th>
-                        <th class="actions">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
+<h2 class="text-center mt-4">Order Summary</h2>
+<div class="text-left">
+    <a asp-action="CreateOrder" class="btn btn-primary btn-create">Create New</a>
+</div>
+<table class="table table-bordered mt-4">
+    <thead>
+        <tr>
+            <th>Table</th>
+            <th>Dishes and Quantities</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            @* <th>Actions</th> *@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Table</td>
+                <td>
+                    @foreach (var dish in order.DishesAndQuantities)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DishId)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TableId)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.OStatus)
-                            </td>
-                            <td class="actions">
-                                <a asp-action="Edit" asp-route-id="@item.OrderId"
-                                    class="btn btn-sm btn-outline-primary">Edit</a>
-                                <a asp-action="Details" asp-route-id="@item.OrderId"
-                                    class="btn btn-sm btn-outline-secondary">Details</a>
-                                <a asp-action="Delete" asp-route-id="@item.OrderId"
-                                    class="btn btn-sm btn-outline-danger">Delete</a>
-                            </td>
-                        </tr>
+                        <p>@dish.DishName - Quantity: @dish.Quantity - Price: @dish.ToPrice.ToString("C")</p>
                     }
-                </tbody>
-            </table>
-        </div>
-    </div>
-</body>
-<style>
-    body {
-        background-color: #f8f9fa;
-    }
+                </td>
+                <td>@order.TotalPrice.ToString("C")</td>
+                <td>
+                    @order.Status
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-    .table-container {
-        margin-top: 40px;
-    }
+<script>
+    function changeStatus(orderId) {
+        var newStatus = document.getElementById("status-" + orderId).value;
 
-    h2 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 30px;
-        font-weight: bold;
+        // Make an AJAX request to change the status
+        $.ajax({
+            url: '@Url.Action("ChangeStatus", "Order")', // Ensure you have this controller action
+            type: 'POST',
+            data: {
+                orderId: orderId,
+                status: newStatus
+            },
+            success: function (response) {
+                alert("Status changed successfully");
+                location.reload();  // Reload the page to reflect the changes
+            },
+            error: function () {
+                alert("Error changing status.");
+            }
+        });
     }
-
-    .table {
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .table th,
-    .table td {
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .table th {
-        background-color: #007bff;
-        color: white;
-    }
-
-    .table tbody tr:hover {
-        background-color: #f1f1f1;
-    }
-
-    .btn-create {
-        display: inline-block;
-        margin-bottom: 20px;
-        float: right;
-    }
-
-    .actions a {
-        margin: 0 5px;
-        text-decoration: none;
-    }
-
-    .actions a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        padding: 0 20px;
-    }
-</style>
+</script>

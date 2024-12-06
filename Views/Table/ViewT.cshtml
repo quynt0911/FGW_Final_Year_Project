@@ -14,47 +14,35 @@
     style="position: relative; width: 100%; height: 500px; border: 1px solid black; overflow: hidden; background-image: url('/images/restaurant-background.jpg'); background-size: cover; background-position: center;">
     @foreach (var table in Model)
     {
-        <div class="draggable" draggable="true" data-id="@table.TableId"
+        <div class="draggable" draggable="@(table.TStatus == "Available" ? "true" : "false")" data-id="@table.TableId"
             style="position: absolute; top: @(table.Location?.Split(',')[0] ?? "0")px; left: @(table.Location?.Split(',')[1] ?? "0")px;
-                    width: 50px; height: 50px; background-color: lightblue; text-align: center; line-height: 50px; cursor: move; border-radius: 5px;">
+           width: 50px; height: 50px; text-align: center; line-height: 50px; cursor: @(table.TStatus == "Available" ? "move" : "not-allowed"); border-radius: 5px;
+           background-color: @(table.TStatus == "Available" ? "lightgreen" :
+                               table.TStatus == "Reserved" ? "lightcoral" :
+                               table.TStatus == "In Service" ? "lightblue" :
+                               table.TStatus == "Pending Cleanup" ? "lightyellow" : "lightgray");">
             @table.TName
         </div>
+
     }
 </div>
 
-<!-- Action Buttons -->
+
 <div style="margin-top: 20px; text-align: center;">
-    <button id="submitBtn"
-        style="padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer;">Submit</button>
-    <button id="selectTableBtn"
-        style="padding: 10px 20px; background-color: blue; color: white; border: none; cursor: pointer; margin-right: 10px;">Select
-        Table</button>
-</div>
+    @if (User.IsInRole("Customer"))
+    {
+        <button id="submitBtn"
+            style="padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer;">Submit</button>
 
-<!-- Confirmation Modal -->
-<div id="confirmationModal"
-    style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black; z-index: 1000;">
-    <h3>Are you sure you want to save the new positions?</h3>
-    <button id="confirmYes"
-        style="padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer;">Yes</button>
-    <button id="confirmNo"
-        style="padding: 10px 20px; background-color: red; color: white; border: none; cursor: pointer;">No</button>
-</div>
+        <button id="selectTableBtn"
+            style="padding: 10px 20px; background-color: blue; color: white; border: none; cursor: pointer; margin-right: 10px;">Select
+            Table</button>
+    }
+    else if (User.IsInRole("Admin"))
+    {
+        <a asp-controller="Table" asp-action="Index" class="nav-link"><i class="fas fa-phone-a"></i>Back</a>
+    }
 
-<!-- Retry Modal -->
-<div id="retryModal"
-    style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black; z-index: 2000;">
-    <h3>Tables cannot overlap!</h3>
-    <button id="retryBtn"
-        style="padding: 10px 20px; background-color: orange; color: white; border: none; cursor: pointer;">Retry</button>
-</div>
-
-<!-- Table Details Modal -->
-<div id="tableModal"
-    style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black; z-index: 1000;">
-    <h2>Table Details</h2>
-    <p id="tableDetails"></p>
-    <button onclick="closeModal()">Close</button>
 </div>
 
 <script>
@@ -85,7 +73,6 @@
             // Chuyển hướng về trang Make Reservation
             window.location.href = "/Reservation/MakeReservation";
         });
-
 
         // Drag End Event
         element.addEventListener('dragend', (e) => {
@@ -121,11 +108,17 @@
 
         // Click Event to Select Table
         element.addEventListener('click', () => {
+            if (element.style.cursor === "not-allowed") {
+                alert("This table is not available for selection.");
+                return;
+            }
+
             document.querySelectorAll('.draggable').forEach(el => el.style.border = '2px solid transparent');
             element.style.border = '2px solid blue';
             selectedTableId = tableId;
             selectedTableName = element.textContent.trim();
         });
+
     });
 
     // Reset Tables to Initial Positions
@@ -207,26 +200,50 @@
 <style>
     #dropArea {
         position: relative;
-        width: 100%;
-        height: 500px;
+        width: 1200px !important;
+        height: 600px !important;
         border: 1px solid black;
-        background-image: url('/images/restaurant-background.jpg');
-        background-size: cover;
-        background-position: center;
+        background-image: url('http://localhost:5039/images/banner-01.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
         overflow: hidden;
+        z-index: 1;
+        margin: 0 auto;
+        padding: 50px 0;
     }
 
     .draggable {
         position: absolute;
         width: 50px;
         height: 50px;
-        background-color: lightblue;
         text-align: center;
         line-height: 50px;
         border-radius: 5px;
         cursor: move;
         border: 2px solid transparent;
         transition: all 0.2s ease;
+        z-index: 2;
+    }
+
+    .draggable.available {
+        background-color: lightgreen;
+    }
+
+    .draggable.reserved {
+        background-color: lightcoral;
+    }
+
+    .draggable.in-service {
+        background-color: lightblue;
+    }
+
+    .draggable.pending-cleanup {
+        background-color: lightyellow;
+    }
+
+    .draggable.maintain {
+        background-color: lightgray;
     }
 
     .draggable:hover {
@@ -263,4 +280,53 @@
     #submitBtn:hover {
         background-color: darkgreen;
     }
+
+    /* Màu chữ cho trạng thái "Available" */
+    .draggable.available {
+        background-color: lightgreen;
+        color: black;
+        /* Chữ đen trên nền lightgreen */
+    }
+
+    /* Màu chữ cho trạng thái "Reserved" */
+    .draggable.reserved {
+        background-color: lightcoral;
+        color: white;
+        /* Chữ trắng trên nền lightcoral */
+    }
+
+    /* Màu chữ cho trạng thái "In Service" */
+    .draggable.in-service {
+        background-color: lightblue;
+        color: black;
+        /* Chữ đen trên nền lightblue */
+    }
+
+    /* Màu chữ cho trạng thái "Pending Cleanup" */
+    .draggable.pending-cleanup {
+        background-color: lightyellow;
+        color: black;
+        /* Chữ đen trên nền lightyellow */
+    }
+
+    /* Màu chữ cho trạng thái "Maintain" */
+    .draggable.maintain {
+        background-color: lightgray;
+        color: black;
+        /* Chữ đen trên nền lightgray */
+    }
+
+    /* Thêm một số hiệu ứng hover để màu chữ nổi bật */
+    .draggable:hover {
+        background-color: skyblue;
+        color: white;
+        /* Màu chữ trắng khi hover */
+    }
+
+    .draggable.selected {
+        border: 2px solid blue;
+    }
 </style>
+
+
+

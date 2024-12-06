@@ -17,7 +17,7 @@
         <h4>Dashboard</h4>
 
         <div class="dropdown">
-            <a asp-controller="Home" asp-action="Dash">Home</a>
+            <a asp-controller="Home" asp-action="Index">Home</a>
         </div>
 
         <div class="dropdown">
@@ -50,15 +50,6 @@
         </div>
 
         <div class="dropdown">
-            <input type="checkbox" id="toggle-ingredient" class="toggle-checkbox">
-            <label for="toggle-ingredient" class="dropdown-toggle">Manage Ingredients</label>
-            <div class="dropdown-content">
-                <a asp-controller="Ingredient" asp-action="Index">View Ingredient</a>
-                <a asp-controller="Ingredient" asp-action="Create">Add New Ingredient</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
             <input type="checkbox" id="toggle-task" class="toggle-checkbox">
             <label for="toggle-task" class="dropdown-toggle">Manage Tasks</label>
             <div class="dropdown-content">
@@ -67,12 +58,12 @@
         </div>
 
         <div class="dropdown">
-        <input type="checkbox" id="toggle-dish" class="toggle-checkbox">
-        <label for="toggle-dish" class="dropdown-toggle">Manage Dishes</label>
-        <div class="dropdown-content">
-        <a asp-controller="Dish" asp-action="Index">List of Dishes</a>
-        <a asp-controller="Dish" asp-action="Create">Add New Dish</a>
-        </div>
+            <input type="checkbox" id="toggle-dish" class="toggle-checkbox">
+            <label for="toggle-dish" class="dropdown-toggle">Manage Dishes</label>
+            <div class="dropdown-content">
+                <a asp-controller="Dish" asp-action="Index">List of Dishes</a>
+                <a asp-controller="Dish" asp-action="Create">Add New Dish</a>
+            </div>
         </div>
 
         <div class="dropdown">
@@ -85,15 +76,6 @@
         </div>
 
         <div class="dropdown">
-            <input type="checkbox" id="toggle-recipe" class="toggle-checkbox">
-            <label for="toggle-recipe" class="dropdown-toggle">Manage Recipes</label>
-            <div class="dropdown-content">
-                <a asp-controller="Recipe" asp-action="Index">View Recipes</a>
-                <a asp-controller="Recipe" asp-action="Create">Add New Recipe</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
             <input type="checkbox" id="toggle-report" class="toggle-checkbox">
             <label for="toggle-report" class="dropdown-toggle">Reports</label>
             <div class="dropdown-content">
@@ -102,9 +84,9 @@
                 <a asp-controller="Report" asp-action="Statistic">Statistics</a>
             </div>
         </div>
-
-
-        <a href="/Home/Logout">Logout</a>
+        <a asp-area="Identity" asp-page="/Account/Logout" class="nav-link">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
     </div>
 
     <div class="content">

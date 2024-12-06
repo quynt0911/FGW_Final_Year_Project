@@ -45,7 +45,7 @@
                     <tr>
                         <td>@count</td>
                         <td>@reservation.CustomerName</td>
-                        <td>@reservation.Restaurant?.ResName ?? "N/A"</td>
+                        <td>@reservation.Restaurant?.ResName - @reservation.Restaurant?.Location</td>
                         <td>
                            @reservation.Table?.TName
                         </td>

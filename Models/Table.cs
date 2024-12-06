@@ -15,10 +15,10 @@ namespace Blank.Models
         [Required]
         public string TName { get; set; }
 
-        [Required]
+        // [Required]
         public string Location { get; set; } 
 
-        [Required]
+        // [Required]
         public string TStatus { get; set; } 
 
         public virtual ICollection<Order> Orders { get; set; }

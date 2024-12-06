@@ -46,13 +46,17 @@
                         @if (User.IsInRole("Customer"))
                         {
                         <li class="nav-item"><a class="nav-link" asp-controller="Reservation"
-                                asp-action="MakeReservation">Reservation</a></li>
+                                asp-action="History">Reservation</a></li>
                         }
                         @if (User.IsInRole("Staff"))
                         {
                             <li class="nav-item">
                                 <a asp-controller="Task" asp-action="Index" class="nav-link"><i class="fas fa-phone-a"></i>
                                     Task</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Order" asp-action="Index" class="nav-link"><i class="fas fa-phone-a"></i>
+                                    Orders</a>
                             </li>
                         }
                         @if (User.IsInRole("Admin"))
@@ -172,7 +176,9 @@
         flex-direction: column;
         font-family: Arial, sans-serif;
         color: #f1c40f;
-        background-color: #2e2e2e; 
+        @* color: #000000; *@
+
+        background-color: #311b0b;
     }
 
     main {

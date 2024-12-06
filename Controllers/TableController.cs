@@ -135,16 +135,35 @@ namespace Blank.Controllers
         // GET: Table/Create
         public IActionResult Create()
         {
+            ViewBag.TStatusList = new SelectList(new[]
+    {
+        "Available",
+        "Reserved",
+        "In Service",
+        "Pending Cleanup",
+        "Maintain"
+    });
             return View();
         }
 
         // POST: Table/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TableId,TName,Location,TStatus")] Table table)
         {
+            table.TStatus = "Available";  
+
+            // Generate a random location within the drop area (500x500 px)
+            string newLocation = GenerateRandomLocation();
+
+            // Check if the generated location is available (not overlapping with existing tables)
+            while (IsLocationOccupied(newLocation))
+            {
+                newLocation = GenerateRandomLocation();  // Regenerate if location is already taken
+            }
+
+            table.Location = newLocation;  // Assign the valid random location
+
             if (ModelState.IsValid)
             {
                 _context.Add(table);
@@ -154,6 +173,34 @@ namespace Blank.Controllers
             return View(table);
         }
 
+        // Method to generate a random location
+        private string GenerateRandomLocation()
+        {
+            Random rand = new Random();
+            int maxWidth = 450; // maximum left value (500px - 50px for the width of the table)
+            int maxHeight = 450; // maximum top value (500px - 50px for the height of the table)
+
+            int x = rand.Next(0, maxWidth);
+            int y = rand.Next(0, maxHeight);
+
+            return $"{y},{x}";  // Return location in the format "y,x"
+        }
+
+        // Method to check if the location is occupied by another table
+        private bool IsLocationOccupied(string location)
+        {
+            var existingTables = _context.Tables.ToList();
+
+            foreach (var table in existingTables)
+            {
+                if (table.Location == location)
+                {
+                    return true;  // Location is already taken
+                }
+            }
+
+            return false;  // Location is available
+        }
         // GET: Table/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -161,6 +208,15 @@ namespace Blank.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.TStatusList = new SelectList(new[]
+{
+        "Available",
+        "Reserved",
+        "In Service",
+        "Pending Cleanup",
+        "Maintain"
+    });
 
             var table = await _context.Tables.FindAsync(id);
             if (table == null)

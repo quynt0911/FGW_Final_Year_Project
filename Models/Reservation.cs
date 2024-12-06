@@ -27,7 +27,7 @@ namespace Blank.Models
         [MaxLength(100)]
         public string CustomerName { get; set; } 
 
-        // [Required]
+        [Required]
         public string  CustomerId{ get; set; }
 
         public virtual Table Table { get; set; } 

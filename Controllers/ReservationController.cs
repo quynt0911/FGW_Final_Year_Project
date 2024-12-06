@@ -38,7 +38,6 @@ namespace Blank.Controllers
         [HttpGet]
         public async Task<IActionResult> MakeReservation()
         {
-            // Check if the user is logged in
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))
             {
@@ -46,15 +45,13 @@ namespace Blank.Controllers
                 return Unauthorized("User is not logged in.");
             }
 
-            // Load restaurants and available tables
             ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
             ViewBag.Tables = await _context.Tables.Where(t => t.TStatus == "Available").ToListAsync();
 
-            // Create a reservation model with pre-set CustomerId and CustomerName
             var reservation = new Reservation
             {
                 CustomerId = userId,
-                CustomerName = User.Identity.Name // Optional: Pre-fill with user's name
+                CustomerName = User.Identity.Name
             };
 
             return View(reservation);
@@ -63,7 +60,6 @@ namespace Blank.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> MakeReservation([Bind("RestaurantId,DateTime,TableId,Request,CustomerName")] Reservation reservation)
         {
-            // Ensure the user is logged in
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))
             {
@@ -71,11 +67,9 @@ namespace Blank.Controllers
                 return Unauthorized("User is not logged in.");
             }
 
-            // Assign CustomerId and default values
             reservation.CustomerId = userId;
             reservation.RStatus = "Pending";
 
-            // Validate the selected table
             if (!reservation.TableId.HasValue)
             {
                 TempData["Error"] = "No table selected. Please select a table.";
@@ -91,7 +85,6 @@ namespace Blank.Controllers
                 return View(reservation);
             }
 
-            // Update table status
             selectedTable.TStatus = "Reserved";
 
             try
@@ -115,18 +108,11 @@ namespace Blank.Controllers
             return View(reservation);
         }
 
-
-
-
-
-
         private async Task LoadViewBags()
         {
             ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
             ViewBag.Tables = await _context.Tables.Where(t => t.TStatus == "Available").ToListAsync();
         }
-
-
 
         public IActionResult ReservationConfirmation()
         {
@@ -175,16 +161,31 @@ namespace Blank.Controllers
         [HttpPost]
         public async Task<IActionResult> RejectReservation(int id)
         {
-            var reservation = await _context.Reservations.FindAsync(id);
+            var reservation = await _context.Reservations
+                .Include(r => r.Table)  // Bao gồm bàn tương ứng với reservation
+                .FirstOrDefaultAsync(r => r.ReserId == id);
+
             if (reservation == null)
             {
                 return NotFound();
             }
 
+            // Kiểm tra nếu bàn đã được chọn, thay đổi trạng thái của bàn về "Available"
+            if (reservation.Table != null)
+            {
+                reservation.Table.TStatus = "Available";  // Cập nhật trạng thái bàn
+                _context.Tables.Update(reservation.Table);  // Cập nhật bàn trong cơ sở dữ liệu
+            }
+
+            // Xóa reservation đã bị reject
             _context.Reservations.Remove(reservation);
+
+            // Lưu thay đổi vào cơ sở dữ liệu
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
+
 
         public async Task<IActionResult> Details(int id)
         {
@@ -205,7 +206,6 @@ namespace Blank.Controllers
         [HttpGet]
         public async Task<IActionResult> History()
         {
-            // Lấy lịch sử đặt bàn của người dùng hiện tại
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))
             {
@@ -237,10 +237,13 @@ namespace Blank.Controllers
             }
 
             ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
-            ViewBag.Tables = await _context.Tables.Where(t => t.TStatus == "Available" || t.TableId == reservation.TableId).ToListAsync();
+            ViewBag.Tables = await _context.Tables
+                .Where(t => t.TStatus == "Available" || t.TableId == reservation.TableId)
+                .ToListAsync();
 
             return View(reservation);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -250,7 +253,9 @@ namespace Blank.Controllers
             {
                 TempData["Error"] = "Please correct the errors and try again.";
                 ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
-                ViewBag.Tables = await _context.Tables.Where(t => t.TStatus == "Available" || t.TableId == updatedReservation.TableId).ToListAsync();
+                ViewBag.Tables = await _context.Tables
+                    .Where(t => t.TStatus == "Available" || t.TableId == updatedReservation.TableId)
+                    .ToListAsync();
                 return View(updatedReservation);
             }
 
@@ -270,9 +275,6 @@ namespace Blank.Controllers
 
             try
             {
-                // Lưu vị trí cũ
-                existingReservation.RStatus = "Pending";
-                existingReservation.RestaurantId = updatedReservation.RestaurantId;
                 existingReservation.DateTime = updatedReservation.DateTime;
                 existingReservation.Request = updatedReservation.Request;
 
@@ -281,7 +283,7 @@ namespace Blank.Controllers
                     var previousTable = await _context.Tables.FindAsync(existingReservation.TableId);
                     if (previousTable != null)
                     {
-                        previousTable.TStatus = "Available"; // Bàn cũ trở lại trạng thái Available
+                        previousTable.TStatus = "Available";
                         _context.Tables.Update(previousTable);
                     }
 
@@ -289,6 +291,8 @@ namespace Blank.Controllers
                 }
 
                 existingReservation.TableId = updatedReservation.TableId;
+                existingReservation.RestaurantId = updatedReservation.RestaurantId;
+
                 _context.Reservations.Update(existingReservation);
                 await _context.SaveChangesAsync();
 
@@ -301,6 +305,7 @@ namespace Blank.Controllers
                 return View(updatedReservation);
             }
         }
+
 
 
         // [HttpGet]

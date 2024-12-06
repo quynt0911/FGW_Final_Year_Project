@@ -37,6 +37,7 @@ namespace Blank.Areas.Identity.Pages.Account
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
+
         {
             _userManager = userManager;
             _userStore = userStore;

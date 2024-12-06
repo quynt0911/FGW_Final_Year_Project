@@ -24,15 +24,20 @@
 
                             <div class="mb-3">
                                 <label asp-for="Location" class="form-label">Location</label>
-                                <input asp-for="Location" class="form-control" placeholder="Enter location" />
+                                <input asp-for="Location" class="form-control" readonly />
+                                <!-- Readonly because it's generated in the controller -->
                                 <span asp-validation-for="Location" class="text-danger"></span>
                             </div>
 
-                            <div class="mb-3">
-                                <label asp-for="TStatus" class="form-label">Table Status</label>
-                                <input asp-for="TStatus" class="form-control" placeholder="Enter table status" />
+                            @* <div class="mb-3">
+                                <label for="TStatus" class="form-label">Table Status</label>
+                                <select asp-for="TStatus" class="form-select" asp-items="ViewBag.TStatusList">
+                                    <option value="">-- Select Status --</option>
+                                </select>
                                 <span asp-validation-for="TStatus" class="text-danger"></span>
-                            </div>
+                            </div> *@
+
+
 
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">Create</button>
@@ -48,3 +53,12 @@
     </div>
 </body>
 
+<script>
+    #TStatus {
+        width: 100 %;
+        padding: 5px;
+        border - radius: 5px;
+        border: 1px solid #ccc;
+        font - size: 1rem;
+    }
+</script>

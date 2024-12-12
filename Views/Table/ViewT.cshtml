@@ -66,11 +66,9 @@
                 return;
             }
 
-            // Lưu dữ liệu vào sessionStorage
             sessionStorage.setItem("selectedTableId", selectedTableId);
             sessionStorage.setItem("selectedTableName", selectedTableName);
 
-            // Chuyển hướng về trang Make Reservation
             window.location.href = "/Reservation/MakeReservation";
         });
 

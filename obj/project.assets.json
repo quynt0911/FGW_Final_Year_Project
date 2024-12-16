@@ -8430,11 +8430,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\. For Final Project\\Blank\\Blank.csproj",
+      "projectUniqueName": "D:\\Blank\\Blank.csproj",
       "projectName": "Blank",
-      "projectPath": "D:\\. For Final Project\\Blank\\Blank.csproj",
+      "projectPath": "D:\\Blank\\Blank.csproj",
       "packagesPath": "C:\\Users\\kirit\\.nuget\\packages\\",
-      "outputPath": "D:\\. For Final Project\\Blank\\obj\\",
+      "outputPath": "D:\\Blank\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

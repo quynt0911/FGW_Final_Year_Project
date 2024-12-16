@@ -2,6 +2,7 @@
     ViewData["Title"] = "Restaurant Booking Home";
     Layout = "~/Views/Shared/UserLO.cshtml";
 }
+@model IEnumerable<Table>
 
 <body>
     <div class="top-search">
@@ -23,7 +24,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/banner-01.jpg" class="d-block w-100 banner-img" alt="First Slide">
+                <img src="images/banner-05.jpg" class="d-block w-100 banner-img" alt="First Slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Welcome to Restaurant Booking</h5>
                     <p>Reserve your table or enjoy delicious food delivered to your home!</p>
@@ -90,126 +91,101 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h1>Book a Table</h1>
-                    <form action="/book" method="post">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="date" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control">
-                                <option value="2">Table for 2</option>
-                                <option value="4">Table for 4</option>
-                                <option value="6">Table for 6</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn hvr-hover">Book Now</button>
-                    </form>
+                    <h1>Diagram and current table status of the restaurant</h1>
+                    <div style="color: black; margin: 20px auto; text-align: center; padding: 10px; border: 1px solid #ccc; border-radius: 5px; 
+            background-color: #f9f9f9; width: 60%; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
+                        <p><strong>Table Status Information:</strong></p>
+                        <p>
+                            <span
+                                style="display: inline-block; width: 15px; height: 15px; background-color: lightgreen; margin-right: 5px; border: 1px solid #000;"></span>
+                            Available |
+                            <span
+                                style="display: inline-block; width: 15px; height: 15px; background-color: lightcoral; margin-right: 5px; border: 1px solid #000;"></span>
+                            Reserved |
+                            <span
+                                style="display: inline-block; width: 15px; height: 15px; background-color: lightblue; margin-right: 5px; border: 1px solid #000;"></span>
+                            In Service |
+                            <span
+                                style="display: inline-block; width: 15px; height: 15px; background-color: lightyellow; margin-right: 5px; border: 1px solid #000;"></span>
+                            Pending Cleanup |
+                            <span
+                                style="display: inline-block; width: 15px; height: 15px; background-color: lightgray; margin-right: 5px; border: 1px solid #000;"></span>
+                            Maintenance
+                        </p>
+                    </div>
+
+                    <div id="dropArea" style="position: relative; width: 100%; height: 500px; border: 1px solid black; 
+            background-image: url('/images/banner-01.jpg'); background-size: cover; 
+            background-position: center; overflow: hidden; margin-top: 20px;">
+
+                        @foreach (var table in Model)
+                        {
+                            <div class="table-box" style="position: absolute; top: @(table.Location?.Split(',')[0] ?? "0")px; 
+                    left: @(table.Location?.Split(',')[1] ?? "0")px; 
+                    width: 50px; height: 50px; text-align: center; 
+                    line-height: 50px; border-radius: 5px; 
+                    background-color: @(table.TStatus == "Available" ? "lightgreen" :
+                                        table.TStatus == "Reserved" ? "lightcoral" :
+                                        table.TStatus == "In Service" ? "lightblue" :
+                                        table.TStatus == "Pending Cleanup" ? "lightyellow" : "lightgray");">
+                                @table.TName
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="shop-cat-box">
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+                    {
+                        <a class="custom-btn" asp-controller="Reservation" asp-action="MakeReservation">Book Now</a>
+                    }
+                    else
+                    {
+                        <a class="custom-btn" href="/Identity/Account/Login">Book Now</a>
+                    }
+
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="popular-dishes" class="products-box">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-all text-center">
-                        <h1>Popular Dishes</h1>
-                        <p>Our top-rated dishes made by expert chefs.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <img src="images/dish-01.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="why-text">
-                            <h4>Grilled Steak</h4>
-                            <h5>$25.99</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <img src="images/dish-02.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="why-text">
-                            <h4>Spaghetti Carbonara</h4>
-                            <h5>$18.50</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <img src="images/dish-03.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="why-text">
-                            <h4>Caesar Salad</h4>
-                            <h5>$12.99</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <img src="images/dish-04.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="why-text">
-                            <h4>Margherita Pizza</h4>
-                            <h5>$15.99</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    @* <div class="latest-blog">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="title-all text-center">
+    <h1>Latest News</h1>
+    <p>Get the latest updates and culinary trends from our restaurant.</p>
     </div>
-
-    <div class="latest-blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-all text-center">
-                        <h1>Latest News</h1>
-                        <p>Get the latest updates and culinary trends from our restaurant.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 col-xl-4">
-                    <div class="blog-box">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="images/blog-01.jpg" alt="" />
-                        </div>
-                        <div class="blog-content">
-                            <h3>Chef's Special Dishes</h3>
-                            <p>Discover our new menu prepared with seasonal ingredients.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-4">
-                    <div class="blog-box">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="images/blog-02.jpg" alt="" />
-                        </div>
-                        <div class="blog-content">
-                            <h3>Wine Pairing Nights</h3>
-                            <p>Join us for exclusive wine and food pairing experiences.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6 col-lg-4 col-xl-4">
+    <div class="blog-box">
+    <div class="blog-img">
+    <img class="img-fluid" src="images/blog-01.jpg" alt="" />
+    </div>
+    <div class="blog-content">
+    <h3>Chef's Special Dishes</h3>
+    <p>Discover our new menu prepared with seasonal ingredients.</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-6 col-lg-4 col-xl-4">
+    <div class="blog-box">
+    <div class="blog-img">
+    <img class="img-fluid" src="images/blog-02.jpg" alt="" />
+    </div>
+    <div class="blog-content">
+    <h3>Wine Pairing Nights</h3>
+    <p>Join us for exclusive wine and food pairing experiences.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div> *@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>

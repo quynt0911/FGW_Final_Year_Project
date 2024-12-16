@@ -43,12 +43,12 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Dish" asp-action="Menu">Menu</a></li>
 
-                        @if (User.IsInRole("Customer"))
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
                         {
                         <li class="nav-item"><a class="nav-link" asp-controller="Reservation"
                                 asp-action="History">Reservation</a></li>
                         }
-                        @if (User.IsInRole("Staff"))
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Staff"))
                         {
                             <li class="nav-item">
                                 <a asp-controller="Task" asp-action="Index" class="nav-link"><i class="fas fa-phone-a"></i>
@@ -59,7 +59,7 @@
                                     Orders</a>
                             </li>
                         }
-                        @if (User.IsInRole("Admin"))
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
                                 <a asp-controller="Home" asp-action="Dash" class="nav-link"><i class="fas fa-phone-a"></i>
@@ -67,7 +67,7 @@
                             </li>
                         }
                         
-                        @if (User.IsInRole("Chef"))
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Chef"))
                         {
                             <li class="nav-item">
                                 <a asp-controller="Ingredient" asp-action="Index" class="nav-link"><i class="fas fa-phone-a"></i>

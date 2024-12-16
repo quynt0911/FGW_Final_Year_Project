@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Blank.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Blank.Controllers
 {
@@ -21,7 +22,8 @@ namespace Blank.Controllers
         }
 
 
-        // GET: Ingredient
+
+        [Authorize(Roles = "Chef")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Ingredients.ToListAsync());
@@ -45,7 +47,7 @@ namespace Blank.Controllers
             return View(ingredient);
         }
 
-        // GET: Ingredient/Create
+        [Authorize(Roles = "Chef")]
         public IActionResult Create()
         {
             return View();
@@ -87,7 +89,7 @@ namespace Blank.Controllers
 
 
 
-        // GET: Ingredient/Edit/5
+        [Authorize(Roles = "Chef")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -173,7 +175,7 @@ namespace Blank.Controllers
 
 
 
-        // GET: Ingredient/Delete/5
+        [Authorize(Roles = "Chef")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -191,7 +193,7 @@ namespace Blank.Controllers
             return View(ingredient);
         }
 
-        // POST: Ingredient/Delete/5
+        [Authorize(Roles = "Chef")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

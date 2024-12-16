@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Blank.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace Blank.Controllers
@@ -19,7 +20,7 @@ namespace Blank.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
-        // GET: Dish
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Dishes.ToListAsync());
@@ -42,7 +43,7 @@ namespace Blank.Controllers
             return View(dish);
         }
 
-        // GET: Dish/Create
+       [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -89,7 +90,7 @@ namespace Blank.Controllers
             return View(dish);
         }
 
-        // GET: Dish/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -172,7 +173,7 @@ namespace Blank.Controllers
         }
 
 
-        // GET: Dish/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -191,7 +192,7 @@ namespace Blank.Controllers
             return View(dish);
         }
 
-        // POST: Dish/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

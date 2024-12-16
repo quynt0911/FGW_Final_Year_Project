@@ -432,6 +432,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\banner-04.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\banner-05.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Blank</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Blank</BasePath>
+      <RelativePath>images/banner-05.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\banner-05.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\big-img-01.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
@@ -608,12 +624,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\contact-bg.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\1afdf96c-cf52-4e80-ab0e-55533becf6a1_122113665224196224.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\16d14962-d21a-4f1f-8d94-7ba5e5810c14_Indian Feast Platter.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/1afdf96c-cf52-4e80-ab0e-55533becf6a1_122113665224196224.png</RelativePath>
+      <RelativePath>images/dishes/16d14962-d21a-4f1f-8d94-7ba5e5810c14_Indian Feast Platter.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -622,14 +638,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\1afdf96c-cf52-4e80-ab0e-55533becf6a1_122113665224196224.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\16d14962-d21a-4f1f-8d94-7ba5e5810c14_Indian Feast Platter.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\1cfb9c56-23e2-4770-8c17-78cae01fa0cb_pexels-dzeninalukac-1583884.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\1b2451f5-e04b-49dd-914e-2cc22a7425fd_Spicy Chicken Skewers.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/1cfb9c56-23e2-4770-8c17-78cae01fa0cb_pexels-dzeninalukac-1583884.jpg</RelativePath>
+      <RelativePath>images/dishes/1b2451f5-e04b-49dd-914e-2cc22a7425fd_Spicy Chicken Skewers.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -638,14 +654,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\1cfb9c56-23e2-4770-8c17-78cae01fa0cb_pexels-dzeninalukac-1583884.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\1b2451f5-e04b-49dd-914e-2cc22a7425fd_Spicy Chicken Skewers.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\55fabe52-6ce1-440a-af0d-5094df1d1f5c_pexels-ash-craig-122861-376464.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\2d216be0-0265-4457-83b7-9e71ca4eb040_Classic Caesar Salad.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/55fabe52-6ce1-440a-af0d-5094df1d1f5c_pexels-ash-craig-122861-376464.jpg</RelativePath>
+      <RelativePath>images/dishes/2d216be0-0265-4457-83b7-9e71ca4eb040_Classic Caesar Salad.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -654,14 +670,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\55fabe52-6ce1-440a-af0d-5094df1d1f5c_pexels-ash-craig-122861-376464.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\2d216be0-0265-4457-83b7-9e71ca4eb040_Classic Caesar Salad.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\897b7d7d-98d4-4972-8fc1-5217445979b5_pexels-chanwalrus-958545.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\5b5ac1a3-b89d-4a40-94e5-73fb14e4b891_Caramel Pancake Stack.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/897b7d7d-98d4-4972-8fc1-5217445979b5_pexels-chanwalrus-958545.jpg</RelativePath>
+      <RelativePath>images/dishes/5b5ac1a3-b89d-4a40-94e5-73fb14e4b891_Caramel Pancake Stack.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -670,14 +686,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\897b7d7d-98d4-4972-8fc1-5217445979b5_pexels-chanwalrus-958545.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\5b5ac1a3-b89d-4a40-94e5-73fb14e4b891_Caramel Pancake Stack.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\93a9f8ca-82d2-48c7-b237-3ef6fdac271f_122113665530196224.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\66132d5f-62e5-4633-94fc-3fbe9c1f02d0_Herb-Crusted Lamb Chops.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/93a9f8ca-82d2-48c7-b237-3ef6fdac271f_122113665530196224.png</RelativePath>
+      <RelativePath>images/dishes/66132d5f-62e5-4633-94fc-3fbe9c1f02d0_Herb-Crusted Lamb Chops.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -686,14 +702,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\93a9f8ca-82d2-48c7-b237-3ef6fdac271f_122113665530196224.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\66132d5f-62e5-4633-94fc-3fbe9c1f02d0_Herb-Crusted Lamb Chops.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\a09acad9-58cf-4d84-9452-38ecb621d31f_122113676300196224.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\72867651-3d03-414f-bb63-01ee5ae4df65_Peppercorn Steak &amp; Vegetables.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/a09acad9-58cf-4d84-9452-38ecb621d31f_122113676300196224.png</RelativePath>
+      <RelativePath>images/dishes/72867651-3d03-414f-bb63-01ee5ae4df65_Peppercorn Steak &amp; Vegetables.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -702,14 +718,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\a09acad9-58cf-4d84-9452-38ecb621d31f_122113676300196224.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\72867651-3d03-414f-bb63-01ee5ae4df65_Peppercorn Steak &amp; Vegetables.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\a2c483ee-9344-4d21-a8e0-8b4a1854c603_317104749338592.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\80041d6e-2499-4c97-883b-a0b74be7e443_Spicy Shrimp Noodle Bowl.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/a2c483ee-9344-4d21-a8e0-8b4a1854c603_317104749338592.png</RelativePath>
+      <RelativePath>images/dishes/80041d6e-2499-4c97-883b-a0b74be7e443_Spicy Shrimp Noodle Bowl.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -718,14 +734,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\a2c483ee-9344-4d21-a8e0-8b4a1854c603_317104749338592.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\80041d6e-2499-4c97-883b-a0b74be7e443_Spicy Shrimp Noodle Bowl.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\a747c280-97a9-434d-a3d5-8979437068d2_122114488352196224.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\9d3ad6d7-f52e-446c-89f5-d8654cf3161c_Fresh Garden Salad.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/a747c280-97a9-434d-a3d5-8979437068d2_122114488352196224.png</RelativePath>
+      <RelativePath>images/dishes/9d3ad6d7-f52e-446c-89f5-d8654cf3161c_Fresh Garden Salad.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -734,14 +750,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\a747c280-97a9-434d-a3d5-8979437068d2_122114488352196224.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\9d3ad6d7-f52e-446c-89f5-d8654cf3161c_Fresh Garden Salad.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\da3ec00c-6ecb-4d53-98c0-c6c7ecd0d11e_pexels-catscoming-406152.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\b71a8134-2823-4d74-b06d-a7be4c4f23d2_pexels-dana-tentis-118658-262959.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/da3ec00c-6ecb-4d53-98c0-c6c7ecd0d11e_pexels-catscoming-406152.jpg</RelativePath>
+      <RelativePath>images/dishes/b71a8134-2823-4d74-b06d-a7be4c4f23d2_pexels-dana-tentis-118658-262959.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -750,14 +766,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\da3ec00c-6ecb-4d53-98c0-c6c7ecd0d11e_pexels-catscoming-406152.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\b71a8134-2823-4d74-b06d-a7be4c4f23d2_pexels-dana-tentis-118658-262959.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\df0f96a7-247a-495c-8357-81ff3d4809f5_122113663394196224.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\e7ad8096-3e17-4095-bd5e-dbbc404f2261_Tomato Basil Salad.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/df0f96a7-247a-495c-8357-81ff3d4809f5_122113663394196224.png</RelativePath>
+      <RelativePath>images/dishes/e7ad8096-3e17-4095-bd5e-dbbc404f2261_Tomato Basil Salad.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -766,14 +782,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\df0f96a7-247a-495c-8357-81ff3d4809f5_122113663394196224.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\e7ad8096-3e17-4095-bd5e-dbbc404f2261_Tomato Basil Salad.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\e5526317-aae2-4af5-a99b-9176f6601c34_pexels-dana-tentis-118658-262959.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\e8a7c925-851c-4737-8632-a9091fc43299_Grilled Salmon Delight.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/e5526317-aae2-4af5-a99b-9176f6601c34_pexels-dana-tentis-118658-262959.jpg</RelativePath>
+      <RelativePath>images/dishes/e8a7c925-851c-4737-8632-a9091fc43299_Grilled Salmon Delight.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -782,14 +798,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\e5526317-aae2-4af5-a99b-9176f6601c34_pexels-dana-tentis-118658-262959.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\e8a7c925-851c-4737-8632-a9091fc43299_Grilled Salmon Delight.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\f4ca7cf7-f947-401b-a7ed-88098c32da4f_122113669070196224.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\favicon.png))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/f4ca7cf7-f947-401b-a7ed-88098c32da4f_122113669070196224.png</RelativePath>
+      <RelativePath>images/favicon.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -798,39 +814,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\f4ca7cf7-f947-401b-a7ed-88098c32da4f_122113669070196224.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\f6bac89a-84f8-4ba4-820d-088a147c10a5_pexels-chevanon-323682.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>Blank</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/dishes/f6bac89a-84f8-4ba4-820d-088a147c10a5_pexels-chevanon-323682.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dishes\f6bac89a-84f8-4ba4-820d-088a147c10a5_pexels-chevanon-323682.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\favicon.ico))">
-      <SourceType>Package</SourceType>
-      <SourceId>Blank</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/favicon.ico</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\favicon.ico))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\favicon.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\feedbacks\11794ef5-6e62-4a1b-a0fb-c969480a11fc_pexels-catscoming-406152.jpg))">
       <SourceType>Package</SourceType>

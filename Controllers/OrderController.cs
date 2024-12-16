@@ -1,4 +1,5 @@
 using Blank.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -17,6 +18,7 @@ namespace Blank.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Staff")]
         public async Task<IActionResult> Index()
         {
             var orders = await _context.Orders
@@ -44,7 +46,7 @@ namespace Blank.Controllers
         }
 
 
-        // GET: Create Order
+        [Authorize(Roles = "Staff")]
         [HttpGet]
         public async Task<IActionResult> CreateOrder()
         {
@@ -59,7 +61,7 @@ namespace Blank.Controllers
             return View();
         }
 
-        // // POST: Create Order
+        [Authorize(Roles = "Staff")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateOrder(int tableId, int[] DishIds, int[] Quantities)
@@ -136,7 +138,6 @@ namespace Blank.Controllers
         }
 
 
-        // POST: ChangeStatus
         [HttpPost]
         public async Task<IActionResult> ChangeStatus(int orderId, string status)
         {
@@ -154,11 +155,9 @@ namespace Blank.Controllers
 
             if (order != null)
             {
-                // Cập nhật trạng thái
                 order.OStatus = status;
                 _context.Orders.Update(order);
 
-                // Lưu thay đổi
                 await _context.SaveChangesAsync();
 
                 return Json(new { success = true });

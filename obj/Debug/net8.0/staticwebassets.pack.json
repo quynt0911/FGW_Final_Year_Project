@@ -1,855 +1,851 @@
 {
   "Files": [
     {
-      "Id": "D:\\. For Final Project\\Blank\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Blank.bundle.scp.css",
+      "Id": "D:\\Blank\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Blank.bundle.scp.css",
       "PackagePath": "staticwebassets\\Blank.bundle.scp.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\all.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\all.css",
       "PackagePath": "staticwebassets\\css\\all.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\animate.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\animate.css",
       "PackagePath": "staticwebassets\\css\\animate.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\baguetteBox.min.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\baguetteBox.min.css",
       "PackagePath": "staticwebassets\\css\\baguetteBox.min.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\bootsnav.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\bootsnav.css",
       "PackagePath": "staticwebassets\\css\\bootsnav.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\bootstrap-select.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\bootstrap-select.css",
       "PackagePath": "staticwebassets\\css\\bootstrap-select.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\bootstrap.min.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\carousel-ticker.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\carousel-ticker.css",
       "PackagePath": "staticwebassets\\css\\carousel-ticker.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\code_animate.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\code_animate.css",
       "PackagePath": "staticwebassets\\css\\code_animate.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\custom.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\custom.css",
       "PackagePath": "staticwebassets\\css\\custom.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\jquery-ui.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\jquery-ui.css",
       "PackagePath": "staticwebassets\\css\\jquery-ui.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\owl.carousel.min.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\owl.carousel.min.css",
       "PackagePath": "staticwebassets\\css\\owl.carousel.min.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\responsive.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\responsive.css",
       "PackagePath": "staticwebassets\\css\\responsive.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\site.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\style.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\css\\superslides.css",
+      "Id": "D:\\Blank\\wwwroot\\css\\superslides.css",
       "PackagePath": "staticwebassets\\css\\superslides.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\favicon.ico",
+      "Id": "D:\\Blank\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\a0b9cd3b-ac7e-470b-844b-9286f64843dd.webp",
+      "Id": "D:\\Blank\\wwwroot\\images\\a0b9cd3b-ac7e-470b-844b-9286f64843dd.webp",
       "PackagePath": "staticwebassets\\images\\a0b9cd3b-ac7e-470b-844b-9286f64843dd.webp"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\about-img.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\about-img.jpg",
       "PackagePath": "staticwebassets\\images\\about-img.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\add-img-01.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\add-img-01.jpg",
       "PackagePath": "staticwebassets\\images\\add-img-01.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\add-img-02.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\add-img-02.jpg",
       "PackagePath": "staticwebassets\\images\\add-img-02.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\all-bg-title.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\all-bg-title.jpg",
       "PackagePath": "staticwebassets\\images\\all-bg-title.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\apple-touch-icon.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\apple-touch-icon.png",
       "PackagePath": "staticwebassets\\images\\apple-touch-icon.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\banner-01.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\banner-01.jpg",
       "PackagePath": "staticwebassets\\images\\banner-01.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\banner-02.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\banner-02.jpg",
       "PackagePath": "staticwebassets\\images\\banner-02.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\banner-03.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\banner-03.jpg",
       "PackagePath": "staticwebassets\\images\\banner-03.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\banner-04.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\banner-04.jpg",
       "PackagePath": "staticwebassets\\images\\banner-04.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\big-img-01.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\banner-05.jpg",
+      "PackagePath": "staticwebassets\\images\\banner-05.jpg"
+    },
+    {
+      "Id": "D:\\Blank\\wwwroot\\images\\big-img-01.jpg",
       "PackagePath": "staticwebassets\\images\\big-img-01.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\big-img-02.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\big-img-02.jpg",
       "PackagePath": "staticwebassets\\images\\big-img-02.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\big-img-03.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\big-img-03.jpg",
       "PackagePath": "staticwebassets\\images\\big-img-03.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\blog-img-01.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\blog-img-01.jpg",
       "PackagePath": "staticwebassets\\images\\blog-img-01.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\blog-img-02.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\blog-img-02.jpg",
       "PackagePath": "staticwebassets\\images\\blog-img-02.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\blog-img.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\blog-img.jpg",
       "PackagePath": "staticwebassets\\images\\blog-img.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\book_table.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\book_table.jpg",
       "PackagePath": "staticwebassets\\images\\book_table.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\categories_img_01.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\categories_img_01.jpg",
       "PackagePath": "staticwebassets\\images\\categories_img_01.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\categories_img_02.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\categories_img_02.jpg",
       "PackagePath": "staticwebassets\\images\\categories_img_02.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\categories_img_03.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\categories_img_03.jpg",
       "PackagePath": "staticwebassets\\images\\categories_img_03.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\contact-bg.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\contact-bg.jpg",
       "PackagePath": "staticwebassets\\images\\contact-bg.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\1afdf96c-cf52-4e80-ab0e-55533becf6a1_122113665224196224.png",
-      "PackagePath": "staticwebassets\\images\\dishes\\1afdf96c-cf52-4e80-ab0e-55533becf6a1_122113665224196224.png"
+      "Id": "D:\\Blank\\wwwroot\\images\\dishes\\16d14962-d21a-4f1f-8d94-7ba5e5810c14_Indian Feast Platter.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\16d14962-d21a-4f1f-8d94-7ba5e5810c14_Indian Feast Platter.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\1cfb9c56-23e2-4770-8c17-78cae01fa0cb_pexels-dzeninalukac-1583884.jpg",
-      "PackagePath": "staticwebassets\\images\\dishes\\1cfb9c56-23e2-4770-8c17-78cae01fa0cb_pexels-dzeninalukac-1583884.jpg"
+      "Id": "D:\\Blank\\wwwroot\\images\\dishes\\1b2451f5-e04b-49dd-914e-2cc22a7425fd_Spicy Chicken Skewers.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\1b2451f5-e04b-49dd-914e-2cc22a7425fd_Spicy Chicken Skewers.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\55fabe52-6ce1-440a-af0d-5094df1d1f5c_pexels-ash-craig-122861-376464.jpg",
-      "PackagePath": "staticwebassets\\images\\dishes\\55fabe52-6ce1-440a-af0d-5094df1d1f5c_pexels-ash-craig-122861-376464.jpg"
+      "Id": "D:\\Blank\\wwwroot\\images\\dishes\\2d216be0-0265-4457-83b7-9e71ca4eb040_Classic Caesar Salad.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\2d216be0-0265-4457-83b7-9e71ca4eb040_Classic Caesar Salad.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\897b7d7d-98d4-4972-8fc1-5217445979b5_pexels-chanwalrus-958545.jpg",
-      "PackagePath": "staticwebassets\\images\\dishes\\897b7d7d-98d4-4972-8fc1-5217445979b5_pexels-chanwalrus-958545.jpg"
+      "Id": "D:\\Blank\\wwwroot\\images\\dishes\\5b5ac1a3-b89d-4a40-94e5-73fb14e4b891_Caramel Pancake Stack.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\5b5ac1a3-b89d-4a40-94e5-73fb14e4b891_Caramel Pancake Stack.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\93a9f8ca-82d2-48c7-b237-3ef6fdac271f_122113665530196224.png",
-      "PackagePath": "staticwebassets\\images\\dishes\\93a9f8ca-82d2-48c7-b237-3ef6fdac271f_122113665530196224.png"
+      "Id": "D:\\Blank\\wwwroot\\images\\dishes\\66132d5f-62e5-4633-94fc-3fbe9c1f02d0_Herb-Crusted Lamb Chops.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\66132d5f-62e5-4633-94fc-3fbe9c1f02d0_Herb-Crusted Lamb Chops.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\a09acad9-58cf-4d84-9452-38ecb621d31f_122113676300196224.png",
-      "PackagePath": "staticwebassets\\images\\dishes\\a09acad9-58cf-4d84-9452-38ecb621d31f_122113676300196224.png"
+      "Id": "D:\\Blank\\wwwroot\\images\\dishes\\72867651-3d03-414f-bb63-01ee5ae4df65_Peppercorn Steak & Vegetables.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\72867651-3d03-414f-bb63-01ee5ae4df65_Peppercorn Steak & Vegetables.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\a2c483ee-9344-4d21-a8e0-8b4a1854c603_317104749338592.png",
-      "PackagePath": "staticwebassets\\images\\dishes\\a2c483ee-9344-4d21-a8e0-8b4a1854c603_317104749338592.png"
+      "Id": "D:\\Blank\\wwwroot\\images\\dishes\\80041d6e-2499-4c97-883b-a0b74be7e443_Spicy Shrimp Noodle Bowl.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\80041d6e-2499-4c97-883b-a0b74be7e443_Spicy Shrimp Noodle Bowl.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\a747c280-97a9-434d-a3d5-8979437068d2_122114488352196224.png",
-      "PackagePath": "staticwebassets\\images\\dishes\\a747c280-97a9-434d-a3d5-8979437068d2_122114488352196224.png"
+      "Id": "D:\\Blank\\wwwroot\\images\\dishes\\9d3ad6d7-f52e-446c-89f5-d8654cf3161c_Fresh Garden Salad.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\9d3ad6d7-f52e-446c-89f5-d8654cf3161c_Fresh Garden Salad.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\da3ec00c-6ecb-4d53-98c0-c6c7ecd0d11e_pexels-catscoming-406152.jpg",
-      "PackagePath": "staticwebassets\\images\\dishes\\da3ec00c-6ecb-4d53-98c0-c6c7ecd0d11e_pexels-catscoming-406152.jpg"
+      "Id": "D:\\Blank\\wwwroot\\images\\dishes\\b71a8134-2823-4d74-b06d-a7be4c4f23d2_pexels-dana-tentis-118658-262959.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\b71a8134-2823-4d74-b06d-a7be4c4f23d2_pexels-dana-tentis-118658-262959.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\df0f96a7-247a-495c-8357-81ff3d4809f5_122113663394196224.png",
-      "PackagePath": "staticwebassets\\images\\dishes\\df0f96a7-247a-495c-8357-81ff3d4809f5_122113663394196224.png"
+      "Id": "D:\\Blank\\wwwroot\\images\\dishes\\e7ad8096-3e17-4095-bd5e-dbbc404f2261_Tomato Basil Salad.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\e7ad8096-3e17-4095-bd5e-dbbc404f2261_Tomato Basil Salad.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\e5526317-aae2-4af5-a99b-9176f6601c34_pexels-dana-tentis-118658-262959.jpg",
-      "PackagePath": "staticwebassets\\images\\dishes\\e5526317-aae2-4af5-a99b-9176f6601c34_pexels-dana-tentis-118658-262959.jpg"
+      "Id": "D:\\Blank\\wwwroot\\images\\dishes\\e8a7c925-851c-4737-8632-a9091fc43299_Grilled Salmon Delight.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\e8a7c925-851c-4737-8632-a9091fc43299_Grilled Salmon Delight.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\f4ca7cf7-f947-401b-a7ed-88098c32da4f_122113669070196224.png",
-      "PackagePath": "staticwebassets\\images\\dishes\\f4ca7cf7-f947-401b-a7ed-88098c32da4f_122113669070196224.png"
+      "Id": "D:\\Blank\\wwwroot\\images\\favicon.png",
+      "PackagePath": "staticwebassets\\images\\favicon.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\dishes\\f6bac89a-84f8-4ba4-820d-088a147c10a5_pexels-chevanon-323682.jpg",
-      "PackagePath": "staticwebassets\\images\\dishes\\f6bac89a-84f8-4ba4-820d-088a147c10a5_pexels-chevanon-323682.jpg"
-    },
-    {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\favicon.ico",
-      "PackagePath": "staticwebassets\\images\\favicon.ico"
-    },
-    {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\feedbacks\\11794ef5-6e62-4a1b-a0fb-c969480a11fc_pexels-catscoming-406152.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\feedbacks\\11794ef5-6e62-4a1b-a0fb-c969480a11fc_pexels-catscoming-406152.jpg",
       "PackagePath": "staticwebassets\\images\\feedbacks\\11794ef5-6e62-4a1b-a0fb-c969480a11fc_pexels-catscoming-406152.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\feedbacks\\4b313d25-9feb-4159-be64-78cd77de3427_Screen10.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\feedbacks\\4b313d25-9feb-4159-be64-78cd77de3427_Screen10.png",
       "PackagePath": "staticwebassets\\images\\feedbacks\\4b313d25-9feb-4159-be64-78cd77de3427_Screen10.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\feedbacks\\72c70d3e-e6f8-43fa-a671-68481ee36a32_Phương tiện truyền thông.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\feedbacks\\72c70d3e-e6f8-43fa-a671-68481ee36a32_Phương tiện truyền thông.jpg",
       "PackagePath": "staticwebassets\\images\\feedbacks\\72c70d3e-e6f8-43fa-a671-68481ee36a32_Phương tiện truyền thông.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\feedbacks\\82e44361-f42d-4213-b82d-70619e7445c7_Phương tiện truyền thông.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\feedbacks\\82e44361-f42d-4213-b82d-70619e7445c7_Phương tiện truyền thông.jpg",
       "PackagePath": "staticwebassets\\images\\feedbacks\\82e44361-f42d-4213-b82d-70619e7445c7_Phương tiện truyền thông.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\feedbacks\\dd10c3ad-1d41-46a7-8a50-23ed87f56398_Screen10.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\feedbacks\\dd10c3ad-1d41-46a7-8a50-23ed87f56398_Screen10.png",
       "PackagePath": "staticwebassets\\images\\feedbacks\\dd10c3ad-1d41-46a7-8a50-23ed87f56398_Screen10.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-01.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-01.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-01.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-02.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-02.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-02.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-03.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-03.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-03.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-04.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-04.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-04.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-05.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-05.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-05.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-06.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-06.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-06.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-07.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-07.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-07.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-08.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-08.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-08.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-09.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-09.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-09.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-10.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-10.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-10.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-11.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-11.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-11.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\gallery-img-12.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-12.jpg",
       "PackagePath": "staticwebassets\\images\\gallery-img-12.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\img-1.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\img-1.jpg",
       "PackagePath": "staticwebassets\\images\\img-1.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\img-2.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\img-2.jpg",
       "PackagePath": "staticwebassets\\images\\img-2.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\img-3.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\img-3.jpg",
       "PackagePath": "staticwebassets\\images\\img-3.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\img-pro-01.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\img-pro-01.jpg",
       "PackagePath": "staticwebassets\\images\\img-pro-01.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\img-pro-02.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\img-pro-02.jpg",
       "PackagePath": "staticwebassets\\images\\img-pro-02.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\img-pro-03.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\img-pro-03.jpg",
       "PackagePath": "staticwebassets\\images\\img-pro-03.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\img-pro-04.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\img-pro-04.jpg",
       "PackagePath": "staticwebassets\\images\\img-pro-04.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\ingredients\\0d7f0a8b-b2a4-444f-9a60-03e55af95bec_323002742082126.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\ingredients\\0d7f0a8b-b2a4-444f-9a60-03e55af95bec_323002742082126.png",
       "PackagePath": "staticwebassets\\images\\ingredients\\0d7f0a8b-b2a4-444f-9a60-03e55af95bec_323002742082126.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\ingredients\\222489b1-98fb-47bd-8ac2-09f3ea25337b_pexels-ella-olsson-572949-1640772.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\ingredients\\222489b1-98fb-47bd-8ac2-09f3ea25337b_pexels-ella-olsson-572949-1640772.jpg",
       "PackagePath": "staticwebassets\\images\\ingredients\\222489b1-98fb-47bd-8ac2-09f3ea25337b_pexels-ella-olsson-572949-1640772.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\ingredients\\31a7c118-1f57-4f2b-942d-cb47d6903725_122113664738196224.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\ingredients\\31a7c118-1f57-4f2b-942d-cb47d6903725_122113664738196224.png",
       "PackagePath": "staticwebassets\\images\\ingredients\\31a7c118-1f57-4f2b-942d-cb47d6903725_122113664738196224.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\ingredients\\7f7448c5-bf94-4980-8cf5-8b7c27313052_317104686005265.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\ingredients\\7f7448c5-bf94-4980-8cf5-8b7c27313052_317104686005265.png",
       "PackagePath": "staticwebassets\\images\\ingredients\\7f7448c5-bf94-4980-8cf5-8b7c27313052_317104686005265.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\ingredients\\80351f54-4a85-4d89-8789-f64a4a938e83_317104686005265.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\ingredients\\80351f54-4a85-4d89-8789-f64a4a938e83_317104686005265.png",
       "PackagePath": "staticwebassets\\images\\ingredients\\80351f54-4a85-4d89-8789-f64a4a938e83_317104686005265.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\ins-bg.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\ins-bg.jpg",
       "PackagePath": "staticwebassets\\images\\ins-bg.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\instagram-img-01.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-01.jpg",
       "PackagePath": "staticwebassets\\images\\instagram-img-01.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\instagram-img-02.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-02.jpg",
       "PackagePath": "staticwebassets\\images\\instagram-img-02.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\instagram-img-03.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-03.jpg",
       "PackagePath": "staticwebassets\\images\\instagram-img-03.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\instagram-img-04.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-04.jpg",
       "PackagePath": "staticwebassets\\images\\instagram-img-04.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\instagram-img-05.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-05.jpg",
       "PackagePath": "staticwebassets\\images\\instagram-img-05.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\instagram-img-06.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-06.jpg",
       "PackagePath": "staticwebassets\\images\\instagram-img-06.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\instagram-img-07.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-07.jpg",
       "PackagePath": "staticwebassets\\images\\instagram-img-07.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\instagram-img-08.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-08.jpg",
       "PackagePath": "staticwebassets\\images\\instagram-img-08.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\instagram-img-09.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-09.jpg",
       "PackagePath": "staticwebassets\\images\\instagram-img-09.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\logo.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\logo.png",
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\orLogo.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\orLogo.jpg",
       "PackagePath": "staticwebassets\\images\\orLogo.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\order_food.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\order_food.jpg",
       "PackagePath": "staticwebassets\\images\\order_food.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\payment-icon\\1.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\payment-icon\\1.png",
       "PackagePath": "staticwebassets\\images\\payment-icon\\1.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\payment-icon\\2.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\payment-icon\\2.png",
       "PackagePath": "staticwebassets\\images\\payment-icon\\2.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\payment-icon\\3.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\payment-icon\\3.png",
       "PackagePath": "staticwebassets\\images\\payment-icon\\3.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\payment-icon\\4.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\payment-icon\\4.png",
       "PackagePath": "staticwebassets\\images\\payment-icon\\4.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\payment-icon\\5.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\payment-icon\\5.png",
       "PackagePath": "staticwebassets\\images\\payment-icon\\5.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\payment-icon\\6.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\payment-icon\\6.png",
       "PackagePath": "staticwebassets\\images\\payment-icon\\6.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\payment-icon\\7.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\payment-icon\\7.png",
       "PackagePath": "staticwebassets\\images\\payment-icon\\7.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\popular_dishes.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\popular_dishes.jpg",
       "PackagePath": "staticwebassets\\images\\popular_dishes.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\1c3f5374-d6cb-4a7c-93ad-2ef49de24b9c_pexels-iina-luoto-460132-1211887.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\1c3f5374-d6cb-4a7c-93ad-2ef49de24b9c_pexels-iina-luoto-460132-1211887.jpg",
       "PackagePath": "staticwebassets\\images\\profile\\1c3f5374-d6cb-4a7c-93ad-2ef49de24b9c_pexels-iina-luoto-460132-1211887.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\2688b261-9672-46d0-bce9-e4fa03be73ac_314452532937147.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\2688b261-9672-46d0-bce9-e4fa03be73ac_314452532937147.png",
       "PackagePath": "staticwebassets\\images\\profile\\2688b261-9672-46d0-bce9-e4fa03be73ac_314452532937147.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\463fa805-3ffd-4a5a-b185-18b3342b8874_122113665530196224.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\463fa805-3ffd-4a5a-b185-18b3342b8874_122113665530196224.png",
       "PackagePath": "staticwebassets\\images\\profile\\463fa805-3ffd-4a5a-b185-18b3342b8874_122113665530196224.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\4e9a11d0-c631-4cef-b606-a70d7aa4e676_122113663394196224.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\4e9a11d0-c631-4cef-b606-a70d7aa4e676_122113663394196224.png",
       "PackagePath": "staticwebassets\\images\\profile\\4e9a11d0-c631-4cef-b606-a70d7aa4e676_122113663394196224.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\65683a61-8b3c-4347-b752-a91ea2774972_122113660094196224.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\65683a61-8b3c-4347-b752-a91ea2774972_122113660094196224.png",
       "PackagePath": "staticwebassets\\images\\profile\\65683a61-8b3c-4347-b752-a91ea2774972_122113660094196224.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\7d79adf0-1084-487d-9ac8-9b80a34c7084_122113665530196224.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\7d79adf0-1084-487d-9ac8-9b80a34c7084_122113665530196224.png",
       "PackagePath": "staticwebassets\\images\\profile\\7d79adf0-1084-487d-9ac8-9b80a34c7084_122113665530196224.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\89cd51ec-ce54-4d48-b83c-fbe71e15fa9e_122113660094196224.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\89cd51ec-ce54-4d48-b83c-fbe71e15fa9e_122113660094196224.png",
       "PackagePath": "staticwebassets\\images\\profile\\89cd51ec-ce54-4d48-b83c-fbe71e15fa9e_122113660094196224.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\9456f816-fb8d-4a45-93c1-33c7b3a4c598_122170742774196224.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\9456f816-fb8d-4a45-93c1-33c7b3a4c598_122170742774196224.png",
       "PackagePath": "staticwebassets\\images\\profile\\9456f816-fb8d-4a45-93c1-33c7b3a4c598_122170742774196224.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\c9cc94fc-9a52-4df2-82bc-dfe7575c262c_317104749338592.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\c9cc94fc-9a52-4df2-82bc-dfe7575c262c_317104749338592.png",
       "PackagePath": "staticwebassets\\images\\profile\\c9cc94fc-9a52-4df2-82bc-dfe7575c262c_317104749338592.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\decd5a67-c858-4805-ae75-be21239b668f_a0b9cd3b-ac7e-470b-844b-9286f64843dd.webp",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\decd5a67-c858-4805-ae75-be21239b668f_a0b9cd3b-ac7e-470b-844b-9286f64843dd.webp",
       "PackagePath": "staticwebassets\\images\\profile\\decd5a67-c858-4805-ae75-be21239b668f_a0b9cd3b-ac7e-470b-844b-9286f64843dd.webp"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\e5702d71-e5cf-4441-9214-51ebea59b4a0_Phương tiện truyền thông.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\e5702d71-e5cf-4441-9214-51ebea59b4a0_Phương tiện truyền thông.jpg",
       "PackagePath": "staticwebassets\\images\\profile\\e5702d71-e5cf-4441-9214-51ebea59b4a0_Phương tiện truyền thông.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\f394608b-5739-45c9-bccd-d319ac15de57_317104749338592.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\f394608b-5739-45c9-bccd-d319ac15de57_317104749338592.png",
       "PackagePath": "staticwebassets\\images\\profile\\f394608b-5739-45c9-bccd-d319ac15de57_317104749338592.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\f83dfd3b-f236-4062-963c-c73c303e0b7f_323002532082147.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\f83dfd3b-f236-4062-963c-c73c303e0b7f_323002532082147.png",
       "PackagePath": "staticwebassets\\images\\profile\\f83dfd3b-f236-4062-963c-c73c303e0b7f_323002532082147.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\fd7fab63-e150-4c0b-bed9-dbbc54f70219_314452692937131.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\fd7fab63-e150-4c0b-bed9-dbbc54f70219_314452692937131.png",
       "PackagePath": "staticwebassets\\images\\profile\\fd7fab63-e150-4c0b-bed9-dbbc54f70219_314452692937131.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\profile\\feb2ad6c-6b0e-473d-ae6a-42ad724f42d8_all-bg-title.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\profile\\feb2ad6c-6b0e-473d-ae6a-42ad724f42d8_all-bg-title.jpg",
       "PackagePath": "staticwebassets\\images\\profile\\feb2ad6c-6b0e-473d-ae6a-42ad724f42d8_all-bg-title.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\restaurants\\823dee67-4eba-4e4c-8493-e11081127cf0_323002742082126.png",
+      "Id": "D:\\Blank\\wwwroot\\images\\restaurants\\823dee67-4eba-4e4c-8493-e11081127cf0_323002742082126.png",
       "PackagePath": "staticwebassets\\images\\restaurants\\823dee67-4eba-4e4c-8493-e11081127cf0_323002742082126.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\restaurants\\cfa41647-ee8c-490e-b55f-d94b26149d80_blog-img-02.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\restaurants\\cfa41647-ee8c-490e-b55f-d94b26149d80_blog-img-02.jpg",
       "PackagePath": "staticwebassets\\images\\restaurants\\cfa41647-ee8c-490e-b55f-d94b26149d80_blog-img-02.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\restaurants\\d04ad723-9840-4271-95af-33f60785b8e2_categories_img_02.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\restaurants\\d04ad723-9840-4271-95af-33f60785b8e2_categories_img_02.jpg",
       "PackagePath": "staticwebassets\\images\\restaurants\\d04ad723-9840-4271-95af-33f60785b8e2_categories_img_02.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\smp-img-01.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\smp-img-01.jpg",
       "PackagePath": "staticwebassets\\images\\smp-img-01.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\smp-img-02.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\smp-img-02.jpg",
       "PackagePath": "staticwebassets\\images\\smp-img-02.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\images\\smp-img-03.jpg",
+      "Id": "D:\\Blank\\wwwroot\\images\\smp-img-03.jpg",
       "PackagePath": "staticwebassets\\images\\smp-img-03.jpg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\imgs\\41ea5c00-badd-4b67-b035-9262b2851164_317104696005264.png",
+      "Id": "D:\\Blank\\wwwroot\\imgs\\41ea5c00-badd-4b67-b035-9262b2851164_317104696005264.png",
       "PackagePath": "staticwebassets\\imgs\\41ea5c00-badd-4b67-b035-9262b2851164_317104696005264.png"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\baguetteBox.min.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\baguetteBox.min.js",
       "PackagePath": "staticwebassets\\js\\baguetteBox.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\bootsnav.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\bootsnav.js",
       "PackagePath": "staticwebassets\\js\\bootsnav.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\bootstrap-select.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\bootstrap-select.js",
       "PackagePath": "staticwebassets\\js\\bootstrap-select.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\bootstrap.min.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\contact-form-script.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\contact-form-script.js",
       "PackagePath": "staticwebassets\\js\\contact-form-script.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\custom.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\custom.js",
       "PackagePath": "staticwebassets\\js\\custom.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\form-validator.min.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\form-validator.min.js",
       "PackagePath": "staticwebassets\\js\\form-validator.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\images-loded.min.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\images-loded.min.js",
       "PackagePath": "staticwebassets\\js\\images-loded.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\inewsticker.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\inewsticker.js",
       "PackagePath": "staticwebassets\\js\\inewsticker.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\isotope.min.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\isotope.min.js",
       "PackagePath": "staticwebassets\\js\\isotope.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\jquery-3.2.1.min.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\jquery-3.2.1.min.js",
       "PackagePath": "staticwebassets\\js\\jquery-3.2.1.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\jquery-ui.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\jquery-ui.js",
       "PackagePath": "staticwebassets\\js\\jquery-ui.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\jquery.nicescroll.min.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\jquery.nicescroll.min.js",
       "PackagePath": "staticwebassets\\js\\jquery.nicescroll.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\jquery.superslides.min.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\jquery.superslides.min.js",
       "PackagePath": "staticwebassets\\js\\jquery.superslides.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\owl.carousel.min.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\owl.carousel.min.js",
       "PackagePath": "staticwebassets\\js\\owl.carousel.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\popper.min.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\popper.min.js",
       "PackagePath": "staticwebassets\\js\\popper.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\js\\site.js",
+      "Id": "D:\\Blank\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\Blank\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-brands-400.eot",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-brands-400.eot",
       "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.eot"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-brands-400.svg",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-brands-400.svg",
       "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.svg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-brands-400.ttf",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-brands-400.ttf",
       "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.ttf"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-brands-400.woff",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-brands-400.woff",
       "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.woff"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-brands-400.woff2",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-brands-400.woff2",
       "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.woff2"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-regular-400.eot",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-regular-400.eot",
       "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.eot"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-regular-400.svg",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-regular-400.svg",
       "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.svg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-regular-400.ttf",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-regular-400.ttf",
       "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.ttf"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-regular-400.woff",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-regular-400.woff",
       "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.woff"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-regular-400.woff2",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-regular-400.woff2",
       "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.woff2"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-solid-900.eot",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-solid-900.eot",
       "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.eot"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-solid-900.svg",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-solid-900.svg",
       "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.svg"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-solid-900.ttf",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-solid-900.ttf",
       "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.ttf"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-solid-900.woff",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-solid-900.woff",
       "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.woff"
     },
     {
-      "Id": "D:\\. For Final Project\\Blank\\wwwroot\\webfonts\\fa-solid-900.woff2",
+      "Id": "D:\\Blank\\wwwroot\\webfonts\\fa-solid-900.woff2",
       "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.woff2"
     },
     {

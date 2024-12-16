@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Blank.Models;
 
 namespace Blank.Controllers;
@@ -7,16 +8,28 @@ namespace Blank.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+     private readonly FinalprojectContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, FinalprojectContext context)
     {
         _logger = logger;
+         _context = context;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
         ViewBag.PageTitle = "Homepage";
-        return View();
+
+        var tables = await _context.Tables.ToListAsync();
+        foreach (var table in tables)
+        {
+            if (string.IsNullOrWhiteSpace(table.Location) || !table.Location.Contains(","))
+            {
+                table.Location = "0,0"; 
+            }
+        }
+
+        return View(tables);
     }
 
     public IActionResult About()

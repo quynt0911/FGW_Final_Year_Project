@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Blank.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Blank.Controllers
 {
@@ -13,13 +14,13 @@ namespace Blank.Controllers
             _context = context;
         }
 
-        // GET: Restaurant
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Restaurants.ToListAsync());
         }
 
-        // GET: Restaurant/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -97,7 +98,7 @@ namespace Blank.Controllers
 
 
 
-        // GET: Restaurant/Edit/5
+       [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -167,7 +168,7 @@ namespace Blank.Controllers
             return View(restaurant);
         }
 
-        // GET: Restaurant/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -185,7 +186,7 @@ namespace Blank.Controllers
             return View(restaurant);
         }
 
-        // POST: Restaurant/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

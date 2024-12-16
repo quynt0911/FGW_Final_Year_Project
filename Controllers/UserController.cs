@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Blank.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Blank.Controllers
 {
@@ -19,7 +20,7 @@ namespace Blank.Controllers
             _roleManager = roleManager;
         }
 
-        // GET: User
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users
@@ -41,7 +42,7 @@ namespace Blank.Controllers
             return View(users);
         }
 
-        // GET: User/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -68,14 +69,14 @@ namespace Blank.Controllers
             return View(userViewModel);
         }
 
-        // GET: User/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewBag.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
             return View();
         }
 
-        // POST: User/Create
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("UserName,Email,PhoneNumber,Password,Role")] UserViewModel userViewModel)
@@ -86,7 +87,8 @@ namespace Blank.Controllers
                 {
                     UserName = userViewModel.UserName,
                     Email = userViewModel.Email,
-                    PhoneNumber = userViewModel.PhoneNumber
+                    PhoneNumber = userViewModel.PhoneNumber,
+                    EmailConfirmed = true
                 };
 
                 var result = await _userManager.CreateAsync(user, userViewModel.Password);
@@ -112,7 +114,7 @@ namespace Blank.Controllers
 
 
 
-        // GET: User/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -137,7 +139,7 @@ namespace Blank.Controllers
             return View(userViewModel);
         }
 
-        // POST: User/Edit/5
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Id,UserName,Email,PhoneNumber")] UserViewModel userViewModel)
@@ -174,7 +176,7 @@ namespace Blank.Controllers
             return View(userViewModel);
         }
 
-        // GET: User/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -199,7 +201,7 @@ namespace Blank.Controllers
             return View(userViewModel);
         }
 
-        // POST: User/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
@@ -213,7 +215,7 @@ namespace Blank.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: User/AssignRole/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AssignRole(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -239,13 +241,13 @@ namespace Blank.Controllers
             return View(model);
         }
 
-        // GET: User/CreateRole
+        [Authorize(Roles = "Admin")]
         public IActionResult CreateRole()
         {
             return View();
         }
 
-        // POST: User/CreateRole
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateRole(string roleName)
@@ -267,7 +269,7 @@ namespace Blank.Controllers
             return View();
         }
 
-        // GET: User/EditRole
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditRole()
         {
             var roles = await _roleManager.Roles.ToListAsync();
@@ -306,7 +308,7 @@ namespace Blank.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteRole(string id)
@@ -341,7 +343,7 @@ namespace Blank.Controllers
 
 
 
-        // POST: User/DeleteRoleConfirmed
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ActionName("DeleteRoleConfirmed")]
         [ValidateAntiForgeryToken]
@@ -367,7 +369,7 @@ namespace Blank.Controllers
 
 
 
-        // GET: User/ManageRole
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ManageRole()
         {
             var users = await _userManager.Users

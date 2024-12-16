@@ -77,22 +77,6 @@
       "PackagePath": "staticwebassets\\images\\about-img.jpg"
     },
     {
-      "Id": "D:\\Blank\\wwwroot\\images\\add-img-01.jpg",
-      "PackagePath": "staticwebassets\\images\\add-img-01.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\add-img-02.jpg",
-      "PackagePath": "staticwebassets\\images\\add-img-02.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\all-bg-title.jpg",
-      "PackagePath": "staticwebassets\\images\\all-bg-title.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\apple-touch-icon.png",
-      "PackagePath": "staticwebassets\\images\\apple-touch-icon.png"
-    },
-    {
       "Id": "D:\\Blank\\wwwroot\\images\\banner-01.jpg",
       "PackagePath": "staticwebassets\\images\\banner-01.jpg"
     },
@@ -113,48 +97,8 @@
       "PackagePath": "staticwebassets\\images\\banner-05.jpg"
     },
     {
-      "Id": "D:\\Blank\\wwwroot\\images\\big-img-01.jpg",
-      "PackagePath": "staticwebassets\\images\\big-img-01.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\big-img-02.jpg",
-      "PackagePath": "staticwebassets\\images\\big-img-02.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\big-img-03.jpg",
-      "PackagePath": "staticwebassets\\images\\big-img-03.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\blog-img-01.jpg",
-      "PackagePath": "staticwebassets\\images\\blog-img-01.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\blog-img-02.jpg",
-      "PackagePath": "staticwebassets\\images\\blog-img-02.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\blog-img.jpg",
-      "PackagePath": "staticwebassets\\images\\blog-img.jpg"
-    },
-    {
       "Id": "D:\\Blank\\wwwroot\\images\\book_table.jpg",
       "PackagePath": "staticwebassets\\images\\book_table.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\categories_img_01.jpg",
-      "PackagePath": "staticwebassets\\images\\categories_img_01.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\categories_img_02.jpg",
-      "PackagePath": "staticwebassets\\images\\categories_img_02.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\categories_img_03.jpg",
-      "PackagePath": "staticwebassets\\images\\categories_img_03.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\contact-bg.jpg",
-      "PackagePath": "staticwebassets\\images\\contact-bg.jpg"
     },
     {
       "Id": "D:\\Blank\\wwwroot\\images\\dishes\\16d14962-d21a-4f1f-8d94-7ba5e5810c14_Indian Feast Platter.jpg",
@@ -205,102 +149,6 @@
       "PackagePath": "staticwebassets\\images\\favicon.png"
     },
     {
-      "Id": "D:\\Blank\\wwwroot\\images\\feedbacks\\11794ef5-6e62-4a1b-a0fb-c969480a11fc_pexels-catscoming-406152.jpg",
-      "PackagePath": "staticwebassets\\images\\feedbacks\\11794ef5-6e62-4a1b-a0fb-c969480a11fc_pexels-catscoming-406152.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\feedbacks\\4b313d25-9feb-4159-be64-78cd77de3427_Screen10.png",
-      "PackagePath": "staticwebassets\\images\\feedbacks\\4b313d25-9feb-4159-be64-78cd77de3427_Screen10.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\feedbacks\\72c70d3e-e6f8-43fa-a671-68481ee36a32_Phương tiện truyền thông.jpg",
-      "PackagePath": "staticwebassets\\images\\feedbacks\\72c70d3e-e6f8-43fa-a671-68481ee36a32_Phương tiện truyền thông.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\feedbacks\\82e44361-f42d-4213-b82d-70619e7445c7_Phương tiện truyền thông.jpg",
-      "PackagePath": "staticwebassets\\images\\feedbacks\\82e44361-f42d-4213-b82d-70619e7445c7_Phương tiện truyền thông.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\feedbacks\\dd10c3ad-1d41-46a7-8a50-23ed87f56398_Screen10.png",
-      "PackagePath": "staticwebassets\\images\\feedbacks\\dd10c3ad-1d41-46a7-8a50-23ed87f56398_Screen10.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-01.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-01.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-02.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-02.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-03.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-03.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-04.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-04.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-05.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-05.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-06.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-06.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-07.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-07.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-08.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-08.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-09.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-09.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-10.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-10.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-11.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-11.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\gallery-img-12.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery-img-12.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\img-1.jpg",
-      "PackagePath": "staticwebassets\\images\\img-1.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\img-2.jpg",
-      "PackagePath": "staticwebassets\\images\\img-2.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\img-3.jpg",
-      "PackagePath": "staticwebassets\\images\\img-3.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\img-pro-01.jpg",
-      "PackagePath": "staticwebassets\\images\\img-pro-01.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\img-pro-02.jpg",
-      "PackagePath": "staticwebassets\\images\\img-pro-02.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\img-pro-03.jpg",
-      "PackagePath": "staticwebassets\\images\\img-pro-03.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\img-pro-04.jpg",
-      "PackagePath": "staticwebassets\\images\\img-pro-04.jpg"
-    },
-    {
       "Id": "D:\\Blank\\wwwroot\\images\\ingredients\\0d7f0a8b-b2a4-444f-9a60-03e55af95bec_323002742082126.png",
       "PackagePath": "staticwebassets\\images\\ingredients\\0d7f0a8b-b2a4-444f-9a60-03e55af95bec_323002742082126.png"
     },
@@ -319,46 +167,6 @@
     {
       "Id": "D:\\Blank\\wwwroot\\images\\ingredients\\80351f54-4a85-4d89-8789-f64a4a938e83_317104686005265.png",
       "PackagePath": "staticwebassets\\images\\ingredients\\80351f54-4a85-4d89-8789-f64a4a938e83_317104686005265.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\ins-bg.jpg",
-      "PackagePath": "staticwebassets\\images\\ins-bg.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-01.jpg",
-      "PackagePath": "staticwebassets\\images\\instagram-img-01.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-02.jpg",
-      "PackagePath": "staticwebassets\\images\\instagram-img-02.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-03.jpg",
-      "PackagePath": "staticwebassets\\images\\instagram-img-03.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-04.jpg",
-      "PackagePath": "staticwebassets\\images\\instagram-img-04.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-05.jpg",
-      "PackagePath": "staticwebassets\\images\\instagram-img-05.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-06.jpg",
-      "PackagePath": "staticwebassets\\images\\instagram-img-06.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-07.jpg",
-      "PackagePath": "staticwebassets\\images\\instagram-img-07.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-08.jpg",
-      "PackagePath": "staticwebassets\\images\\instagram-img-08.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\instagram-img-09.jpg",
-      "PackagePath": "staticwebassets\\images\\instagram-img-09.jpg"
     },
     {
       "Id": "D:\\Blank\\wwwroot\\images\\logo.png",
@@ -405,92 +213,16 @@
       "PackagePath": "staticwebassets\\images\\popular_dishes.jpg"
     },
     {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\1c3f5374-d6cb-4a7c-93ad-2ef49de24b9c_pexels-iina-luoto-460132-1211887.jpg",
-      "PackagePath": "staticwebassets\\images\\profile\\1c3f5374-d6cb-4a7c-93ad-2ef49de24b9c_pexels-iina-luoto-460132-1211887.jpg"
+      "Id": "D:\\Blank\\wwwroot\\images\\restaurants\\162b818f-803e-4539-8998-dfb255fa4070_restaurant-1.jpg",
+      "PackagePath": "staticwebassets\\images\\restaurants\\162b818f-803e-4539-8998-dfb255fa4070_restaurant-1.jpg"
     },
     {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\2688b261-9672-46d0-bce9-e4fa03be73ac_314452532937147.png",
-      "PackagePath": "staticwebassets\\images\\profile\\2688b261-9672-46d0-bce9-e4fa03be73ac_314452532937147.png"
+      "Id": "D:\\Blank\\wwwroot\\images\\restaurants\\325c7bba-19f4-4ce4-8620-1df61acf3b7a_restaurant-3.jpg",
+      "PackagePath": "staticwebassets\\images\\restaurants\\325c7bba-19f4-4ce4-8620-1df61acf3b7a_restaurant-3.jpg"
     },
     {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\463fa805-3ffd-4a5a-b185-18b3342b8874_122113665530196224.png",
-      "PackagePath": "staticwebassets\\images\\profile\\463fa805-3ffd-4a5a-b185-18b3342b8874_122113665530196224.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\4e9a11d0-c631-4cef-b606-a70d7aa4e676_122113663394196224.png",
-      "PackagePath": "staticwebassets\\images\\profile\\4e9a11d0-c631-4cef-b606-a70d7aa4e676_122113663394196224.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\65683a61-8b3c-4347-b752-a91ea2774972_122113660094196224.png",
-      "PackagePath": "staticwebassets\\images\\profile\\65683a61-8b3c-4347-b752-a91ea2774972_122113660094196224.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\7d79adf0-1084-487d-9ac8-9b80a34c7084_122113665530196224.png",
-      "PackagePath": "staticwebassets\\images\\profile\\7d79adf0-1084-487d-9ac8-9b80a34c7084_122113665530196224.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\89cd51ec-ce54-4d48-b83c-fbe71e15fa9e_122113660094196224.png",
-      "PackagePath": "staticwebassets\\images\\profile\\89cd51ec-ce54-4d48-b83c-fbe71e15fa9e_122113660094196224.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\9456f816-fb8d-4a45-93c1-33c7b3a4c598_122170742774196224.png",
-      "PackagePath": "staticwebassets\\images\\profile\\9456f816-fb8d-4a45-93c1-33c7b3a4c598_122170742774196224.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\c9cc94fc-9a52-4df2-82bc-dfe7575c262c_317104749338592.png",
-      "PackagePath": "staticwebassets\\images\\profile\\c9cc94fc-9a52-4df2-82bc-dfe7575c262c_317104749338592.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\decd5a67-c858-4805-ae75-be21239b668f_a0b9cd3b-ac7e-470b-844b-9286f64843dd.webp",
-      "PackagePath": "staticwebassets\\images\\profile\\decd5a67-c858-4805-ae75-be21239b668f_a0b9cd3b-ac7e-470b-844b-9286f64843dd.webp"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\e5702d71-e5cf-4441-9214-51ebea59b4a0_Phương tiện truyền thông.jpg",
-      "PackagePath": "staticwebassets\\images\\profile\\e5702d71-e5cf-4441-9214-51ebea59b4a0_Phương tiện truyền thông.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\f394608b-5739-45c9-bccd-d319ac15de57_317104749338592.png",
-      "PackagePath": "staticwebassets\\images\\profile\\f394608b-5739-45c9-bccd-d319ac15de57_317104749338592.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\f83dfd3b-f236-4062-963c-c73c303e0b7f_323002532082147.png",
-      "PackagePath": "staticwebassets\\images\\profile\\f83dfd3b-f236-4062-963c-c73c303e0b7f_323002532082147.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\fd7fab63-e150-4c0b-bed9-dbbc54f70219_314452692937131.png",
-      "PackagePath": "staticwebassets\\images\\profile\\fd7fab63-e150-4c0b-bed9-dbbc54f70219_314452692937131.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\profile\\feb2ad6c-6b0e-473d-ae6a-42ad724f42d8_all-bg-title.jpg",
-      "PackagePath": "staticwebassets\\images\\profile\\feb2ad6c-6b0e-473d-ae6a-42ad724f42d8_all-bg-title.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\restaurants\\823dee67-4eba-4e4c-8493-e11081127cf0_323002742082126.png",
-      "PackagePath": "staticwebassets\\images\\restaurants\\823dee67-4eba-4e4c-8493-e11081127cf0_323002742082126.png"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\restaurants\\cfa41647-ee8c-490e-b55f-d94b26149d80_blog-img-02.jpg",
-      "PackagePath": "staticwebassets\\images\\restaurants\\cfa41647-ee8c-490e-b55f-d94b26149d80_blog-img-02.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\restaurants\\d04ad723-9840-4271-95af-33f60785b8e2_categories_img_02.jpg",
-      "PackagePath": "staticwebassets\\images\\restaurants\\d04ad723-9840-4271-95af-33f60785b8e2_categories_img_02.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\smp-img-01.jpg",
-      "PackagePath": "staticwebassets\\images\\smp-img-01.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\smp-img-02.jpg",
-      "PackagePath": "staticwebassets\\images\\smp-img-02.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\images\\smp-img-03.jpg",
-      "PackagePath": "staticwebassets\\images\\smp-img-03.jpg"
-    },
-    {
-      "Id": "D:\\Blank\\wwwroot\\imgs\\41ea5c00-badd-4b67-b035-9262b2851164_317104696005264.png",
-      "PackagePath": "staticwebassets\\imgs\\41ea5c00-badd-4b67-b035-9262b2851164_317104696005264.png"
+      "Id": "D:\\Blank\\wwwroot\\images\\restaurants\\feca93f7-d103-43a0-8b6d-0f0f223a82ff_restaurant-4.jpg",
+      "PackagePath": "staticwebassets\\images\\restaurants\\feca93f7-d103-43a0-8b6d-0f0f223a82ff_restaurant-4.jpg"
     },
     {
       "Id": "D:\\Blank\\wwwroot\\js\\baguetteBox.min.js",

@@ -34,7 +34,6 @@ namespace Blank.Controllers
             return View(reservations);
         }
 
-
         [HttpGet]
         public async Task<IActionResult> MakeReservation()
         {
@@ -47,12 +46,13 @@ namespace Blank.Controllers
 
             ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
             ViewBag.Tables = await _context.Tables.Where(t => t.TStatus == "Available").ToListAsync();
+            ViewData["CustomerId"] = userId;
 
             var reservation = new Reservation
             {
                 CustomerId = userId,
                 CustomerName = User.Identity.Name,
-                DateTime = DateTime.Now 
+                DateTime = DateTime.Now
             };
 
             return View(reservation);
@@ -105,7 +105,7 @@ namespace Blank.Controllers
                 await transaction.CommitAsync();
 
                 TempData["Success"] = "Reservation successfully made.";
-                return RedirectToAction("Index", "Reservation");
+                return RedirectToAction("History", "Reservation");
             }
             catch (Exception ex)
             {
@@ -122,8 +122,6 @@ namespace Blank.Controllers
             ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
             ViewBag.Tables = await _context.Tables.Where(t => t.TStatus == "Available").ToListAsync();
         }
-
-
 
         private async Task LoadViewBags()
         {
@@ -187,16 +185,20 @@ namespace Blank.Controllers
                 return NotFound();
             }
 
+            reservation.RStatus = "Rejected";
+
             if (reservation.Table != null)
             {
                 reservation.Table.TStatus = "Available";
                 _context.Tables.Update(reservation.Table);
             }
 
+            _context.Reservations.Update(reservation);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
+
 
 
         public async Task<IActionResult> Details(int id)

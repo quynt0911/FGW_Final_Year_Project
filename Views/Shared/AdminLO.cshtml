@@ -77,10 +77,11 @@
 
         <div class="dropdown">
             <input type="checkbox" id="toggle-order" class="toggle-checkbox">
-            <label for="toggle-order" class="dropdown-toggle">Manage The Others</label>
+            <label for="toggle-order" class="dropdown-toggle">The Others</label>
             <div class="dropdown-content">
                 <a asp-controller="Order" asp-action="Index">List of Orders</a>
                 <a asp-controller="Ingredient" asp-action="Index">List of Ingredient</a>
+                <a asp-controller="Home" asp-action="Dash">Statistics</a>
             </div>
         </div>
         <a asp-area="Identity" asp-page="/Account/Logout" class="nav-link">

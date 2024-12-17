@@ -69,8 +69,19 @@ public class HomeController : Controller
             .GroupBy(r => r.DateTime.Date)
             .Select(g => new { Day = g.Key.ToString("yyyy-MM-dd"), Count = g.Count() })
             .ToListAsync();
-
         ViewBag.ReservationChart = reservationStats;
+
+        var reservationStatusStats = await _context.Reservations
+            .GroupBy(r => r.RStatus)
+            .Select(g => new { Status = g.Key, Count = g.Count() })
+            .ToListAsync();
+        ViewBag.ReservationStatusChart = reservationStatusStats;
+
+        var tableStatusStats = await _context.Tables
+            .GroupBy(t => t.TStatus)
+            .Select(g => new { Status = g.Key, Count = g.Count() })
+            .ToListAsync();
+        ViewBag.TableStatusChart = tableStatusStats;
 
         return View();
     }

@@ -9,10 +9,10 @@ namespace Blank.Models
         [Key]
         public int ReserId { get; set; }
 
-        [ForeignKey("Table")]
+        [ForeignKey("TableId")]
         public int? TableId { get; set; }
 
-        [ForeignKey("Restaurant")]
+        [ForeignKey("RestaurantId")]
         public int RestaurantId { get; set; }
 
         [Required]

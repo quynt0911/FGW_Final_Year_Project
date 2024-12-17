@@ -9,14 +9,17 @@
     <div class="mb-3">
         <label for="selectedTableField" class="form-label">Selected Table</label>
         <div style="display: flex; align-items: center;">
+            @* <input type="text" id="selectedTableField" name="TableId" class="form-control"
+            value="@ViewData["SelectedTableName"] ?? " None" readonly /> *@
             <input type="text" id="selectedTableField" name="TableId" class="form-control"
-                value="@ViewData["SelectedTableName"] ?? " None" readonly />
+                value="@(ViewData["SelectedTableName"] != null ? ViewData["SelectedTableName"] : "None")" readonly />
             <a href="/Table/ViewT" class="btn btn-secondary ms-3" style="white-space: nowrap;">Select Table</a>
         </div>
     </div>
 
     <div class="form-group">
         <label asp-for="CustomerName">Customer Name</label>
+        <input type="hidden" id="CustomerId" name="CustomerId" value="@ViewData["CustomerId"]" />
         <input asp-for="CustomerName" class="form-control" required />
         <span asp-validation-for="CustomerName" class="text-danger"></span>
     </div>
@@ -85,10 +88,47 @@
 
         if (selectedTableName) {
             const selectedTableField = document.getElementById("selectedTableField");
-            selectedTableField.value = selectedTableName;
+            selectedTableField.value = selectedTableId;
         }
 
         sessionStorage.removeItem("selectedTableName");
         sessionStorage.removeItem("selectedTableId");
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("reservationForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Ngăn form submit ngay lập tức
+
+            // Lấy giá trị của các trường
+            const tableId = document.getElementById("selectedTableField").value;
+            const customerName = document.getElementById("CustomerName").value;
+            const restaurantId = document.getElementById("restaurantDropdown").value;
+            const dateTime = document.getElementById("DateTime").value;
+            const request = document.getElementById("Request").value;
+
+            // Lấy CustomerId từ một hidden input
+            const customerId = document.getElementById("CustomerId").value;
+
+            // Tạo thông báo dưới dạng bảng
+            const message = `
+                Table ID: ${tableId || "None"}\n
+                Customer ID: ${customerId || "None"}\n
+                Customer Name: ${customerName || "None"}\n
+                Restaurant ID: ${restaurantId || "None"}\n
+                Date and Time: ${dateTime || "None"}\n
+                Special Request: ${request || "None"}
+            `;
+
+            // Hiển thị bảng thông báo
+            if (confirm("Please confirm the reservation details:\n\n" + message)) {
+                form.submit(); // Gửi form nếu xác nhận
+            } else {
+                alert("Submission cancelled. Please review your inputs.");
+            }
+        });
     });
 </script>

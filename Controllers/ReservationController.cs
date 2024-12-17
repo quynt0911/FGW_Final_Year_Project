@@ -162,7 +162,7 @@ namespace Blank.Controllers
         public async Task<IActionResult> RejectReservation(int id)
         {
             var reservation = await _context.Reservations
-                .Include(r => r.Table)  // Bao gồm bàn tương ứng với reservation
+                .Include(r => r.Table)  
                 .FirstOrDefaultAsync(r => r.ReserId == id);
 
             if (reservation == null)
@@ -170,17 +170,14 @@ namespace Blank.Controllers
                 return NotFound();
             }
 
-            // Kiểm tra nếu bàn đã được chọn, thay đổi trạng thái của bàn về "Available"
             if (reservation.Table != null)
             {
-                reservation.Table.TStatus = "Available";  // Cập nhật trạng thái bàn
-                _context.Tables.Update(reservation.Table);  // Cập nhật bàn trong cơ sở dữ liệu
+                reservation.Table.TStatus = "Available"; 
+                _context.Tables.Update(reservation.Table);  
             }
 
-            // Xóa reservation đã bị reject
             _context.Reservations.Remove(reservation);
 
-            // Lưu thay đổi vào cơ sở dữ liệu
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
@@ -305,7 +302,6 @@ namespace Blank.Controllers
                 return View(updatedReservation);
             }
         }
-
 
 
         // [HttpGet]

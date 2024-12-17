@@ -3,12 +3,9 @@
     Layout = "~/Views/Shared/UserLO.cshtml";
 }
 
-<!-- Reservation Form -->
 <h2 class="text-center mt-4">Make a Reservation</h2>
 
-<!-- Reservation Form -->
 <form asp-action="MakeReservation" method="post" id="reservationForm" class="mt-4">
-    <!-- Selected Table -->
     <div class="mb-3">
         <label for="selectedTableField" class="form-label">Selected Table</label>
         <div style="display: flex; align-items: center;">
@@ -18,14 +15,12 @@
         </div>
     </div>
 
-    <!-- Customer Name -->
     <div class="form-group">
         <label asp-for="CustomerName">Customer Name</label>
         <input asp-for="CustomerName" class="form-control" required />
         <span asp-validation-for="CustomerName" class="text-danger"></span>
     </div>
 
-    <!-- Restaurant Dropdown -->
     <div class="mb-3">
         <label for="RestaurantId" class="form-label">Select Restaurant</label>
         <select asp-for="RestaurantId" class="form-select" id="restaurantDropdown">
@@ -44,36 +39,28 @@
         </select>
     </div>
 
-
-
-
-    <!-- Location Field -->
     <div class="mb-3">
         <label class="form-label">Location</label>
         <input type="text" id="branchLocation" class="form-control" disabled />
     </div>
 
-    <!-- Status Field -->
     <div class="mb-3">
         <label class="form-label">Status</label>
         <input asp-for="RStatus" class="form-control" value="Pending" readonly />
     </div>
 
-    <!-- Reservation Date -->
     <div class="form-group">
         <label for="DateTime">Date and Time</label>
         <input asp-for="DateTime" type="datetime-local" class="form-control" required />
         <span asp-validation-for="DateTime" class="text-danger"></span>
     </div>
 
-    <!-- Special Requests -->
     <div class="form-group">
         <label for="Request">Special Requests</label>
         <textarea asp-for="Request" class="form-control"></textarea>
         <span asp-validation-for="Request" class="text-danger"></span>
     </div>
 
-    <!-- Submit Button -->
     <div class="d-flex justify-content-between mt-4">
         <button type="submit" class="btn btn-success btn-sm px-5">Submit Reservation</button>
         <a asp-action="History" class="btn btn-secondary btn-sm px-5">Back</a>
@@ -82,20 +69,17 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        // Fetch restaurants for location updates
         const restaurants = @Html.Raw(Json.Serialize(ViewBag.Restaurants ?? new List<dynamic>()));
 
         const restaurantDropdown = document.getElementById("restaurantDropdown");
         const branchLocation = document.getElementById("branchLocation");
 
-        // Update branch location on restaurant selection
         restaurantDropdown?.addEventListener("change", () => {
             const selectedId = restaurantDropdown.value;
             const selectedRestaurant = restaurants.find(r => r.restaurantId == selectedId);
             branchLocation.value = selectedRestaurant ? selectedRestaurant.location : "";
         });
 
-        // Load selected table details from session storage
         const selectedTableName = sessionStorage.getItem("selectedTableName");
         const selectedTableId = sessionStorage.getItem("selectedTableId");
 
@@ -104,7 +88,6 @@
             selectedTableField.value = selectedTableName;
         }
 
-        // Clear session storage
         sessionStorage.removeItem("selectedTableName");
         sessionStorage.removeItem("selectedTableId");
     });

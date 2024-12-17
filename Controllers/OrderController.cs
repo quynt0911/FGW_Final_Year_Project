@@ -22,15 +22,15 @@ namespace Blank.Controllers
         public async Task<IActionResult> Index()
         {
             var orders = await _context.Orders
-                .Include(o => o.Dish) 
-                .Include(o => o.Table)   
+                .Include(o => o.Dish)
+                .Include(o => o.Table)
                 .ToListAsync();
 
             var groupedOrders = orders
                 .GroupBy(o => o.TableId)
                 .Select(group => new
                 {
-                    Table = group.FirstOrDefault().Table.TName, 
+                    Table = group.FirstOrDefault().Table.TName,
                     DishesAndQuantities = group.Select(o => new
                     {
 
@@ -39,10 +39,10 @@ namespace Blank.Controllers
                         ToPrice = o.Dish.Price * o.Quantity
                     }).ToList(),
                     TotalPrice = group.Sum(o => o.Dish.Price * o.Quantity),
-                    Status = group.FirstOrDefault().OStatus,  // Using the status of the first order in the group
+                    Status = group.FirstOrDefault().OStatus,
                 }).ToList();
 
-            return View(groupedOrders);  // Pass the grouped data to the view
+            return View(groupedOrders); 
         }
 
 
@@ -50,12 +50,10 @@ namespace Blank.Controllers
         [HttpGet]
         public async Task<IActionResult> CreateOrder()
         {
-            // Get all tables with the status "Reserved"
             ViewBag.ReservedTables = await _context.Tables
                 .Where(t => t.TStatus == "Reserved")
                 .ToListAsync();
 
-            // Get all available dishes
             ViewBag.Dishes = await _context.Dishes.ToListAsync();
 
             return View();
@@ -83,7 +81,6 @@ namespace Blank.Controllers
                 return RedirectToAction("CreateOrder");
             }
 
-            // Check if table exists and is reserved
             var table = await _context.Tables.FindAsync(tableId);
             if (table == null || table.TStatus != "Reserved")
             {
@@ -93,17 +90,14 @@ namespace Blank.Controllers
 
             decimal totalPrice = 0;
 
-            // Loop through the selected dishes and quantities
             for (int i = 0; i < DishIds.Length; i++)
             {
                 int dishId = DishIds[i];
                 int quantity = Quantities[i];
 
-                // Fetch the dish by its ID
                 var dish = await _context.Dishes.FindAsync(dishId);
                 if (dish != null)
                 {
-                    // Create a new order entry
                     var newOrder = new Order
                     {
                         DishId = dish.DishId,
@@ -112,11 +106,9 @@ namespace Blank.Controllers
                         OStatus = "In Process"
                     };
 
-                    // Calculate the total price for this dish
                     newOrder.CalculateTotalPrice();
                     totalPrice += newOrder.TotalPrice;
 
-                    // Add the new order to the database
                     _context.Orders.Add(newOrder);
                 }
                 else
@@ -126,11 +118,9 @@ namespace Blank.Controllers
                 }
             }
 
-            // Set the table status to "In Service"
             table.TStatus = "In Service";
             _context.Tables.Update(table);
 
-            // Commit the transaction to the database
             await _context.SaveChangesAsync();
 
             TempData["Success"] = "Order successfully created.";
@@ -141,13 +131,12 @@ namespace Blank.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangeStatus(int orderId, string status)
         {
-            // Lấy order từ database
             var order = await _context.Orders.FindAsync(orderId);
 
-                        ViewBag.OStatusList = new SelectList(new[]
-                {
-        "In Process", 
-        "Serving",   
+            ViewBag.OStatusList = new SelectList(new[]
+    {
+        "In Process",
+        "Serving",
         "Completed",
         "Prepared",
         "Cancelled"

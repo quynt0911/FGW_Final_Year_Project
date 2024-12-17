@@ -30,7 +30,6 @@
     </p>
 </div>
 
-<!-- Drop Area for Tables -->
 <div id="dropArea"
     style="position: relative; width: 100%; height: 500px; border: 1px solid black; overflow: hidden; background-image: url('/images/restaurant-background.jpg'); background-size: cover; background-position: center;">
     @foreach (var table in Model)
@@ -75,7 +74,6 @@
     document.querySelectorAll('.draggable').forEach(element => {
         const tableId = element.dataset.id;
 
-        // Store initial positions
         previousPositions[tableId] = {
             top: parseInt(element.style.top, 10) || 0,
             left: parseInt(element.style.left, 10) || 0,
@@ -93,27 +91,23 @@
             window.location.href = "/Reservation/MakeReservation";
         });
 
-        // Drag End Event
         element.addEventListener('dragend', (e) => {
             const dropArea = document.getElementById("dropArea").getBoundingClientRect();
             const newTop = e.clientY - dropArea.top;
             const newLeft = e.clientX - dropArea.left;
 
-            // Check if out of bounds
             if (newTop < 0 || newLeft < 0 || newTop + 50 > dropArea.height || newLeft + 50 > dropArea.width) {
                 alert("Cannot move table outside the area.");
                 resetAllTables();
                 return;
             }
 
-            // Check collision
             if (checkCollision(element, newTop, newLeft)) {
                 alert("Cannot overlap with other tables.");
                 resetAllTables();
                 return;
             }
 
-            // Update new position
             element.style.top = `${Math.round(newTop)}px`;
             element.style.left = `${Math.round(newLeft)}px`;
 
@@ -125,7 +119,6 @@
             }
         });
 
-        // Click Event to Select Table
         element.addEventListener('click', () => {
             if (element.style.cursor === "not-allowed") {
                 alert("This table is not available for selection.");
@@ -140,7 +133,6 @@
 
     });
 
-    // Reset Tables to Initial Positions
     function resetAllTables() {
         Object.keys(previousPositions).forEach(tableId => {
             const element = document.querySelector(`.draggable[data-id="${tableId}"]`);
@@ -176,7 +168,6 @@
         return collisionDetected;
     }
 
-    // Submit Button Logic
     document.getElementById('submitBtn').addEventListener('click', async () => {
         if (tablesData.length === 0) {
             alert("No changes to save.");
@@ -201,7 +192,6 @@
         }
     });
 
-    // Select Table Button Logic
     document.getElementById('selectTableBtn').addEventListener('click', () => {
         if (!selectedTableId || !selectedTableName) {
             alert("Please select a table before proceeding.");
@@ -211,7 +201,6 @@
         sessionStorage.setItem("selectedTableId", selectedTableId);
         sessionStorage.setItem("selectedTableName", selectedTableName);
 
-        // Redirect to Make Reservation page
         window.location.href = "/Reservation/MakeReservation";
     });
 </script>

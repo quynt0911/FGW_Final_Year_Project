@@ -5,7 +5,6 @@
 
 <h1 class="text-center mt-4">Reservations Management</h1>
 
-<!-- Filter by Status -->
 <div class="text-center mb-4">
     <a asp-action="Index" asp-route-status="Pending" 
        class="btn btn-outline-primary @((ViewBag.CurrentStatus == "Pending") ? "active" : "")">Pending</a>
@@ -15,7 +14,6 @@
        class="btn btn-outline-danger @((ViewBag.CurrentStatus == "Rejected") ? "active" : "")">Rejected</a>
 </div>
 
-<!-- Reservations Table -->
 <div class="table-responsive">
     <table class="table table-striped">
         <thead class="table-dark">
@@ -88,7 +86,6 @@
 </div>
 
 <script>
-    // Add any custom JavaScript if needed
 </script>
 
 <style>

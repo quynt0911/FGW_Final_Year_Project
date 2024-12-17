@@ -42,9 +42,8 @@
     function changeStatus(orderId) {
         var newStatus = document.getElementById("status-" + orderId).value;
 
-        // Make an AJAX request to change the status
         $.ajax({
-            url: '@Url.Action("ChangeStatus", "Order")', // Ensure you have this controller action
+            url: '@Url.Action("ChangeStatus", "Order")', 
             type: 'POST',
             data: {
                 orderId: orderId,
@@ -52,7 +51,7 @@
             },
             success: function (response) {
                 alert("Status changed successfully");
-                location.reload();  // Reload the page to reflect the changes
+                location.reload(); 
             },
             error: function () {
                 alert("Error changing status.");

@@ -88,7 +88,6 @@
         const restaurantDropdown = document.querySelector("select[asp-for='RestaurantId']");
         const branchLocation = document.getElementById("branchLocation");
 
-        // Update location based on selected restaurant
         restaurantDropdown?.addEventListener("change", () => {
             const selectedId = restaurantDropdown.value;
             const selectedRestaurant = restaurants.find(r => r.restaurantId == selectedId);

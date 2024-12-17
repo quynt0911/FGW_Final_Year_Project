@@ -339,10 +339,6 @@ namespace Blank.Controllers
             return RedirectToAction(nameof(EditRole));
         }
 
-
-
-
-
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ActionName("DeleteRoleConfirmed")]
@@ -366,8 +362,6 @@ namespace Blank.Controllers
 
             return RedirectToAction(nameof(EditRole));
         }
-
-
 
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ManageRole()

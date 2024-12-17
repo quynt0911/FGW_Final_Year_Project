@@ -38,40 +38,31 @@ namespace Blank.Controllers
             {
                 try
                 {
-                    // Lưu ảnh nếu có
                     if (imageFile != null)
                     {
-                        // Tạo tên file duy nhất cho ảnh
                         string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(imageFile.FileName);
-                        // Đường dẫn thư mục lưu ảnh
                         string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "feedbacks");
                         string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-                        // Kiểm tra nếu thư mục chưa tồn tại thì tạo mới
                         if (!Directory.Exists(uploadsFolder))
                         {
                             Directory.CreateDirectory(uploadsFolder);
                         }
 
-                        // Lưu ảnh vào thư mục
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
                             await imageFile.CopyToAsync(stream);
                         }
 
-                        // Lưu đường dẫn ảnh vào Feedback
                         feedback.ImagePath = "/images/feedbacks/" + uniqueFileName;
                     }
 
-                    // Lấy thông tin người dùng
                     var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     var user = await _context.Users.FindAsync(userId);
 
-                    // Cập nhật CustomerId và CustomerName
                     feedback.CustomerId = userId;
-                    feedback.CustomerName = user?.UserName; // Hoặc user?.FirstName + " " + user?.LastName nếu cần
+                    feedback.CustomerName = user?.UserName; 
 
-                    // Lưu Feedback vào database
                     _context.Add(feedback);
                     await _context.SaveChangesAsync();
 

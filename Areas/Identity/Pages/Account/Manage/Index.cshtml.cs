@@ -69,9 +69,6 @@ namespace Blank.Areas.Identity.Pages.Account.Manage
             };
         }
 
-
-
-
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -98,7 +95,6 @@ namespace Blank.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            // Cập nhật PhoneNumber
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)
             {
@@ -110,7 +106,6 @@ namespace Blank.Areas.Identity.Pages.Account.Manage
                 }
             }
 
-            // Cập nhật FullName
             if (!string.IsNullOrEmpty(Input.FullName))
             {
                 user.GetType().GetProperty("FullName")?.SetValue(user, Input.FullName);
@@ -136,7 +131,6 @@ namespace Blank.Areas.Identity.Pages.Account.Manage
                 user.GetType().GetProperty("ProfileImagePath")?.SetValue(user, $"/images/profile/{uniqueFileName}");
             }
 
-            // Lưu thay đổi
             await _userManager.UpdateAsync(user);
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";

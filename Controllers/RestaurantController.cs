@@ -94,11 +94,7 @@ namespace Blank.Controllers
             return destImage;
         }
 
-
-
-
-
-       [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)

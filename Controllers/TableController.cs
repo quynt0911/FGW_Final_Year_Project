@@ -151,18 +151,16 @@ namespace Blank.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TableId,TName,Location,TStatus")] Table table)
         {
-            table.TStatus = "Available";  
+            table.TStatus = "Available";
 
-            // Generate a random location within the drop area (500x500 px)
             string newLocation = GenerateRandomLocation();
 
-            // Check if the generated location is available (not overlapping with existing tables)
             while (IsLocationOccupied(newLocation))
             {
-                newLocation = GenerateRandomLocation();  // Regenerate if location is already taken
+                newLocation = GenerateRandomLocation();
             }
 
-            table.Location = newLocation;  // Assign the valid random location
+            table.Location = newLocation;
 
             if (ModelState.IsValid)
             {
@@ -173,20 +171,18 @@ namespace Blank.Controllers
             return View(table);
         }
 
-        // Method to generate a random location
         private string GenerateRandomLocation()
         {
             Random rand = new Random();
-            int maxWidth = 450; // maximum left value (500px - 50px for the width of the table)
-            int maxHeight = 450; // maximum top value (500px - 50px for the height of the table)
+            int maxWidth = 450;
+            int maxHeight = 450;
 
             int x = rand.Next(0, maxWidth);
             int y = rand.Next(0, maxHeight);
 
-            return $"{y},{x}";  // Return location in the format "y,x"
+            return $"{y},{x}";
         }
 
-        // Method to check if the location is occupied by another table
         private bool IsLocationOccupied(string location)
         {
             var existingTables = _context.Tables.ToList();
@@ -195,11 +191,11 @@ namespace Blank.Controllers
             {
                 if (table.Location == location)
                 {
-                    return true;  // Location is already taken
+                    return true;
                 }
             }
 
-            return false;  // Location is available
+            return false;
         }
         // GET: Table/Edit/5
         public async Task<IActionResult> Edit(int? id)

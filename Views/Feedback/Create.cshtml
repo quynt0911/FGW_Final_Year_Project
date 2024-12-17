@@ -53,46 +53,40 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 
-    <!-- Include the updated JavaScript for handling rating selection -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var stars = document.querySelectorAll(".star");
             var ratingInput = document.getElementById("Rating");
 
-            // Hover effect (hiển thị màu vàng khi di chuột vào ngôi sao)
             stars.forEach(function (star, index) {
                 star.addEventListener("mouseover", function () {
                     for (var i = 0; i <= index; i++) {
-                        stars[i].style.color = "gold"; // Set color to gold on hover
+                        stars[i].style.color = "gold"; 
                     }
                     for (var i = index + 1; i < stars.length; i++) {
-                        stars[i].style.color = "gray"; // Reset remaining stars to gray
+                        stars[i].style.color = "gray";
                     }
                 });
 
-                // Reset on mouseout (khi di chuột ra, các sao quay lại màu xám)
                 star.addEventListener("mouseout", function () {
-                    // Reset all stars to their current state
                     for (var i = 0; i < stars.length; i++) {
                         if (i < ratingInput.value) {
-                            stars[i].style.color = "gold"; // Set gold for selected rating
+                            stars[i].style.color = "gold"; 
                         } else {
-                            stars[i].style.color = "gray"; // Reset remaining stars to gray
+                            stars[i].style.color = "gray";
                         }
                     }
                 });
 
-                // Set rating on click (khi nhấn vào sao, giá trị rating sẽ được cập nhật)
                 star.addEventListener("click", function () {
-                    var selectedRating = index + 1; // Rating is 1 to 5
-                    ratingInput.value = selectedRating; // Update the hidden input value
+                    var selectedRating = index + 1;
+                    ratingInput.value = selectedRating; 
 
-                    // Update the color of the stars to reflect the rating
                     for (var i = 0; i < stars.length; i++) {
                         if (i < selectedRating) {
-                            stars[i].style.color = "gold"; // Set color to gold for selected rating
+                            stars[i].style.color = "gold"; 
                         } else {
-                            stars[i].style.color = "gray"; // Set remaining stars to gray
+                            stars[i].style.color = "gray"; 
                         }
                     }
                 });
@@ -104,17 +98,14 @@
 <style>
     .stars {
         font-size: 2.5rem;
-        /* Tăng kích thước font để làm ngôi sao lớn hơn */
         display: flex;
         gap: 0.5rem;
-        /* Khoảng cách giữa các ngôi sao */
         cursor: pointer;
     }
 
     .star {
         color: gray;
         transition: color 0.3s ease;
-        /* Hiệu ứng chuyển màu khi hover */
     }
 
     .star:hover {
@@ -123,6 +114,5 @@
 
     .star.selected {
         color: gold;
-        /* Màu vàng cho sao đã chọn */
     }
 </style>

@@ -71,12 +71,12 @@
                         <h5 class="dish-title">@dish.DishName</h5>
                         <p class="dish-description">@dish.DDescription</p>
                         <p class="dish-price"><strong>Price: </strong>@dish.Price.ToString("C")</p>
-                        <div class="action-buttons">
+                        @* <div class="action-buttons">
                             @if (User.IsInRole("Staff"))
                             {
                                 <a asp-action="AddToOrder" asp-route-id="@dish.DishId" class="btn btn-success btn-sm">Order</a>
                             }
-                        </div>
+                        </div> *@
                     </div>
                 </div>
             </div>

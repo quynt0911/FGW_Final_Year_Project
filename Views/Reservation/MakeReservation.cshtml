@@ -3,20 +3,6 @@
     Layout = "~/Views/Shared/UserLO.cshtml";
 }
 
-@if (!ViewData.ModelState.IsValid)
-{
-    <div class="alert alert-danger">
-        <h4>Validation Errors</h4>
-        <ul>
-            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
-            {
-                <li>@error.ErrorMessage</li>
-            }
-        </ul>
-    </div>
-}
-
-
 <h2 class="text-center mt-4">Make a Reservation</h2>
 
 <form asp-action="MakeReservation" method="post" id="reservationForm" class="mt-4">

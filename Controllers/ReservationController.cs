@@ -51,7 +51,8 @@ namespace Blank.Controllers
             var reservation = new Reservation
             {
                 CustomerId = userId,
-                CustomerName = User.Identity.Name
+                CustomerName = User.Identity.Name,
+                DateTime = DateTime.Now 
             };
 
             return View(reservation);
@@ -67,11 +68,8 @@ namespace Blank.Controllers
                 TempData["Error"] = "You must be logged in to make a reservation.";
                 return Unauthorized("User is not logged in.");
             }
-
-            reservation.CustomerId = userId;
-
-
             ModelState.Remove("CustomerId");
+            reservation.CustomerId = userId;
             reservation.RStatus = "Pending";
 
             if (!ModelState.IsValid)

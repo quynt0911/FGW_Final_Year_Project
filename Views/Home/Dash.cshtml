@@ -1,4 +1,107 @@
 @{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "Dash";
     Layout = "~/Views/Shared/AdminLO.cshtml";
 }
+
+<h1 class="text-center mb-4">@ViewBag.PageTitle</h1>
+
+<!-- Chart.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="row">
+    <!-- Feedback Chart -->
+    <div class="col-md-6 chart-container">
+        <h3>Feedback Ratings</h3>
+        <canvas id="feedbackChart"></canvas>
+    </div>
+
+    <!-- Task Status Chart -->
+    <div class="col-md-6 chart-container">
+        <h3>Tasks by Status</h3>
+        <canvas id="taskChart"></canvas>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Reservation Chart -->
+    <div class="col-md-6 chart-container mx-auto">
+        <h3>Reservations This Week</h3>
+        <canvas id="reservationChart"></canvas>
+    </div>
+</div>
+
+<script>
+    // Feedback Chart
+    var feedbackData = @Html.Raw(Json.Serialize(ViewBag.FeedbackChart));
+    var feedbackLabels = feedbackData.map(f => "Rating " + f.rating);
+    var feedbackCounts = feedbackData.map(f => f.count);
+
+    new Chart(document.getElementById('feedbackChart'), {
+        type: 'bar',
+        data: {
+            labels: feedbackLabels,
+            datasets: [{
+                label: 'Feedback Count',
+                data: feedbackCounts,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Task Status Chart
+    var taskData = @Html.Raw(Json.Serialize(ViewBag.TaskChart));
+    var taskLabels = taskData.map(t => t.status);
+    var taskCounts = taskData.map(t => t.count);
+
+    new Chart(document.getElementById('taskChart'), {
+        type: 'pie',
+        data: {
+            labels: taskLabels,
+            datasets: [{
+                data: taskCounts,
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Reservation Chart
+    var reservationData = @Html.Raw(Json.Serialize(ViewBag.ReservationChart));
+    var reservationLabels = reservationData.map(r => r.day);
+    var reservationCounts = reservationData.map(r => r.count);
+
+    new Chart(document.getElementById('reservationChart'), {
+        type: 'line',
+        data: {
+            labels: reservationLabels,
+            datasets: [{
+                label: 'Reservations',
+                data: reservationCounts,
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderWidth: 2,
+                fill: true
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+</script>
+
+<style>
+    /* Tùy chỉnh bố cục biểu đồ */
+    .chart-container {
+        width: 100%;
+        height: 300px;
+        padding: 10px;
+    }
+
+    h3 {
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        color: #333;
+    }
+</style>

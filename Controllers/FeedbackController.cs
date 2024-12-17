@@ -101,7 +101,5 @@ namespace Blank.Controllers
 
             return View(feedbacks);
         }
-
-
     }
 }

@@ -8,12 +8,12 @@ namespace Blank.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-     private readonly FinalprojectContext _context;
+    private readonly FinalprojectContext _context;
 
     public HomeController(ILogger<HomeController> logger, FinalprojectContext context)
     {
         _logger = logger;
-         _context = context;
+        _context = context;
     }
 
     public async Task<IActionResult> Index()
@@ -25,7 +25,7 @@ public class HomeController : Controller
         {
             if (string.IsNullOrWhiteSpace(table.Location) || !table.Location.Contains(","))
             {
-                table.Location = "0,0"; 
+                table.Location = "0,0";
             }
         }
 
@@ -44,9 +44,34 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Dash()
+    public async Task<IActionResult> Dash()
     {
-        ViewBag.PageTitle = "Dash";
+        ViewBag.PageTitle = "Dashboard";
+
+        var feedbackStats = await _context.Feedbacks
+            .GroupBy(f => f.Rating)
+            .Select(g => new { Rating = g.Key, Count = g.Count() })
+            .ToListAsync();
+
+        ViewBag.FeedbackChart = feedbackStats;
+
+        var taskStats = await _context.Tasks
+            .GroupBy(t => t.TaskStatus)
+            .Select(g => new { Status = g.Key, Count = g.Count() })
+            .ToListAsync();
+
+        ViewBag.TaskChart = taskStats;
+
+        var today = DateTime.Now.Date;
+        var startOfWeek = today.AddDays(-(int)today.DayOfWeek);
+        var reservationStats = await _context.Reservations
+            .Where(r => r.DateTime >= startOfWeek && r.DateTime < startOfWeek.AddDays(7))
+            .GroupBy(r => r.DateTime.Date)
+            .Select(g => new { Day = g.Key.ToString("yyyy-MM-dd"), Count = g.Count() })
+            .ToListAsync();
+
+        ViewBag.ReservationChart = reservationStats;
+
         return View();
     }
 

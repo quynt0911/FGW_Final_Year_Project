@@ -2,6 +2,10 @@
 
 @{
     Layout = "~/Views/Shared/AdminLO.cshtml";
+    @if (User.IsInRole("Staff"))
+    {
+        Layout = "~/Views/Shared/UserLO.cshtml";
+    }
 }
 
 <body>

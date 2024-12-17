@@ -56,6 +56,7 @@ namespace Blank.Controllers
 
             return View(reservation);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> MakeReservation([Bind("RestaurantId,DateTime,TableId,Request,CustomerName")] Reservation reservation)
@@ -68,12 +69,22 @@ namespace Blank.Controllers
             }
 
             reservation.CustomerId = userId;
+
+
+            ModelState.Remove("CustomerId");
             reservation.RStatus = "Pending";
+
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Invalid input. Please check your form fields.";
+                await LoadViewDataAsync();
+                return View(reservation);
+            }
 
             if (!reservation.TableId.HasValue)
             {
                 TempData["Error"] = "No table selected. Please select a table.";
-                ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
+                await LoadViewDataAsync();
                 return View(reservation);
             }
 
@@ -81,7 +92,7 @@ namespace Blank.Controllers
             if (selectedTable == null || selectedTable.TStatus != "Available")
             {
                 TempData["Error"] = "Selected table is not available. Please choose another table.";
-                ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
+                await LoadViewDataAsync();
                 return View(reservation);
             }
 
@@ -104,9 +115,17 @@ namespace Blank.Controllers
                 Console.WriteLine($"Error while saving reservation: {ex.Message}\nStack Trace: {ex.StackTrace}");
             }
 
-            ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
+            await LoadViewDataAsync();
             return View(reservation);
         }
+
+        private async Task LoadViewDataAsync()
+        {
+            ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
+            ViewBag.Tables = await _context.Tables.Where(t => t.TStatus == "Available").ToListAsync();
+        }
+
+
 
         private async Task LoadViewBags()
         {
@@ -162,7 +181,7 @@ namespace Blank.Controllers
         public async Task<IActionResult> RejectReservation(int id)
         {
             var reservation = await _context.Reservations
-                .Include(r => r.Table)  
+                .Include(r => r.Table)
                 .FirstOrDefaultAsync(r => r.ReserId == id);
 
             if (reservation == null)
@@ -172,11 +191,9 @@ namespace Blank.Controllers
 
             if (reservation.Table != null)
             {
-                reservation.Table.TStatus = "Available"; 
-                _context.Tables.Update(reservation.Table);  
+                reservation.Table.TStatus = "Available";
+                _context.Tables.Update(reservation.Table);
             }
-
-            _context.Reservations.Remove(reservation);
 
             await _context.SaveChangesAsync();
 

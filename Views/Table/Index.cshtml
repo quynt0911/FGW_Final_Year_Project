@@ -2,33 +2,39 @@
 
 @{
     Layout = "~/Views/Shared/AdminLO.cshtml";
+    @if (User.IsInRole("Staff"))
+    {
+        Layout = "~/Views/Shared/UserLO.cshtml";
+    }
 }
 
 <body>
 
     <div class="container">
         <h2>Table List</h2>
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="text-right">
+                <a asp-action="Create" class="btn btn-primary btn-create">Create New</a>
+            </div>
 
-        <div class="text-right">
-            <a asp-action="Create" class="btn btn-primary btn-create">Create New</a>
-        </div>
-
-        <div class="text-left">
-            <a asp-action="ViewT" class="btn btn-primary btn-viewT">View Diagram</a>
-        </div>
+            <div class="text-left">
+                <a asp-action="ViewT" class="btn btn-primary btn-viewT">View Diagram</a>
+            </div>
+        }
 
         <div class="table-container">
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().TName)
+                            Table Name
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().Location)
+                            Table Location
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().TStatus)
+                            Table Status
                         </th>
                         <th class="actions">Actions</th>
                     </tr>
@@ -51,15 +57,18 @@
                                     class="btn btn-sm btn-outline-primary">Edit</a>
                                 <a asp-action="Details" asp-route-id="@item.TableId"
                                     class="btn btn-sm btn-outline-secondary">Details</a>
+                                @if (User.IsInRole("Admin"))
+        {
                                 <a asp-action="Delete" asp-route-id="@item.TableId"
                                     class="btn btn-sm btn-outline-danger">Delete</a>
+                                    }
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
-        
+
     </div>
 </body>
 <style>

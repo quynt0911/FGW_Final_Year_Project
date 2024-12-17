@@ -6,6 +6,8 @@
     {
         Layout = "~/Views/Shared/UserLO.cshtml";
     }
+
+    var staffList = ViewBag.StaffList as IEnumerable<dynamic>;
 }
 
 <h2>Task List</h2>
@@ -45,10 +47,17 @@
                 <td>@task.TaskName</td>
                 <td>@task.Description</td>
                 <td>@task.TaskStatus</td>
+                @* @if (User.IsInRole("Admin"))
+            {
+            <td>@(string.IsNullOrEmpty(task.AssignedTo) ? "Unassigned" : task.AssignedTo)</td>
+            } *@
                 @if (User.IsInRole("Admin"))
                 {
-                    <td>@(string.IsNullOrEmpty(task.AssignedTo) ? "Unassigned" : task.AssignedTo)</td>
+                    var assignedUser = staffList?.FirstOrDefault(s => s.UserId == task.AssignedTo);
+                    var assignedUserName = assignedUser != null ? assignedUser.UserName : "Unassigned";
+                    <td>@assignedUserName</td>
                 }
+
                 <td>
                     @if (User.IsInRole("Admin"))
                     {

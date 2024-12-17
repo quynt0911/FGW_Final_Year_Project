@@ -18,7 +18,7 @@ namespace Blank.Controllers
             _context = context;
         }
 
-        [Authorize(Roles = "Staff")]
+        [Authorize(Roles = "Staff, Admin")]
         public async Task<IActionResult> Index()
         {
             var orders = await _context.Orders
@@ -42,11 +42,11 @@ namespace Blank.Controllers
                     Status = group.FirstOrDefault().OStatus,
                 }).ToList();
 
-            return View(groupedOrders); 
+            return View(groupedOrders);
         }
 
 
-        [Authorize(Roles = "Staff")]
+        [Authorize(Roles = "Staff, Admin")]
         [HttpGet]
         public async Task<IActionResult> CreateOrder()
         {
@@ -59,7 +59,7 @@ namespace Blank.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Staff")]
+        [Authorize(Roles = "Staff, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateOrder(int tableId, int[] DishIds, int[] Quantities)
@@ -126,7 +126,6 @@ namespace Blank.Controllers
             TempData["Success"] = "Order successfully created.";
             return RedirectToAction("Index", "Order");
         }
-
 
         [HttpPost]
         public async Task<IActionResult> ChangeStatus(int orderId, string status)

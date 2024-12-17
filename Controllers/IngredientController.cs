@@ -23,7 +23,7 @@ namespace Blank.Controllers
 
 
 
-        [Authorize(Roles = "Chef")]
+        [Authorize(Roles = "Chef, Admin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Ingredients.ToListAsync());

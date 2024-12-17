@@ -69,20 +69,10 @@
 
         <div class="dropdown">
             <input type="checkbox" id="toggle-order" class="toggle-checkbox">
-            <label for="toggle-order" class="dropdown-toggle">Manage Orders</label>
+            <label for="toggle-order" class="dropdown-toggle">Manage The Others</label>
             <div class="dropdown-content">
                 <a asp-controller="Order" asp-action="Index">List of Orders</a>
-                <a asp-controller="Order" asp-action="Create">Create New Order</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <input type="checkbox" id="toggle-report" class="toggle-checkbox">
-            <label for="toggle-report" class="dropdown-toggle">Reports</label>
-            <div class="dropdown-content">
-                <a asp-controller="Report" asp-action="Index">View Reports</a>
-                <a asp-controller="Report" asp-action="Create">Make a Report</a>
-                <a asp-controller="Report" asp-action="Statistic">Statistics</a>
+                <a asp-controller="Ingredient" asp-action="Index">List of Ingredient</a>
             </div>
         </div>
         <a asp-area="Identity" asp-page="/Account/Logout" class="nav-link">

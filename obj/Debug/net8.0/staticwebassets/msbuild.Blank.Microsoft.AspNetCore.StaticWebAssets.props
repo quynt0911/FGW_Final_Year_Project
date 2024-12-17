@@ -592,22 +592,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\favicon.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\0d7f0a8b-b2a4-444f-9a60-03e55af95bec_323002742082126.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>Blank</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/ingredients/0d7f0a8b-b2a4-444f-9a60-03e55af95bec_323002742082126.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\0d7f0a8b-b2a4-444f-9a60-03e55af95bec_323002742082126.png))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\222489b1-98fb-47bd-8ac2-09f3ea25337b_pexels-ella-olsson-572949-1640772.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
@@ -624,12 +608,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\222489b1-98fb-47bd-8ac2-09f3ea25337b_pexels-ella-olsson-572949-1640772.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\31a7c118-1f57-4f2b-942d-cb47d6903725_122113664738196224.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\a6272bf7-588f-4fb8-a391-5cc03b3cfd75_Caramel Pancake Stack.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blank</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/ingredients/31a7c118-1f57-4f2b-942d-cb47d6903725_122113664738196224.png</RelativePath>
+      <RelativePath>images/ingredients/a6272bf7-588f-4fb8-a391-5cc03b3cfd75_Caramel Pancake Stack.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -638,39 +622,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\31a7c118-1f57-4f2b-942d-cb47d6903725_122113664738196224.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\7f7448c5-bf94-4980-8cf5-8b7c27313052_317104686005265.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>Blank</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/ingredients/7f7448c5-bf94-4980-8cf5-8b7c27313052_317104686005265.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\7f7448c5-bf94-4980-8cf5-8b7c27313052_317104686005265.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\80351f54-4a85-4d89-8789-f64a4a938e83_317104686005265.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>Blank</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Blank</BasePath>
-      <RelativePath>images/ingredients/80351f54-4a85-4d89-8789-f64a4a938e83_317104686005265.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\80351f54-4a85-4d89-8789-f64a4a938e83_317104686005265.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ingredients\a6272bf7-588f-4fb8-a391-5cc03b3cfd75_Caramel Pancake Stack.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\logo.png))">
       <SourceType>Package</SourceType>

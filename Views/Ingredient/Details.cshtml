@@ -39,7 +39,10 @@
             </div>
 
             <div class="card-footer text-end">
-                <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model?.IngId">Edit</a>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Chef"))
+                {
+                    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model?.IngId">Edit</a>
+                }
                 <a class="btn btn-primary" asp-action="Index">Back to List</a>
             </div>
         </div>

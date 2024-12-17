@@ -7,10 +7,12 @@
 <body>
     <div class="container">
         <h2>Ingredient List</h2>
-
-        <div class="text-right">
-            <a asp-action="Create" class="btn btn-primary btn-create">Create New</a>
-        </div>
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Chef"))
+        {
+            <div class="text-right">
+                <a asp-action="Create" class="btn btn-primary btn-create">Create New</a>
+            </div>
+        }
 
         <div class="table-container">
             <table class="table table-hover table-bordered">
@@ -54,12 +56,16 @@
                                 @Html.DisplayFor(modelItem => item.Numer)
                             </td>
                             <td class="actions">
-                                <a asp-action="Edit" asp-route-id="@item.IngId"
-                                    class="btn btn-sm btn-outline-primary">Edit</a>
                                 <a asp-action="Details" asp-route-id="@item.IngId"
                                     class="btn btn-sm btn-outline-secondary">Details</a>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Chef"))
+                        {
+                                <a asp-action="Edit" asp-route-id="@item.IngId"
+                                    class="btn btn-sm btn-outline-primary">Edit</a>
+
                                 <a asp-action="Delete" asp-route-id="@item.IngId"
-                                    class="btn btn-sm btn-outline-danger">Delete</a>
+                                    class="btn btn-sm btn-outline-danger">Delete</a>                        
+                                }                               
                             </td>
                         </tr>
                     }

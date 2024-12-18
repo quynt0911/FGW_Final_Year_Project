@@ -47,12 +47,21 @@ namespace Blank.Controllers
             ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
             ViewBag.Tables = await _context.Tables.Where(t => t.TStatus == "Available").ToListAsync();
             ViewData["CustomerId"] = userId;
+            DateTime currentDateTime = DateTime.Now;
+            currentDateTime = new DateTime(
+                currentDateTime.Year,
+                currentDateTime.Month,
+                currentDateTime.Day,
+                currentDateTime.Hour,
+                currentDateTime.Minute,
+                0
+            );
 
             var reservation = new Reservation
             {
                 CustomerId = userId,
                 CustomerName = User.Identity.Name,
-                DateTime = DateTime.Now
+                DateTime = currentDateTime
             };
 
             return View(reservation);
@@ -250,27 +259,42 @@ namespace Blank.Controllers
                 return RedirectToAction("History");
             }
 
-            ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
-            ViewBag.Tables = await _context.Tables
-                .Where(t => t.TStatus == "Available" || t.TableId == reservation.TableId)
-                .ToListAsync();
+            ViewBag.TableName = reservation.Table?.TName ?? "N/A";
+            ViewBag.RestaurantName = reservation.Restaurant?.ResName ?? "N/A";
 
-            return View(reservation);
+            DateTime currentDateTime = DateTime.Now;
+            currentDateTime = new DateTime(
+                currentDateTime.Year,
+                currentDateTime.Month,
+                currentDateTime.Day,
+                currentDateTime.Hour,
+                currentDateTime.Minute,
+                0
+            );
+
+            var editModel = new Reservation
+            {
+                ReserId = reservation.ReserId,
+                DateTime = currentDateTime,
+                Request = reservation.Request,
+                CustomerId = reservation.CustomerId,
+                CustomerName = reservation.CustomerName,
+                TableId = reservation.TableId,
+                RestaurantId = reservation.RestaurantId
+            };
+
+            return View(editModel);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditReservation([Bind("ReserId, RestaurantId, DateTime, TableId, Request, CustomerId")] Reservation updatedReservation)
+        public async Task<IActionResult> EditReservation([Bind("ReserId, DateTime, Request")] Reservation updatedReservation)
         {
-            if (!ModelState.IsValid)
+            if (updatedReservation.ReserId == 0)
             {
-                TempData["Error"] = "Please correct the errors and try again.";
-                ViewBag.Restaurants = await _context.Restaurants.ToListAsync();
-                ViewBag.Tables = await _context.Tables
-                    .Where(t => t.TStatus == "Available" || t.TableId == updatedReservation.TableId)
-                    .ToListAsync();
-                return View(updatedReservation);
+                TempData["Error"] = "Reservation ID is missing.";
+                return RedirectToAction("History");
             }
 
             var existingReservation = await _context.Reservations.FindAsync(updatedReservation.ReserId);
@@ -280,45 +304,25 @@ namespace Blank.Controllers
                 return RedirectToAction("History");
             }
 
-            var selectedTable = await _context.Tables.FindAsync(updatedReservation.TableId);
-            if (selectedTable == null || (selectedTable.TStatus != "Available" && selectedTable.TableId != existingReservation.TableId))
-            {
-                TempData["Error"] = "Selected table is not available. Please choose another table.";
-                return View(updatedReservation);
-            }
+            existingReservation.DateTime = updatedReservation.DateTime;
+            existingReservation.Request = updatedReservation.Request;
+            existingReservation.RStatus = "Pending";
 
             try
             {
-                existingReservation.DateTime = updatedReservation.DateTime;
-                existingReservation.Request = updatedReservation.Request;
-
-                if (existingReservation.TableId != updatedReservation.TableId)
-                {
-                    var previousTable = await _context.Tables.FindAsync(existingReservation.TableId);
-                    if (previousTable != null)
-                    {
-                        previousTable.TStatus = "Available";
-                        _context.Tables.Update(previousTable);
-                    }
-
-                    selectedTable.TStatus = "Reserved";
-                }
-
-                existingReservation.TableId = updatedReservation.TableId;
-                existingReservation.RestaurantId = updatedReservation.RestaurantId;
-
-                _context.Reservations.Update(existingReservation);
+                _context.Update(existingReservation);
                 await _context.SaveChangesAsync();
-
-                TempData["Success"] = "Reservation successfully updated. Waiting for admin approval.";
-                return RedirectToAction("History");
+                TempData["Success"] = "Reservation updated successfully.";
             }
             catch (Exception ex)
             {
                 TempData["Error"] = $"Error updating reservation: {ex.Message}";
-                return View(updatedReservation);
             }
+
+            return RedirectToAction("History");
         }
+
+
 
 
         // [HttpGet]

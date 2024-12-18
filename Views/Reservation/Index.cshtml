@@ -12,6 +12,7 @@
        class="btn btn-outline-success @((ViewBag.CurrentStatus == "Approved") ? "active" : "")">Approved</a>
     <a asp-action="Index" asp-route-status="Rejected" 
        class="btn btn-outline-danger @((ViewBag.CurrentStatus == "Rejected") ? "active" : "")">Rejected</a>
+
 </div>
 
 <div class="table-responsive">

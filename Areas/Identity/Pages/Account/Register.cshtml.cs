@@ -141,7 +141,6 @@ namespace Blank.Areas.Identity.Pages.Account
                         pageHandler: null,
                         values: new { userId = userId, code = code },
                         protocol: Request.Scheme);
-
                     await _emailSender.SendEmailAsync(
                         Input.Email,
                         "Confirm your email",
@@ -166,8 +165,6 @@ namespace Blank.Areas.Identity.Pages.Account
 
             return Page();
         }
-
-
 
         private IdentityUser CreateUser()
         {

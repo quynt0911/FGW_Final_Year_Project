@@ -208,8 +208,6 @@ namespace Blank.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
-
         public async Task<IActionResult> Details(int id)
         {
             var reservation = await _context.Reservations
